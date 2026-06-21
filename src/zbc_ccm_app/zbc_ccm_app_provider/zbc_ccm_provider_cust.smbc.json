@@ -1,0 +1,39 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Maintain Provider Customizing",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZBC_UI_CCM_PROVIDER_CUST_O4",
+    "serviceName": "ZBC_UI_CCM_PROVIDER_CUST_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "ProviderCustAll",
+    "name": "CCM: Provider Customizing",
+    "transportObject": "ZBC_CCM_PROVIDER_CUSTT",
+    "configurationGroup": "",
+    "skipRootEntity": true
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "ProviderCustAll",
+        "variantManagement": "control"
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "ProviderCust",
+        "tableType": "gridTable",
+        "selectAll": true,
+        "rowCountMode": "auto",
+        "frozenColumnCount": 1,
+        "creationModeName": "inlineCreationRows",
+        "createAtEnd": true,
+        "widthIncludingColumnHeader": true
+      }
+    ]
+  }
+}

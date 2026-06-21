@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZBC_R_CCMProviderCustS'
+define service ZBC_CCM_PROVIDER_CUST {
+  expose ZBC_R_CCMPROVIDERCUSTS as ProviderCustAll;
+  expose ZBC_I_CCMPROVIDERCUST as ProviderCust;
+}

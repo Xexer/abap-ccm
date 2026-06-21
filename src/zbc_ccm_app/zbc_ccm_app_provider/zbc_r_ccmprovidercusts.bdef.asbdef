@@ -1,0 +1,89 @@
+managed implementation in class ZBP_BC_CCM_PROVIDER_CUST unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZBC_R_CCMProviderCustS alias ProviderCustAll
+draft table ZBC_CCM_PROV_DS
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  action SyncAllProviders;
+
+  side effects {
+    action SyncAllProviders affects entity _ProviderCust;
+  }
+
+  association _ProviderCust { internal create; with draft; }
+
+}
+
+define behavior for ZBC_I_CCMProviderCust alias ProviderCust ##UNMAPPED_FIELD
+persistent table ZBC_CCM_PROV
+draft table ZBC_CCM_PROV_D
+etag master LocalLastChangedAt
+lock dependent by _ProviderCustAll
+authorization dependent by _ProviderCustAll
+{
+  field ( mandatory : create )
+   ProviderId;
+
+  field ( readonly )
+   SingletonID,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt,
+   GroupId;
+
+  field ( readonly : update )
+   ProviderId;
+
+  field ( notrigger )
+   SingletonID,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZBC_CCM_PROV
+  {
+    ProviderId = PROVIDER_ID;
+    GroupId = GROUP_ID;
+    SystemName = SYSTEM_NAME;
+    Active = ACTIVE;
+    OnlyScores = ONLY_SCORES;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+  association _ProviderCustAll { with draft; }
+
+}

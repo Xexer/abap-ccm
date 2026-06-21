@@ -1,0 +1,62 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Provider Customizing', 
+    typeNamePlural: 'Provider Customizing', 
+    title: {
+      type: #STANDARD, 
+      value: 'ProviderId'
+    }
+  }
+}
+annotate view ZBC_I_CCMProviderCust with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  } ]
+  @UI.facet: [ {
+    id: 'ProviderCust', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Provider Customizing', 
+    position: 1 
+  } ]
+  ProviderId;
+  
+  @UI.identification: [ {
+    position: 2 
+  } ]
+  @UI.lineItem: [ {
+    position: 2 
+  } ]
+  GroupId;
+  
+  @UI.identification: [ {
+    position: 3 
+  } ]
+  @UI.lineItem: [ {
+    position: 3 
+  } ]
+  SystemName;
+  
+  @UI.identification: [ {
+    position: 4 
+  } ]
+  @UI.lineItem: [ {
+    position: 4 
+  } ]
+  @EndUserText.label: 'Active'
+  Active;
+  
+  @UI.identification: [ {
+    position: 5 
+  } ]
+  @UI.lineItem: [ {
+    position: 5 
+  } ]
+  @EndUserText.label: 'Only Scores'
+  OnlyScores;
+}

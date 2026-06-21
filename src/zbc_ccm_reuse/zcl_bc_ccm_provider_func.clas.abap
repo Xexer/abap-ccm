@@ -5,7 +5,7 @@ CLASS zcl_bc_ccm_provider_func DEFINITION
   PUBLIC SECTION.
     TYPES: BEGIN OF provider,
              provider_id TYPE sca_ds_object_provider_id,
-             group_id    TYPE char10,
+             group_id    TYPE zbc_ccm_group_id,
            END OF provider.
     TYPES providers TYPE SORTED TABLE OF provider WITH UNIQUE KEY provider_id.
 

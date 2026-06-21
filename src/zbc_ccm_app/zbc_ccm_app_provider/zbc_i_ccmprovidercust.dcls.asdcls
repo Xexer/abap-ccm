@@ -1,0 +1,5 @@
+@MappingRole: true
+define role ZBC_I_CCMProviderCust {
+  grant select on ZBC_I_CCMProviderCust
+  where ( ) = ASPECT pfcg_auth ( 'S_TABU_NAM', ACTVT = '03', TABLE = 'ZBC_I_CCMPROVIDERCUST' );
+}
