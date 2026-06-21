@@ -1,0 +1,6 @@
+@ObjectModel.leadingEntity.name: 'ZBC_R_CCMSettingsS'
+define service ZBC_CCM_SETTING {
+  expose ZBC_R_CCMSettingsS     as SettingsAll;
+  expose ZBC_I_CCMSettings      as Settings;
+  expose ZBC_I_CCMSettingsKeyVH;
+}

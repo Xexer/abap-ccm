@@ -1,0 +1,83 @@
+managed implementation in class ZBP_BC_CCM_SETTINGS unique;
+strict ( 2 );
+with draft;
+define behavior for ZBC_R_CCMSettingsS alias SettingsAll
+draft table ZBC_CCM_SET_DS
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _Settings { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZBC_I_CCMSettings alias Settings ##UNMAPPED_FIELD
+persistent table ZBC_CCM_SETT
+draft table ZBC_CCM_SETT_D
+etag master LocalLastChangedAt
+lock dependent by _SettingsAll
+authorization dependent by _SettingsAll
+{
+  field ( mandatory : create )
+   SettingKey;
+
+  field ( readonly )
+   SingletonID,
+   SettingUuid,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( numbering : managed )
+   SettingUuid;
+
+  field ( readonly : update )
+   SettingKey;
+
+  field ( notrigger )
+   SingletonID,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZBC_CCM_SETT
+  {
+    SettingUuid = SETTING_UUID;
+    SettingKey = SETTING_KEY;
+    SettingValue = SETTING_VALUE;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+  association _SettingsAll { with draft; }
+
+}

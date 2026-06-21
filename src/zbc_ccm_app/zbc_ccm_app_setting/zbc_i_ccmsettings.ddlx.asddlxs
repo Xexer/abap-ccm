@@ -1,0 +1,38 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Settings',
+    typeNamePlural: 'Settings',
+    title: {
+      type: #STANDARD,
+      value: 'SettingUuid'
+    }
+  }
+}
+annotate view ZBC_I_CCMSettings with
+{
+  @UI.facet: [ {
+    id: 'Settings',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Settings',
+    position: 1
+  } ]
+  SettingUuid;
+
+  @UI.identification: [ {
+    position: 2
+  } ]
+  @UI.lineItem: [ {
+    position: 2
+  } ]
+  SettingKey;
+
+  @UI.identification: [ {
+    position: 3
+  } ]
+  @UI.lineItem: [ {
+    position: 3
+  } ]
+  SettingValue;
+}

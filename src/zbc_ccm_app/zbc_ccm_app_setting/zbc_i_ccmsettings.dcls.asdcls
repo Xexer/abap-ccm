@@ -1,0 +1,5 @@
+@MappingRole: true
+define role ZBC_I_CCMSettings {
+  grant select on ZBC_I_CCMSettings
+  where ( ) = ASPECT pfcg_auth ( 'S_TABU_NAM', ACTVT = '03', TABLE = 'ZBC_I_CCMSETTINGS' );
+}
