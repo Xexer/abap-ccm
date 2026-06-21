@@ -1,2 +1,2 @@
 # abap-ccm
-Clear Core Measurement
+Clean Core Measurement
