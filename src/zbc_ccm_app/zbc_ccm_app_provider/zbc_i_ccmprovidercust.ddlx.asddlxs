@@ -59,4 +59,13 @@ annotate view ZBC_I_CCMProviderCust with
   } ]
   @EndUserText.label: 'Only Scores'
   OnlyScores;
+  
+  @UI.identification: [ {
+    position: 6 
+  } ]
+  @UI.lineItem: [ {
+    position: 6
+  } ]
+  @EndUserText.label: 'Custom Code Analysis Project ID'
+  CustomCodeProjectID;
 }

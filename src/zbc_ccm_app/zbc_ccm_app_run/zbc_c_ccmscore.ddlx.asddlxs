@@ -27,18 +27,22 @@ annotate entity ZBC_C_CCMScore with
 
   @UI.lineItem: [ { position: 30  } ]
   @UI.identification: [ { position: 30 , qualifier: 'SCORE' } ]
+  @EndUserText.label: 'Level A'
   LevelAObjects;
 
   @UI.lineItem: [ { position: 40  } ]
   @UI.identification: [ { position: 40 , qualifier: 'SCORE' } ]
+  @EndUserText.label: 'Level B'
   LevelBObjects;
 
   @UI.lineItem: [ { position: 50  } ]
   @UI.identification: [ { position: 50 , qualifier: 'SCORE' } ]
+  @EndUserText.label: 'Level C'
   LevelCObjects;
 
   @UI.lineItem: [ { position: 60  } ]
   @UI.identification: [ { position: 60 , qualifier: 'SCORE' } ]
+  @EndUserText.label: 'Level D'
   LevelDObjects;
 
   @UI.lineItem: [ { position: 20 } ]

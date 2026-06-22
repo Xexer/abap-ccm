@@ -77,6 +77,7 @@ authorization dependent by _ProviderCustAll
     SystemName = SYSTEM_NAME;
     Active = ACTIVE;
     OnlyScores = ONLY_SCORES;
+    CustomCodeProjectID = ccap_id;
     LocalCreatedBy = LOCAL_CREATED_BY;
     LocalCreatedAt = LOCAL_CREATED_AT;
     LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;

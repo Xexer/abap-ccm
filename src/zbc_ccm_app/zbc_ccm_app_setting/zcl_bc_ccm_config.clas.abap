@@ -36,6 +36,7 @@ CLASS zcl_bc_ccm_config IMPLEMENTATION.
     SELECT FROM ZBC_I_CCMSettings
       FIELDS SettingValue
       WHERE SettingKey = @key
-      INTO TABLE @result.
+      INTO TABLE @result
+      PRIVILEGED ACCESS.
   ENDMETHOD.
 ENDCLASS.
