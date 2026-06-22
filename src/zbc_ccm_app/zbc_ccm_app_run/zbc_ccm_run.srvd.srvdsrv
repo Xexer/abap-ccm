@@ -1,0 +1,13 @@
+@EndUserText: {
+  label: 'Service Definition for ZBC_C_CCMRun'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZBC_C_CCMRun'
+  }
+}
+define service ZBC_CCM_RUN
+  provider contracts odata_v4_ui {
+  expose ZBC_C_CCMRun   as Runs;
+  expose ZBC_C_CCMScore as Scores;
+}

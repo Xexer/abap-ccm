@@ -1,0 +1,48 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZBC_C_CCMScore with
+{
+  @UI.facet: [
+    {
+      id: 'idGeneral',
+      label: 'General Information',
+      position: 10 ,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'GENERAL'
+    },
+    {
+      id: 'idScore',
+      label: 'Scores',
+      position: 20,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'SCORE'
+    }
+  ]
+
+  @UI.hidden: true
+  RunID;
+
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [ { position: 20 , qualifier: 'GENERAL' } ]
+  CalculationMethod;
+
+  @UI.lineItem: [ { position: 30  } ]
+  @UI.identification: [ { position: 30 , qualifier: 'SCORE' } ]
+  LevelAObjects;
+
+  @UI.lineItem: [ { position: 40  } ]
+  @UI.identification: [ { position: 40 , qualifier: 'SCORE' } ]
+  LevelBObjects;
+
+  @UI.lineItem: [ { position: 50  } ]
+  @UI.identification: [ { position: 50 , qualifier: 'SCORE' } ]
+  LevelCObjects;
+
+  @UI.lineItem: [ { position: 60  } ]
+  @UI.identification: [ { position: 60 , qualifier: 'SCORE' } ]
+  LevelDObjects;
+
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 70 , qualifier: 'SCORE' } ]
+  TechnicalDebtScore;
+
+}

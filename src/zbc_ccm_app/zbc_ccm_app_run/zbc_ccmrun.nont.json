@@ -1,0 +1,11 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "SAP Object Node Type ZBC_CCMRUN",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "name": "ZBC_CCMRun",
+  "sapObjectType": "ZBC_CCMRun",
+  "rootNode": true
+}

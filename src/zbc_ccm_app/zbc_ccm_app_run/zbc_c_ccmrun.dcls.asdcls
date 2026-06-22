@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZBC_C_CCMRun'
+@MappingRole: true
+define role ZBC_C_CCMRun {
+  grant select on ZBC_C_CCMRun
+  where INHERITING CONDITIONS FROM ENTITY ZBC_R_CCMRun REPLACING { ROOT WITH _BaseEntity };
+}

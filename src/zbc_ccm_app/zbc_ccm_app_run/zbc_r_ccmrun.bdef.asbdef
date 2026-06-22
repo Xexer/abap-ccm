@@ -1,0 +1,74 @@
+managed implementation in class ZBP_BC_CCM_RUN unique;
+strict ( 2 );
+with draft;
+extensible;
+
+define behavior for ZBC_R_CCMRun alias Runs
+persistent table ZBC_CCM_RUN
+extensible
+draft table ZBC_CCM_RUND
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( numbering : managed, readonly )
+   RunID;
+
+  field ( readonly )
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _Score { create; with draft; }
+
+  mapping for ZBC_CCM_RUN corresponding extensible
+  {
+    RunID = RUN_ID;
+    ProviderID = PROVIDER_ID;
+    RunTime = RUN_TIME;
+    RunStatus = run_status;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+}
+
+define behavior for ZBC_I_CCMScore alias Scores
+persistent table zbc_ccm_score
+draft table zbc_ccm_scored
+lock dependent by _Run
+authorization dependent by _Run
+{
+  field ( mandatory : create, readonly : update ) CalculationMethod;
+  field ( readonly ) RunID;
+
+  update;
+  delete;
+
+  association _Run { with draft; }
+
+  mapping for zbc_ccm_score
+    {
+      RunID = run_id;
+      CalculationMethod = calculate_method;
+      LevelAObjects = level_a;
+      LevelBObjects = level_b;
+      LevelCObjects = level_c;
+      LevelDObjects = level_d;
+      TechnicalDebtScore = debt_score;
+    }
+}
