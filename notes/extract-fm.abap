@@ -2,6 +2,8 @@ FUNCTION z_ca_atc_level_a_objects
   EXPORTING
     VALUE(objects) TYPE i.
 
+
+
   CONSTANTS abap_cloud  TYPE char1      VALUE '5'.
   CONSTANTS active_flag TYPE string     VALUE 'A'.
   CONSTANTS version     TYPE decfloat16 VALUE '0000'.
@@ -13,7 +15,7 @@ FUNCTION z_ca_atc_level_a_objects
                          ( low = 'Y*' )
                          ( low = 'Z*' ) ).
 
-  " Open: DEVC (TDEVC with DLVUNIT LIKE 'Z%'), MSAG (T100A no Language)
+  " Open: DEVC (TDEVC with DLVUNIT LIKE Z%), MSAG (T100A no Language)
 
   SELECT FROM progdir " CLAS, INTF, PROG, BDEF
     FIELDS COUNT( * ) AS customer_objects
@@ -84,22 +86,25 @@ FUNCTION z_ca_atc_level_a_objects
 
   SELECT FROM ddlxsrc " DDLX
     FIELDS COUNT( * ) AS customer_objects
-    WHERE     version               = @active_flag
-          AND abap_language_version = @abap_cloud
+    WHERE     ddlxname              IN @name_filter
+          AND version                = @active_flag
+          AND abap_language_version  = @abap_cloud
     INTO @number_of_objects.
   objects += number_of_objects.
 
   SELECT FROM dddras_source " DRAS
     FIELDS COUNT( * ) AS customer_objects
-    WHERE     as4local              = @active_flag
-          AND abap_language_version = @abap_cloud
+    WHERE     aspect_name           IN @name_filter
+          AND as4local               = @active_flag
+          AND abap_language_version  = @abap_cloud
     INTO @number_of_objects.
   objects += number_of_objects.
 
   SELECT FROM dddsfd_source " DSFD
     FIELDS COUNT( * ) AS customer_objects
-    WHERE     as4local              = @active_flag
-          AND abap_language_version = @abap_cloud
+    WHERE     scalar_function_name  IN @name_filter
+          AND as4local               = @active_flag
+          AND abap_language_version  = @abap_cloud
     INTO @number_of_objects.
   objects += number_of_objects.
 
@@ -119,7 +124,8 @@ FUNCTION z_ca_atc_level_a_objects
 
   SELECT FROM dd25l " ENQU
     FIELDS COUNT( * ) AS customer_objects
-    WHERE     as4local              = @active_flag
+    WHERE     ( viewname LIKE 'EZ%' OR viewname LIKE 'EY%' )
+          AND as4local              = @active_flag
           AND as4vers               = @version
           AND aggtype               = 'E'
           AND abap_language_version = @abap_cloud
@@ -147,13 +153,15 @@ FUNCTION z_ca_atc_level_a_objects
 
   SELECT FROM apj_w_jce_root " SAJC
     FIELDS COUNT( * ) AS customer_objects
-    WHERE abap_language_version = @abap_cloud
+    WHERE     job_catalog_entry_name IN @name_filter
+          AND abap_language_version   = @abap_cloud
     INTO @number_of_objects.
   objects += number_of_objects.
 
   SELECT FROM apj_w_jt_root " SAJT
     FIELDS COUNT( * ) AS customer_objects
-    WHERE abap_language_version = @abap_cloud
+    WHERE     job_template_name     IN @name_filter
+          AND abap_language_version  = @abap_cloud
     INTO @number_of_objects.
   objects += number_of_objects.
 
@@ -237,8 +245,9 @@ FUNCTION z_ca_atc_level_a_objects
 
   SELECT FROM o2xsltdesc " XSLT
     FIELDS COUNT( * ) AS customer_objects
-    WHERE     state                 = @active_flag
-          AND abap_language_version = @abap_cloud
+    WHERE     xsltdesc              IN @name_filter
+          AND state                  = @active_flag
+          AND abap_language_version  = @abap_cloud
     INTO @number_of_objects.
   objects += number_of_objects.
 
@@ -399,8 +408,9 @@ FUNCTION z_ca_atc_level_a_objects
 
   SELECT FROM ktd_w_header " SKTD
     FIELDS COUNT( * ) AS customer_objects
-    WHERE     version               = @active_flag
-          AND abap_language_version = @abap_cloud
+    WHERE     name                  IN @name_filter
+          AND version                = @active_flag
+          AND abap_language_version  = @abap_cloud
     INTO @number_of_objects.
   objects += number_of_objects.
 
@@ -430,8 +440,9 @@ FUNCTION z_ca_atc_level_a_objects
 
   SELECT FROM nont_header " NONT
     FIELDS COUNT( * ) AS customer_objects
-    WHERE     version               = @active_flag
-          AND abap_language_version = @abap_cloud
+    WHERE     nont_name             IN @name_filter
+          AND version                = @active_flag
+          AND abap_language_version  = @abap_cloud
     INTO @number_of_objects.
   objects += number_of_objects.
 
@@ -477,8 +488,9 @@ FUNCTION z_ca_atc_level_a_objects
 
   SELECT FROM ront_header " RONT
     FIELDS COUNT( * ) AS customer_objects
-    WHERE     version               = @active_flag
-          AND abap_language_version = @abap_cloud
+    WHERE     ront_name             IN @name_filter
+          AND version                = @active_flag
+          AND abap_language_version  = @abap_cloud
     INTO @number_of_objects.
   objects += number_of_objects.
 
@@ -691,7 +703,8 @@ FUNCTION z_ca_atc_level_a_objects
 
   SELECT FROM /iwbep/i_v4_msgr " G4BA
     FIELDS COUNT( * ) AS customer_objects
-    WHERE abap_language_version = @abap_cloud
+    WHERE     group_id              IN @name_filter
+          AND abap_language_version  = @abap_cloud
     INTO @number_of_objects.
   objects += number_of_objects.
 
