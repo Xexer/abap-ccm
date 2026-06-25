@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Objects Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_ALV5_DEFAULT"
+  },
+  "ui5AppDetails": {
+    "appId": "rewe.bc.zbcccmobjects"
+  },
+  "navigation": {
+    "targetMappingId": "ZBC_CCM_OBJECTS_APP_TM",
+    "semanticObject": "ZBC_CCM_OBJECT",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true,
+    "additionalParameterHandling": "notAllowed"
+  },
+  "tiles": [
+    {
+      "id": "ZBC_CCM_OBJECTS_APP_AL",
+      "tileType": "static",
+      "standard": {
+        "title": "Objects",
+        "subtitle": "CCM",
+        "icon": "sap-icon://switch-views"
+      }
+    }
+  ]
+}

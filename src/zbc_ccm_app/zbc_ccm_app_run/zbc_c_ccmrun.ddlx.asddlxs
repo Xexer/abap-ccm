@@ -1,8 +1,19 @@
 @Metadata.layer: #CORE
 @UI.headerInfo.title.type: #STANDARD
-@UI.headerInfo.title.value: 'RunID'
+@UI.headerInfo.title.value: 'SystemName'
 @UI.headerInfo.description.type: #STANDARD
-@UI.headerInfo.description.value: 'RunID'
+@UI.headerInfo.description.value: 'RunTime'
+@UI.headerInfo.typeName: 'Run'
+@UI.headerInfo.typeNamePlural: 'Runs'
+
+@UI.presentationVariant: [ {
+  qualifier: 'pVariant',
+  sortOrder: [{ by: 'RunTime', direction: #DESC }],
+  visualizations: [{ type: #AS_LINEITEM }]    
+} ] 
+@UI.selectionPresentationVariant: [ { 
+  presentationVariantQualifier: 'pVariant'
+} ] 
 annotate view ZBC_C_CCMRun with
 {
   @UI.facet: [
@@ -16,34 +27,34 @@ annotate view ZBC_C_CCMRun with
     {
       id: 'idAdmin',
       label: 'Admin Fields',
-      position: 20,
+      position: 30,
       type: #IDENTIFICATION_REFERENCE,
       targetQualifier: 'ADMIN'
     },
     {
       id: 'idScore',
       label: 'Scores',
-      position: 30,
+      position: 20,
       type: #LINEITEM_REFERENCE,
       targetElement: '_Score'
     }
   ]
 
-  @UI.selectionField: [ { position: 10  } ]
-  @UI.lineItem: [ { position: 10  } ]
-  @UI.identification: [ { position: 10 , qualifier: 'GENERAL' } ]
+  @UI.hidden: true
   RunID;
 
+  @UI.selectionField: [ { position: 10 } ]
   @UI.lineItem: [ { position: 20  } ]
   @UI.identification: [ { position: 20 , qualifier: 'GENERAL' } ]
   ProviderID;
 
+  @UI.selectionField: [ { position: 20 } ]
   @UI.lineItem: [ { position: 30  } ]
   @UI.identification: [ { position: 30 , qualifier: 'GENERAL' } ]
   @EndUserText.label: 'Run Time'
   RunTime;
 
-  @UI.lineItem: [ { position: 40  } ]
+  @UI.lineItem: [ { position: 40 } ]
   @UI.identification: [ { position: 40 , qualifier: 'GENERAL' } ]
   RunStatus;
 

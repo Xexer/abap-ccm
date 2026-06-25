@@ -1,0 +1,48 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Used Message Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_ALV5_DEFAULT"
+  },
+  "ui5AppDetails": {
+    "appId": "rewe.bc.zbcccmusedmessage"
+  },
+  "navigation": {
+    "targetMappingId": "ZBC_CCM_USED_MESSAGE_APP_TM",
+    "semanticObject": "ZBC_CCM_MESSAGE",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true,
+    "parameters": [
+      {
+        "name": "RefObjName",
+        "renameTo": "RefObjName"
+      },
+      {
+        "name": "RefObjType",
+        "renameTo": "RefObjType"
+      },
+      {
+        "name": "ProviderId",
+        "renameTo": "ProviderId"
+      }
+    ]
+  },
+  "tiles": [
+    {
+      "id": "ZBC_CCM_USED_MESSAGE_APP_AL",
+      "tileType": "static",
+      "standard": {
+        "title": "Used Messages",
+        "subtitle": "CCM",
+        "icon": "sap-icon://notes"
+      }
+    }
+  ]
+}

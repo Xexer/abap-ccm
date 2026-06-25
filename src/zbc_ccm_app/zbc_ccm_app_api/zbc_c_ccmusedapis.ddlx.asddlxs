@@ -1,0 +1,59 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'RefObjName'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'RefObjType'
+@UI.headerInfo.typeName: 'Used API'
+@UI.headerInfo.typeNamePlural: 'Used APIs'
+
+@UI.presentationVariant: [ {
+  qualifier: 'pVariant',
+  sortOrder: [{ by: 'NumberOfCalls', direction: #DESC }],
+  visualizations: [{ type: #AS_LINEITEM }]
+} ]
+@UI.selectionPresentationVariant: [ {
+  presentationVariantQualifier: 'pVariant'
+} ]
+annotate entity ZBC_C_CCMUsedAPIs with
+{
+  @UI.facet: [
+    {
+      id: 'idGeneral',
+      label: 'General Information',
+      position: 10 ,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'GENERAL'
+    }
+  ]
+
+  @UI.selectionField: [ { position: 10  } ]
+  @UI.lineItem: [ { position: 10  } ]
+  @UI.identification: [ { position: 10 , qualifier: 'GENERAL' } ]
+  ProviderId;
+
+  @UI.selectionField: [ { position: 20  } ]
+  @UI.lineItem: [ { position: 20  } ]
+  @UI.identification: [ { position: 20 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Reference Type'
+  RefObjType;
+
+ 
+  @UI.selectionField: [ { position: 30  } ]
+  @UI.lineItem: [ { position: 30  } ]
+  @UI.identification: [ { position: 30 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Reference Object'
+  RefObjName;
+
+ @Consumption.semanticObject: 'ZBC_CCM_MESSAGE'
+  @UI.lineItem: [ { position: 40  },
+    { type: #FOR_INTENT_BASED_NAVIGATION, semanticObject: 'ZBC_CCM_MESSAGE', semanticObjectAction: 'display', semanticObjectBinding: [
+      { localElement: 'RefObjType', element: 'RefObjType' }, 
+      { localElement: 'RefObjName', element: 'RefObjName' }] } ]
+  @UI.identification: [ { position: 40 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Number of Calls'
+  NumberOfCalls;
+
+  @UI.hidden: true
+  SystemName;
+
+}

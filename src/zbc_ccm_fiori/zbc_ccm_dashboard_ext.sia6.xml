@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SIA6" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <SIA6>
+    <MAIN_OBJECT>
+     <NAME>ZBC_CCM_DASHBOARD_EXT</NAME>
+     <TYPE>SIA6</TYPE>
+     <DESCRIPTION>Dashboard Application</DESCRIPTION>
+     <RESPONSIBLE>CB9980000024</RESPONSIBLE>
+     <MASTER_LANGUAGE>EN</MASTER_LANGUAGE>
+     <MASTER_SYSTEM>AED</MASTER_SYSTEM>
+     <PACKAGE_REF>
+      <PACKAGE_NAME>ZBC_CCM_FIORI</PACKAGE_NAME>
+     </PACKAGE_REF>
+     <ABAP_LANGU_VERSION>5</ABAP_LANGU_VERSION>
+    </MAIN_OBJECT>
+    <APP_ID>ZBC_CCM_DASHBOARD_EXT</APP_ID>
+    <APP_TYPE>EXT</APP_TYPE>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+    <UI_APP_ID>ZBC_CCM_DASHBOARD_APP</UI_APP_ID>
+    <SERVICE>
+     <item>
+      <REL_NAME>ZBC_UI_CCM_DASHBOARD_O4</REL_NAME>
+      <REL_TYPE>G4BA</REL_TYPE>
+      <APP_ID>ZBC_CCM_DASHBOARD_EXT</APP_ID>
+      <SRVC_NAME>9123FAA45B5E3C1521DA92B2634C38</SRVC_NAME>
+      <SRVC_TYPE>HT</SRVC_TYPE>
+      <UIAD_SRC>ZBC_CCM_DASHBOARD_APP</UIAD_SRC>
+      <TEXT>Dashboard</TEXT>
+      <TYPE_TEXT>OData V4</TYPE_TEXT>
+     </item>
+    </SERVICE>
+    <PUBLISH_STATUS>u</PUBLISH_STATUS>
+   </SIA6>
+  </asx:values>
+ </asx:abap>
+</abapGit>

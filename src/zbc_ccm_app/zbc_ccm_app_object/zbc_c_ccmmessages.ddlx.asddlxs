@@ -1,0 +1,64 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZBC_C_CCMMessages with
+{
+  @UI.facet: [
+    {
+      id: 'idCheck',
+      label: 'Check',
+      position: 10 ,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'CHECK'
+    },
+    {
+      id: 'idReference',
+      label: 'Reference',
+      position: 20,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'REF'
+    }
+  ]
+
+  @UI.hidden: true
+  ProviderId;
+
+  @UI.hidden: true
+  ObjectType;
+
+  @UI.hidden: true
+  ObjectName;
+
+  @UI.hidden: true
+  FindingId;
+
+  @UI.lineItem: [ { position: 50, criticality: 'PriorityIcon'  } ]
+  @UI.identification: [ { position: 50 , qualifier: 'CHECK', criticality: 'PriorityIcon' } ]
+  Priority;
+
+  @UI.hidden: true
+  Description;
+
+  @UI.lineItem: [ { position: 70  } ]
+  @UI.identification: [ { position: 70 , qualifier: 'CHECK' } ]
+  @EndUserText.label: 'Check Title'
+  CheckTitle;
+
+  @UI.lineItem: [ { position: 80  } ]
+  @UI.identification: [ { position: 80 , qualifier: 'CHECK' } ]
+  @EndUserText.label: 'Check Message'
+  CheckMessage;
+
+  @UI.lineItem: [ { position: 90  } ]
+  @UI.identification: [ { position: 90 , qualifier: 'REF' } ]
+  @EndUserText.label: 'Reference Type'
+  RefObjType;
+
+  @UI.lineItem: [ { position: 100  } ]
+  @UI.identification: [ { position: 100 , qualifier: 'REF' } ]
+  @EndUserText.label: 'Reference Object'
+  RefObjName;
+
+  @UI.hidden: true
+  PriorityIcon;
+
+
+}

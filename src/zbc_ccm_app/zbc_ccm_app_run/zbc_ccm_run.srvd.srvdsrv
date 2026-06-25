@@ -8,6 +8,9 @@
 }
 define service ZBC_CCM_RUN
   provider contracts odata_v4_ui {
-  expose ZBC_C_CCMRun   as Runs;
-  expose ZBC_C_CCMScore as Scores;
+  expose ZBC_C_CCMRun               as Runs;
+  expose ZBC_C_CCMScore             as Scores;
+  expose ZBC_I_CCMProviderVH;
+  expose ZBC_I_CCMRunStatusVH;
+  expose ZBC_I_CCMCalculationMethod;
 }

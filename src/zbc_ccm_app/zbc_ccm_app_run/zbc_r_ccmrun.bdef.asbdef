@@ -56,6 +56,13 @@ authorization dependent by _Run
   field ( mandatory : create, readonly : update ) CalculationMethod;
   field ( readonly ) RunID;
 
+
+  field ( readonly : update )
+   LevelBObjects,
+   LevelCObjects,
+   LevelDObjects,
+   TechnicalDebtScore;
+
   update;
   delete;
 

@@ -5,6 +5,8 @@
 define root view entity ZBC_R_CCMRun
   as select from zbc_ccm_run as Runs
   composition of exact one to many ZBC_I_CCMScore as _Score
+  association of exact one to one ZBC_I_CCMRunStatusVH as _RunStatus on _RunStatus.RunStatus = $projection.RunStatus
+  association of exact one to one ZBC_I_CCMProviderVH as _Provider on _Provider.ProviderId = $projection.ProviderID
 {
   key run_id                as RunID,
       provider_id           as ProviderID,
@@ -20,5 +22,7 @@ define root view entity ZBC_R_CCMRun
       local_last_changed_at as LocalLastChangedAt,
       @Semantics.systemDateTime.lastChangedAt: true
       last_changed_at       as LastChangedAt,
-      _Score
+      _Score,
+      _RunStatus,
+      _Provider
 }

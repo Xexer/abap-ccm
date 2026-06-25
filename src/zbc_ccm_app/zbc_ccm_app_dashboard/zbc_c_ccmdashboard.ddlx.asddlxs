@@ -1,0 +1,99 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'ProviderID'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'CalculationMethod'
+@UI.headerInfo.typeName: 'System'
+@UI.headerInfo.typeNamePlural: 'Systems'
+
+@UI.presentationVariant: [ {
+  qualifier: 'pVariant',
+  sortOrder: [{ by: 'TechnicalDebtScore', direction: #DESC }],
+  visualizations: [{ type: #AS_LINEITEM }]    
+} ] 
+@UI.selectionPresentationVariant: [ { 
+  presentationVariantQualifier: 'pVariant'
+} ] 
+annotate entity ZBC_C_CCMDashboard with
+{
+  @UI.facet: [
+    {
+      id: 'idScore',
+      label: 'Scores',
+      position: 10 ,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'SCORE'
+    },
+    {
+      id: 'idNumbers',
+      label: 'Numbers',
+      position: 20,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'NUMBER'
+    },
+    {
+      id: 'idMoreScores',
+      label: 'Older Scores',
+      position: 30,
+      type: #LINEITEM_REFERENCE,
+      targetElement: '_OtherScores'
+    }
+  ]
+
+  @UI.selectionField: [ { position: 10  } ]
+  @UI.lineItem: [ { position: 10  } ]
+  ProviderID;
+
+  @UI.selectionField: [ { position: 20  } ]
+  CalculationMethod;
+
+  @UI.hidden: true
+  SystemName;
+
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.identification: [ { position: 30 , qualifier: 'SCORE' } ]
+  TechnicalDebtScore;
+
+  @UI.lineItem: [ { position: 40, criticality: 'CriticalityLevelA' } ]
+  @UI.identification: [ { position: 40 , qualifier: 'NUMBER', criticality: 'CriticalityLevelA' } ]
+  @EndUserText.label: 'Level A'
+  LevelAObjects;
+
+  @UI.lineItem: [ { position: 50, criticality: 'CriticalityLevelB'  } ]
+  @UI.identification: [ { position: 50 , qualifier: 'NUMBER', criticality: 'CriticalityLevelB' } ]
+  @EndUserText.label: 'Level B'
+  LevelBObjects;
+
+  @UI.lineItem: [ { position: 60, criticality: 'CriticalityLevelC'  } ]
+  @UI.identification: [ { position: 60 , qualifier: 'NUMBER', criticality: 'CriticalityLevelC' } ]
+  @EndUserText.label: 'Level C'
+  LevelCObjects;
+
+  @UI.lineItem: [ { position: 70, criticality: 'CriticalityLevelD'  } ]
+  @UI.identification: [ { position: 70 , qualifier: 'NUMBER', criticality: 'CriticalityLevelD' } ]
+  @EndUserText.label: 'Level D'
+  LevelDObjects;
+
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 80 , qualifier: 'SCORE' } ]
+  @EndUserText.label: 'Cloud Ready'
+  CloudReady;
+
+  @UI.lineItem: [ { position: 25 } ]
+  @UI.identification: [ { position: 90 , qualifier: 'SCORE' } ]
+  @EndUserText.label: 'Upgrade Stable'
+  UpgradeStable;
+
+  @UI.hidden: true
+  CriticalityLevelA;
+
+  @UI.hidden: true
+  CriticalityLevelB;
+
+  @UI.hidden: true
+  CriticalityLevelC;
+
+  @UI.hidden: true
+  CriticalityLevelD;
+
+}

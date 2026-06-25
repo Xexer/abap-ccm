@@ -1,0 +1,68 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'ObjName'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'ProviderId'
+@UI.headerInfo.typeName: 'Used Message'
+@UI.headerInfo.typeNamePlural: 'Used Messages'
+annotate entity ZBC_C_CCMUsedMessage with
+{
+  @UI.facet: [
+    {
+      id: 'idGeneral',
+      label: 'General Information',
+      position: 10 ,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'GENERAL'
+    }
+  ]
+
+  @UI.selectionField: [ { position: 10  } ]
+  @UI.lineItem: [ { position: 10  } ]
+  @UI.identification: [ { position: 10 , qualifier: 'GENERAL' } ]
+  ProviderId;
+
+  @UI.selectionField: [ { position: 20  } ]
+  @UI.lineItem: [ { position: 20  } ]
+  @UI.identification: [ { position: 20 , qualifier: 'GENERAL' } ]
+  ObjType;
+
+  @UI.selectionField: [ { position: 30  } ]
+  @UI.lineItem: [ { position: 30  } ]
+  @UI.identification: [ { position: 30 , qualifier: 'GENERAL' } ]
+  ObjName;
+
+  @UI.hidden: true
+  FindingId;
+
+  @UI.hidden: true
+  SystemName;
+
+  @UI.lineItem: [ { position: 60, criticality: 'PriorityIcon'  } ]
+  @UI.identification: [ { position: 60, qualifier: 'GENERAL', criticality: 'PriorityIcon' } ]
+  Priority;
+
+  @UI.hidden: true
+  Description;
+
+  @UI.selectionField: [ { position: 50 } ]
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [ { position: 80 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Check Title'  
+  CheckTitle;
+
+  @UI.selectionField: [ { position: 60 } ]
+  @UI.lineItem: [ { position: 90  } ]
+  @UI.identification: [ { position: 90 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Check Message'  
+  CheckMessage;
+
+  @UI.identification: [ { position: 100 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Reference Type'  
+  RefObjType;
+
+  @UI.identification: [ { position: 110 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Reference Object'  
+  RefObjName;
+
+}

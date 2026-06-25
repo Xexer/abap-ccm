@@ -1,0 +1,9 @@
+@EndUserText.label: 'Object Service'
+@ObjectModel.leadingEntity.name: 'ZBC_C_CCMObjects'
+define service ZBC_CCM_OBJECTS {
+  expose ZBC_C_CCMObjects          as Objects;
+  expose ZBC_C_CCMMessages         as Messages;
+  expose ZBC_I_CCMPriorityVH;
+  expose ZBC_I_CCMClassificationVH;
+  expose ZBC_I_CCMProviderVH;
+}

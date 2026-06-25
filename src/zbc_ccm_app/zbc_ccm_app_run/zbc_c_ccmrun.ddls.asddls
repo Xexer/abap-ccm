@@ -13,9 +13,17 @@ define root view entity ZBC_C_CCMRun
   association [1..1] to ZBC_R_CCMRun as _BaseEntity on $projection.RunID = _BaseEntity.RunID
 {
   key RunID,
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZBC_I_CCMProviderVH', element : 'ProviderId' } }]
+      @ObjectModel.text.element: [ 'SystemName' ]
+      @UI.textArrangement: #TEXT_ONLY
       ProviderID,
+      _Provider.SystemName,
       RunTime,
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZBC_I_CCMRunStatusVH', element : 'RunStatus' } }]
+      @ObjectModel.text.element: [ 'Description' ]
+      @UI.textArrangement: #TEXT_ONLY
       RunStatus,
+      _RunStatus.Description,
       @Semantics: {
         user.createdBy: true
       }

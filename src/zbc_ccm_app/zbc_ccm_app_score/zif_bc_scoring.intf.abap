@@ -8,6 +8,7 @@ INTERFACE zif_bc_scoring
            score    TYPE zbc_i_ccmscore,
            objects  TYPE objects,
            messages TYPE messages,
+           run_time TYPE utclong,
          END OF scoring_result.
 
   CONSTANTS: BEGIN OF calculation_methods,

@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Dashboard Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_ALV5_DEFAULT"
+  },
+  "ui5AppDetails": {
+    "appId": "rewe.bc.zbcccmdashboard"
+  },
+  "navigation": {
+    "targetMappingId": "ZBC_CCM_DASHBOARD_APP_TM",
+    "semanticObject": "ZBC_CCM_DASHBOARD",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "ZBC_CCM_DASHBOARD_APP_AL",
+      "tileType": "static",
+      "standard": {
+        "title": "Dashboard",
+        "subtitle": "CCM",
+        "icon": "sap-icon://bbyd-dashboard"
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_SCO3" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <SCO3>
+    <OBS_ID>ZBC_CCM_LEVEL_A_OBJECTS_SRFC</OBS_ID>
+    <OBS_TYPE>SRFC</OBS_TYPE>
+    <RFC_SERVICE_ID>Z_CA_ATC_LEVEL_A_OBJECTS</RFC_SERVICE_ID>
+    <ABAP_LANGUAGE_VERSION>5</ABAP_LANGUAGE_VERSION>
+    <NAME>ZBC_CCM_LEVEL_A_OBJECTS_SRFC</NAME>
+    <TYPE>SCO3</TYPE>
+    <DESCRIPTION>Level A Objects</DESCRIPTION>
+    <ABAP_LANGU_VERSION>5</ABAP_LANGU_VERSION>
+   </SCO3>
+  </asx:values>
+ </asx:abap>
+</abapGit>

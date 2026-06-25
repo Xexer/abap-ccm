@@ -5,7 +5,11 @@ define view entity ZBC_C_CCMScore
   as projection on ZBC_I_CCMScore
 {
   key RunID,
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZBC_I_CCMCalculationMethod', element : 'CalculationMethod' } }]
+      @ObjectModel.text.element: [ 'Description' ]
+      @UI.textArrangement: #TEXT_ONLY
   key CalculationMethod,
+      _CalcMethod.Description,
       LevelAObjects,
       LevelBObjects,
       LevelCObjects,

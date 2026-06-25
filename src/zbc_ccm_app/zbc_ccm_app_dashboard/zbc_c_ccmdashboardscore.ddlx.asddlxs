@@ -1,0 +1,48 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZBC_C_CCMDashboardScore with
+{
+  @UI.facet: [
+    {
+      id: 'idGeneral',
+      label: 'Scores',
+      position: 10 ,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'GENERAL'
+    }
+  ]
+
+  @UI.hidden: true
+  ProviderID;
+
+  @UI.hidden: true
+  CalculationMethod;
+
+  @UI.lineItem: [ { position: 10  } ]
+  @UI.identification: [ { position: 10 , qualifier: 'GENERAL' } ]
+  RunTime;
+
+  @UI.lineItem: [ { position: 30  } ]
+  @UI.identification: [ { position: 30 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Level A'
+  LevelAObjects;
+
+  @UI.lineItem: [ { position: 40  } ]
+  @UI.identification: [ { position: 40 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Level B'
+  LevelBObjects;
+
+  @UI.lineItem: [ { position: 50  } ]
+  @UI.identification: [ { position: 50 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Level C'
+  LevelCObjects;
+
+  @UI.lineItem: [ { position: 60  } ]
+  @UI.identification: [ { position: 60 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Level D'
+  LevelDObjects;
+
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.identification: [ { position: 20, qualifier: 'GENERAL' } ]
+  TechnicalDebtScore;
+
+}

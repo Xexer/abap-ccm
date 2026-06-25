@@ -1,0 +1,6 @@
+@EndUserText.label: 'Dashboard Service'
+@ObjectModel.leadingEntity.name: 'ZBC_C_CCMDashboard'
+define service ZBC_CCM_DASHBOARD {
+  expose ZBC_C_CCMDashboard      as Dashboard;
+  expose ZBC_C_CCMDashboardScore as Scores;
+}

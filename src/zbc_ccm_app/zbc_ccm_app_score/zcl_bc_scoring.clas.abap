@@ -73,10 +73,13 @@ CLASS zcl_bc_scoring IMPLEMENTATION.
     LOOP AT result-objects REFERENCE INTO DATA(calulated_object).
       IF calulated_object->number_error > 0.
         result-score-LevelDObjects += 1.
+        calulated_object->classification = 'D'.
       ELSEIF calulated_object->number_warning > 0.
         result-score-LevelCObjects += 1.
+        calulated_object->classification = 'C'.
       ELSEIF calulated_object->number_info > 0.
         result-score-LevelBObjects += 1.
+        calulated_object->classification = 'B'.
       ENDIF.
 
       calulated_object->debt_score = calulated_object->number_info * default_b

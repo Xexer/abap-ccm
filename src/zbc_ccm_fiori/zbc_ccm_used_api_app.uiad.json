@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Used API Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_ALV5_DEFAULT"
+  },
+  "ui5AppDetails": {
+    "appId": "rewe.bc.zbcccmusedapis"
+  },
+  "navigation": {
+    "targetMappingId": "ZBC_CCM_USED_API_APP_TM",
+    "semanticObject": "ZBC_CCM_USED",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "ZBC_CCM_USED_API_APP_AL",
+      "tileType": "static",
+      "standard": {
+        "title": "Used APIs",
+        "subtitle": "CCM",
+        "icon": "sap-icon://cause"
+      }
+    }
+  ]
+}

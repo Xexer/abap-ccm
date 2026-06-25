@@ -1,0 +1,7 @@
+@EndUserText.label: 'Used Message'
+@ObjectModel.leadingEntity.name: 'ZBC_C_CCMUsedMessage'
+define service ZBC_CCM_USED_MESSAGE {
+  expose ZBC_C_CCMUsedMessage as UsedMessage;
+  expose ZBC_I_CCMProviderVH;
+  expose ZBC_I_CCMPriorityVH;
+}

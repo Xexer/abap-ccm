@@ -1,0 +1,105 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'ObjectName'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'ObjectType'
+@UI.headerInfo.typeName: 'Object'
+@UI.headerInfo.typeNamePlural: 'Objects'
+
+@UI.presentationVariant: [ {
+  qualifier: 'pVariant',
+  sortOrder: [{ by: 'DebtScore', direction: #DESC }],
+  visualizations: [{ type: #AS_LINEITEM }]    
+} ] 
+@UI.selectionPresentationVariant: [ { 
+  presentationVariantQualifier: 'pVariant'
+} ] 
+annotate entity ZBC_C_CCMObjects with
+{
+  @UI.facet: [
+    {
+      id: 'idGeneral',
+      label: 'Object Info',
+      position: 10 ,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'INFO'
+    },
+    {
+      id: 'idScore',
+      label: 'Score',
+      position: 20,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'SCORE'
+    },
+    {
+      id: 'idNumber',
+      label: 'Numbers',
+      position: 30,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'NUMBER'
+    },
+    {
+      id: 'idMessages',
+      position: 40,
+      type: #LINEITEM_REFERENCE,
+      targetElement: '_Messages'
+    }
+  ]
+
+  @UI.selectionField: [ { position: 10  } ]
+  @UI.lineItem: [ { position: 10  } ]
+  @UI.identification: [ { position: 10 , qualifier: 'INFO' } ]
+  ProviderId;
+
+  @UI.selectionField: [ { position: 20  } ]
+  @UI.lineItem: [ { position: 20  } ]
+  ObjectType;
+
+  @UI.selectionField: [ { position: 30  } ]
+  @UI.lineItem: [ { position: 30  } ]
+  ObjectName;
+
+  @UI.hidden: true
+  SystemName;
+
+  @UI.selectionField: [ { position: 40 } ]
+  @UI.lineItem: [ { position: 50  } ]
+  @UI.identification: [ { position: 50 , qualifier: 'INFO' } ]
+  @EndUserText.label: 'Package'
+  PackageName;
+
+  @UI.lineItem: [ { position: 60  } ]
+  @UI.identification: [ { position: 60 , qualifier: 'INFO' } ]
+  @EndUserText.label: 'Responsible'
+  PersonResponsible;
+
+  @UI.selectionField: [ { position: 50 } ]
+  @UI.lineItem: [ { position: 70, criticality: 'ClassPriority'  } ]
+  @UI.identification: [ { position: 70 , qualifier: 'SCORE', criticality: 'ClassPriority' } ]
+  @EndUserText.label: 'Classification'
+  Classification;
+
+  @UI.hidden: true
+  Description;
+
+  @UI.identification: [ { position: 90 , qualifier: 'NUMBER' } ]
+  @EndUserText.label: 'Errors (No.)'
+  NumberError;
+
+  @UI.identification: [ { position: 100 , qualifier: 'NUMBER' } ]
+  @EndUserText.label: 'Warning (No.)'
+  NumberWarning;
+
+  @UI.identification: [ { position: 110 , qualifier: 'NUMBER' } ]
+  @EndUserText.label: 'Info (No.)'
+  NumberInfo;
+
+  @UI.lineItem: [ { position: 120  } ]
+  @UI.identification: [ { position: 120 , qualifier: 'SCORE' } ]
+  @EndUserText.label: 'Technical Debt Score'
+  DebtScore;
+
+  @UI.hidden: true
+  ClassPriority;
+
+}
