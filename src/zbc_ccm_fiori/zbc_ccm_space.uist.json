@@ -1,0 +1,17 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "CCM Space",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "title": "CCM",
+    "sortPriority": 999.0
+  },
+  "pages": [
+    {
+      "name": "ZBC_CCM_START_PAGE"
+    }
+  ]
+}

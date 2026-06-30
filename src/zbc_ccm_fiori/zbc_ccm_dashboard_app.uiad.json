@@ -23,11 +23,15 @@
   "tiles": [
     {
       "id": "ZBC_CCM_DASHBOARD_APP_AL",
-      "tileType": "static",
+      "tileType": "dynamic",
       "standard": {
         "title": "Dashboard",
         "subtitle": "CCM",
-        "icon": "sap-icon://bbyd-dashboard"
+        "icon": "sap-icon://bbyd-dashboard",
+        "dynamic": {
+          "serviceBaseUrl": "/sap/opu/odata4/sap/zbc_ui_ccm_dashboard_o4/srvd/sap/zbc_ccm_dashboard/0001/Dashboard/$count",
+          "numberUnit": "System(s)"
+        }
       }
     }
   ]

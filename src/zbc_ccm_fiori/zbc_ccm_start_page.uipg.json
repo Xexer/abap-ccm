@@ -1,0 +1,61 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Start Page for CCM",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "title": "CCM: Start"
+  },
+  "sections": [
+    {
+      "id": "SECTION_1",
+      "title": "Visualization",
+      "visualizations": [
+        {
+          "id": "DASHBOARD",
+          "displayFormat": "wide",
+          "ladiAssignment": {
+            "ladiId": "ZBC_CCM_DASHBOARD_APP",
+            "tileId": "ZBC_CCM_DASHBOARD_APP_AL"
+          }
+        },
+        {
+          "id": "OBJECTS",
+          "ladiAssignment": {
+            "ladiId": "ZBC_CCM_OBJECTS_APP",
+            "tileId": "ZBC_CCM_OBJECTS_APP_AL"
+          }
+        },
+        {
+          "id": "USED_APIS",
+          "ladiAssignment": {
+            "ladiId": "ZBC_CCM_USED_API_APP",
+            "tileId": "ZBC_CCM_USED_API_APP_AL"
+          }
+        },
+        {
+          "id": "CHECKS",
+          "ladiAssignment": {
+            "ladiId": "ZBC_CCM_CHECKS",
+            "tileId": "ZBC_CCM_CHECKS_AL"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SECTION_2",
+      "title": "Administration",
+      "visualizations": [
+        {
+          "id": "RUN",
+          "ladiAssignment": {
+            "ladiId": "ZBC_CCM_RUN_APP",
+            "tileId": "ZBC_CCM_RUN_APP_AL"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'CheckMessage'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'CheckTitle'
+@UI.headerInfo.typeName: 'Check'
+@UI.headerInfo.typeNamePlural: 'Checks'
+
+@UI.presentationVariant: [ {
+  qualifier: 'pVariant',
+  sortOrder: [{ by: 'NumberOfCalls', direction: #DESC }],
+  visualizations: [{ type: #AS_LINEITEM }]
+} ]
+@UI.selectionPresentationVariant: [ {
+  presentationVariantQualifier: 'pVariant'
+} ]
+annotate entity ZBC_C_CCMChecks with
+{
+  @UI.facet: [
+    {
+      id: 'idGeneral',
+      label: 'General Information',
+      position: 10 ,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'GENERAL'
+    }
+  ]
+
+  @UI.selectionField: [ { position: 10  } ]
+  @UI.lineItem: [ { position: 10  } ]
+  @UI.identification: [ { position: 10 , qualifier: 'GENERAL' } ]
+  ProviderId;
+
+  @UI.selectionField: [ { position: 20  } ]
+  @UI.lineItem: [ { position: 20  } ]
+  @UI.identification: [ { position: 20 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Check Title'  
+  CheckTitle;
+
+  @UI.selectionField: [ { position: 30  } ]
+  @UI.lineItem: [ { position: 30  } ]
+  @UI.identification: [ { position: 30 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Check Message'
+  CheckMessage;
+
+  @UI.lineItem: [ { position: 40  } ]
+  @UI.identification: [ { position: 40 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Number of Calls'  
+  NumberOfCalls;
+
+  @UI.hidden: true
+  SystemName;
+
+}

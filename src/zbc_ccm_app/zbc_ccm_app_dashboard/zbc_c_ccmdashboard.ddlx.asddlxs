@@ -30,14 +30,14 @@ annotate entity ZBC_C_CCMDashboard with
       position: 20,
       type: #IDENTIFICATION_REFERENCE,
       targetQualifier: 'NUMBER'
-    },
-    {
-      id: 'idMoreScores',
-      label: 'Older Scores',
-      position: 30,
-      type: #LINEITEM_REFERENCE,
-      targetElement: '_OtherScores'
     }
+//    {
+//      id: 'idMoreScores',
+//      label: 'Older Scores',
+//      position: 30,
+//      type: #LINEITEM_REFERENCE,
+//      targetElement: '_OtherScores'
+//    }
   ]
 
   @UI.selectionField: [ { position: 10  } ]
@@ -95,5 +95,4 @@ annotate entity ZBC_C_CCMDashboard with
 
   @UI.hidden: true
   CriticalityLevelD;
-
 }

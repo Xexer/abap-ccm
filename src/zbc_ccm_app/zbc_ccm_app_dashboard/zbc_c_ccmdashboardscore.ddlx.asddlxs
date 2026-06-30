@@ -1,4 +1,15 @@
 @Metadata.layer: #CUSTOMER
+
+@UI.chart: [{  
+  qualifier: 'idTimeChart',
+  title: 'Time Overview',
+  description: 'Shows the system over the time',
+  chartType: #COLUMN_DUAL,
+  measures: [ 'LevelAObjects', 'LevelBObjects', 'LevelCObjects', 'LevelDObjects' ],
+  dimensions: [ 'RunTime' ],
+  measureAttributes  : [{ measure: 'LevelAObjects', role: #AXIS_1 }, { measure: 'LevelBObjects', role: #AXIS_2 }],
+  dimensionAttributes: [{ dimension: 'RunTime', role: #CATEGORY }]
+}]
 annotate entity ZBC_C_CCMDashboardScore with
 {
   @UI.facet: [
@@ -19,6 +30,7 @@ annotate entity ZBC_C_CCMDashboardScore with
 
   @UI.lineItem: [ { position: 10  } ]
   @UI.identification: [ { position: 10 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Run Time'
   RunTime;
 
   @UI.lineItem: [ { position: 30  } ]
@@ -45,4 +57,6 @@ annotate entity ZBC_C_CCMDashboardScore with
   @UI.identification: [ { position: 20, qualifier: 'GENERAL' } ]
   TechnicalDebtScore;
 
+  @EndUserText.label: 'Month'
+  YearAndMonth;
 }

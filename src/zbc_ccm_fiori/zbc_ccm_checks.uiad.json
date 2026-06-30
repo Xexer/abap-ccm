@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Checks Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_ALV5_DEFAULT"
+  },
+  "ui5AppDetails": {
+    "appId": "rewe.bc.zbcccmchecks"
+  },
+  "navigation": {
+    "targetMappingId": "ZBC_CCM_CHECKS_TM",
+    "semanticObject": "ZBC_CCM_CHECK",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "ZBC_CCM_CHECKS_AL",
+      "tileType": "static",
+      "standard": {
+        "title": "Checks",
+        "subtitle": "CCM",
+        "icon": "sap-icon://checklist"
+      }
+    }
+  ]
+}
