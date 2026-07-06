@@ -4,7 +4,7 @@ FUNCTION z_ca_atc_level_a_objects
 
 
 
-  " Version 0.8.0
+  " Version 0.8.1
 
   TYPES: BEGIN OF configuration,
            types         TYPE string,
@@ -20,8 +20,33 @@ FUNCTION z_ca_atc_level_a_objects
            number TYPE i,
          END OF counter.
 
+  TYPES: BEGIN OF filter,
+           table TYPE ars_lang_objtype-table_name,
+           field TYPE ars_lang_objtype-column_name,
+         END OF filter.
+
+  DATA filters        TYPE SORTED TABLE OF filter WITH UNIQUE KEY table.
   DATA configurations TYPE STANDARD TABLE OF configuration WITH EMPTY KEY.
   DATA counters       TYPE STANDARD TABLE OF counter WITH EMPTY KEY.
+
+  filters = VALUE #( ( table = 'REPOSRC' field = 'PROGNAME' )
+                     ( table = 'PROGDIR' field = 'NAME' )
+                     ( table = 'KTD_W_HEADER' field = 'NAME' )
+                     ( table = 'DD02L' field = 'TABNAME' )
+                     ( table = 'DD40L' field = 'TYPENAME' )
+                     ( table = 'DD04L' field = 'ROLLNAME' )
+                     ( table = 'DD01L' field = 'DOMNAME' )
+                     ( table = 'DDDDLSRC' field = 'DDLNAME' )
+                     ( table = 'DDDRTY_SOURCE' field = 'TYPE_NAME' )
+                     ( table = 'DDLXSRC' field = 'DDLXNAME' )
+                     ( table = 'DDDSFD_SOURCE' field = 'SCALAR_FUNCTION_NAME' )
+                     ( table = 'APJ_W_JCE_ROOT' field = 'JOB_CATALOG_ENTRY_NAME' )
+                     ( table = 'APJ_W_JT_ROOT' field = 'JOB_TEMPLATE_NAME' )
+                     ( table = 'O2XSLTDESC' field = 'XSLTDESC' )
+                     ( table = 'NONT_HEADER' field = 'NONT_NAME' )
+                     ( table = 'RONT_HEADER' field = 'RONT_NAME' )
+                     ( table = '/IWBEP/I_V4_MSGR' field = 'GROUP_ID' )
+                     ( table = 'TDEVC' field = 'DEVCLASS' ) ).
 
   SELECT FROM ars_lang_objtype
     FIELDS *
@@ -43,43 +68,13 @@ FUNCTION z_ca_atc_level_a_objects
                INTO TABLE configurations REFERENCE INTO config.
     ENDTRY.
 
+    config->z_filter = VALUE #( filters[ table = config->table ]-field OPTIONAL ).
+
     CASE config->table.
       WHEN 'SMIMLOIO'.
         config->field = 'PROP01'.
-      WHEN 'PROGDIR' OR 'KTD_W_HEADER'.
-        config->z_filter = 'NAME'.
-      WHEN 'DD02L'.
-        config->z_filter = 'TABNAME'.
-      WHEN 'DD40L'.
-        config->z_filter = 'TYPENAME'.
-      WHEN 'DD04L'.
-        config->z_filter = 'ROLLNAME'.
-      WHEN 'DD01L'.
-        config->z_filter = 'DOMNAME'.
-      WHEN 'DDDDLSRC'.
-        config->z_filter = 'DDLNAME'.
-      WHEN 'DDDRTY_SOURCE'.
-        config->z_filter = 'TYPE_NAME'.
-      WHEN 'DDLXSRC'.
-        config->z_filter = 'DDLXNAME'.
-      WHEN 'DDDSFD_SOURCE'.
-        config->z_filter = 'SCALAR_FUNCTION_NAME'.
       WHEN 'DD25L'.
         config->e_filter = 'VIEWNAME'.
-      WHEN 'APJ_W_JCE_ROOT'.
-        config->z_filter = 'JOB_CATALOG_ENTRY_NAME'.
-      WHEN 'APJ_W_JT_ROOT'.
-        config->z_filter = 'JOB_TEMPLATE_NAME'.
-      WHEN 'O2XSLTDESC'.
-        config->z_filter = 'XSLTDESC'.
-      WHEN 'NONT_HEADER'.
-        config->z_filter = 'NONT_NAME'.
-      WHEN 'RONT_HEADER'.
-        config->z_filter = 'RONT_NAME'.
-      WHEN '/IWBEP/I_V4_MSGR'.
-        config->z_filter = 'GROUP_ID'.
-      WHEN 'TDEVC'.
-        config->z_filter = 'DEVCLASS'.
     ENDCASE.
   ENDLOOP.
 
