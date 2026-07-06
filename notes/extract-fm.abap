@@ -4,7 +4,7 @@ FUNCTION z_ca_atc_level_a_objects
 
 
 
-  " Version 0.8.1
+  " Version 0.8.2
 
   TYPES: BEGIN OF configuration,
            types         TYPE string,
@@ -46,6 +46,26 @@ FUNCTION z_ca_atc_level_a_objects
                      ( table = 'NONT_HEADER' field = 'NONT_NAME' )
                      ( table = 'RONT_HEADER' field = 'RONT_NAME' )
                      ( table = '/IWBEP/I_V4_MSGR' field = 'GROUP_ID' )
+                     ( table = '/IWBEP/I_MGW_OHD' field = 'TECHNICAL_NAME' )
+                     ( table = '/IWFND/I_MED_OHD' field = 'MODEL_IDENTIFIER' )
+                     ( table = '/IWFND/I_MED_SRH' field = 'SRV_IDENTIFIER' )
+                     ( table = '/IWBEP/I_MGW_SRH' field = 'TECHNICAL_NAME' )
+                     ( table = '/IWBEP/I_MGW_VAH' field = 'TECHNICAL_NAME' )
+                     ( table = 'ACMDCLSRC' field = 'DCLNAME' )
+                     ( table = 'TCDRP' field = 'OBJECT' )
+                     ( table = 'DDDESD_HEADER' field = 'SCHEMA_NAME' )
+                     ( table = 'ABAP_DAEMON_DT' field = 'DAEMON_ID' )
+                     ( table = 'DDDRAS_SOURCE' field = 'ASPECT_NAME' )
+                     ( table = 'DDDSFI_SOURCE' field = 'IMPLEMENTATION_REFERENCE_NAME' )
+                     ( table = 'DDDTDC_SOURCE' field = 'DTDC_NAME' )
+                     ( table = 'DDDTEB_HEADER' field = 'BUFFER_NAME' )
+                     ( table = 'AMC_APPL' field = 'APPLICATION_ID' )
+                     ( table = 'APC_APPL' field = 'APPLICATION_ID' )
+                     ( table = 'SPRV_HEAD' field = 'PRV_PRX_NAME' )
+                     ( table = 'SRVB_HEAD' field = 'SRVB_NAME' )
+                     ( table = 'SRVDSRC' field = 'SRVDNAME' )
+                     ( table = 'VEPHEADER' field = 'VEPNAME' )
+                     ( table = 'WMPC_DT' field = 'WMPC_ID' )
                      ( table = 'TDEVC' field = 'DEVCLASS' ) ).
 
   SELECT FROM ars_lang_objtype
