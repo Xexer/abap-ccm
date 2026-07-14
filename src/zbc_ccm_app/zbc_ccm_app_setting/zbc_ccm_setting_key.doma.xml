@@ -69,6 +69,13 @@
      <DOMVALUE_L>PERIOD</DOMVALUE_L>
      <DDTEXT>Period (W/M)</DDTEXT>
     </DD07V>
+    <DD07V>
+     <DOMNAME>ZBC_CCM_SETTING_KEY</DOMNAME>
+     <VALPOS>0009</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>TEST</DOMVALUE_L>
+     <DDTEXT>Test Mode</DDTEXT>
+    </DD07V>
    </DD07V_TAB>
   </asx:values>
  </asx:abap>

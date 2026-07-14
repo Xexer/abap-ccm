@@ -4,6 +4,7 @@ INTERFACE zif_bc_ccm_mini_log
   CONSTANTS:
     BEGIN OF sub_objects,
       scheduler TYPE cl_bali_header_setter=>ty_subobject VALUE 'SCHEDULE',
+      data      TYPE cl_bali_header_setter=>ty_subobject VALUE 'DATA',
     END OF sub_objects.
 
   " Dummy variable for message

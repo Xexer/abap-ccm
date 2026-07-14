@@ -1,0 +1,23 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "CCM: Preview Data",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "catalogName": "ZBC_CCM_DATA"
+  },
+  "parameters": {
+    "singleValueParameters": [
+      {
+        "name": "DELETE",
+        "value": ""
+      },
+      {
+        "name": "INSERT",
+        "value": ""
+      }
+    ]
+  }
+}

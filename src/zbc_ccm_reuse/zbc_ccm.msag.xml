@@ -62,6 +62,24 @@
      <MSGNR>008</MSGNR>
      <TEXT>&amp;1 packages have been assigned</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Data has been deleted</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Data has been inserted</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Test Mode is deactivated in settings</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

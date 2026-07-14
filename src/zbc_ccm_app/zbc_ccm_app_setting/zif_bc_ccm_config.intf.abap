@@ -15,6 +15,7 @@ INTERFACE zif_bc_ccm_config
                default_atc_variant      TYPE key VALUE 'ATC_VARI',
                include_level_c_findings TYPE key VALUE 'INCL_C',
                period_unit              TYPE key VALUE 'PERIOD',
+               test_mode                TYPE key VALUE 'TEST',
              END OF config_option.
 
   CONSTANTS: BEGIN OF periods,

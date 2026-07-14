@@ -7,6 +7,10 @@
   },
   "subobjects": [
     {
+      "name": "DATA",
+      "description": "Dummy Data"
+    },
+    {
       "name": "SCHEDULE",
       "description": "Scheduler Info"
     }
