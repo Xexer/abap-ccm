@@ -4,12 +4,13 @@
 @EndUserText.label: '###GENERATED Core Data Service Entity'
 define root view entity ZBC_R_CCMRun
   as select from zbc_ccm_run as Runs
-  composition of exact one to many ZBC_I_CCMScore as _Score
+  composition of exact one to many ZBC_I_CCMScore      as _Score
   association of exact one to one ZBC_I_CCMRunStatusVH as _RunStatus on _RunStatus.RunStatus = $projection.RunStatus
-  association of exact one to one ZBC_I_CCMProviderVH as _Provider on _Provider.ProviderId = $projection.ProviderID
+  association of exact one to one ZBC_I_CCMProviderVH  as _Provider  on _Provider.ProviderId = $projection.ProviderID
 {
   key run_id                as RunID,
       provider_id           as ProviderID,
+      run_period            as RunPeriod,
       run_time              as RunTime,
       run_status            as RunStatus,
       @Semantics.user.createdBy: true

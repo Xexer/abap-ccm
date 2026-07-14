@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZBC_C_CCMDocument'
+@MappingRole: true
+define role ZBC_C_CCMDocument {
+  grant select on ZBC_C_CCMDocument
+  where INHERITING CONDITIONS FROM ENTITY ZBC_R_CCMDocument REPLACING { ROOT WITH _BaseEntity };
+}

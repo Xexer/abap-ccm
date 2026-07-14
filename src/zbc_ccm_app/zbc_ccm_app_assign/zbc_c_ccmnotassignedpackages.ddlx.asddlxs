@@ -1,0 +1,59 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'ObjectName'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'ProviderId'
+@UI.headerInfo.typeName: 'Package'
+@UI.headerInfo.typeNamePlural: 'Packages'
+annotate entity ZBC_C_CCMNotAssignedPackages with
+{
+  @UI.facet: [
+    {
+      id: 'idGeneral',
+      label: 'General Information',
+      position: 10 ,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'GENERAL'
+    },
+    {
+      id: 'idCluster',
+      label: 'Cluster',
+      position: 20,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'CLUSTER'
+    }
+  ]
+
+  @UI.selectionField: [ { position: 10  } ]
+  @UI.lineItem: [ { position: 10  },
+                  { position: 10, type: #FOR_ACTION, dataAction: 'SetClusterForPackage', label: 'Set Cluster' } ]
+  @UI.identification: [ { position: 10 , qualifier: 'GENERAL' } ]
+  ProviderId;
+
+  @UI.hidden: true
+  ObjectType;
+
+  @UI.selectionField: [ { position: 30  } ]
+  @UI.lineItem: [ { position: 30  } ]
+  @UI.identification: [ { position: 30 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Package'
+  ObjectName;
+
+  @UI.hidden: true
+  SystemName;
+
+  @UI.selectionField: [ { position: 50 } ]
+  @UI.lineItem: [ { position: 50  } ]
+  @UI.identification: [ { position: 50 , qualifier: 'CLUSTER' } ]
+  @EndUserText.label: 'Is Assigned'
+  IsAssignedBool;
+
+  @UI.selectionField: [ { position: 40  } ]
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [ { position: 40, qualifier: 'CLUSTER' } ]
+  ClusterID;
+
+  @UI.hidden: true
+  ClusterName;
+
+}

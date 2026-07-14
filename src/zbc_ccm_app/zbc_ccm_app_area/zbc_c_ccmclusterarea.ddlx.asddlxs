@@ -1,0 +1,71 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZBC_C_CCMClusterArea with
+{
+  @UI.facet: [
+    {
+      id: 'idGeneral',
+      label: 'General Information',
+      position: 10 ,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'GENERAL'
+    },
+    {
+      id: 'idClass',
+      label: 'Classification',
+      position: 20,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'CLASS'
+    }
+  ]
+
+  @UI.selectionField: [ { position: 10  } ]
+  @UI.lineItem: [ { position: 10  } ]
+  @UI.identification: [ { position: 10 , qualifier: 'GENERAL' } ]
+  ProviderId;
+
+  @UI.selectionField: [ { position: 20  } ]
+  @UI.lineItem: [ {
+    position: 20,
+    type: #WITH_INTENT_BASED_NAVIGATION,
+    semanticObject: 'ZBC_CCM_OBJECT',
+    semanticObjectAction: 'display'
+  } ]
+  @UI.identification: [ {
+    position: 20,
+    qualifier: 'GENERAL',
+    type: #WITH_INTENT_BASED_NAVIGATION,
+    semanticObject: 'ZBC_CCM_OBJECT',
+    semanticObjectAction: 'display'
+  } ]
+  ClusterID;
+
+  @UI.hidden: true
+  SystemName;
+
+  @UI.hidden: true
+  ClusterName;
+
+  @UI.lineItem: [ { position: 50, criticality: 'LevelDCriticality' } ]
+  @UI.identification: [ { position: 50, criticality: 'LevelDCriticality', qualifier: 'CLASS' } ]
+  @EndUserText.label: 'Level D'
+  LevelDObjects;
+
+  @UI.lineItem: [ { position: 60, criticality: 'LevelCCriticality' } ]
+  @UI.identification: [ { position: 60, criticality: 'LevelCCriticality', qualifier: 'CLASS' } ]
+  @EndUserText.label: 'Level C'
+  LevelCObjects;
+
+  @UI.lineItem: [ { position: 70, criticality: 'LevelBCriticality' } ]
+  @UI.identification: [ { position: 70, criticality: 'LevelBCriticality', qualifier: 'CLASS' } ]
+  @EndUserText.label: 'Level B'
+  LevelBObjects;
+
+  @UI.hidden: true
+  LevelDCriticality;
+
+  @UI.hidden: true
+  LevelCCriticality;
+
+  @UI.hidden: true
+  LevelBCriticality;
+}

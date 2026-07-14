@@ -8,12 +8,13 @@
 
 @UI.presentationVariant: [ {
   qualifier: 'pVariant',
-  sortOrder: [{ by: 'RunTime', direction: #DESC }],
-  visualizations: [{ type: #AS_LINEITEM }]    
-} ] 
-@UI.selectionPresentationVariant: [ { 
+  sortOrder: [{ by: 'RunPeriod', direction: #DESC }, { by: 'RunTime', direction: #DESC }],
+  groupBy: [ 'RunPeriod' ],
+  visualizations: [{ type: #AS_LINEITEM }]
+} ]
+@UI.selectionPresentationVariant: [ {
   presentationVariantQualifier: 'pVariant'
-} ] 
+} ]
 annotate view ZBC_C_CCMRun with
 {
   @UI.facet: [
@@ -47,6 +48,10 @@ annotate view ZBC_C_CCMRun with
   @UI.lineItem: [ { position: 20  } ]
   @UI.identification: [ { position: 20 , qualifier: 'GENERAL' } ]
   ProviderID;
+
+  @UI.lineItem: [ { position: 15  } ]
+  @UI.identification: [ { position: 25 , qualifier: 'GENERAL' } ]
+  RunPeriod;
 
   @UI.selectionField: [ { position: 20 } ]
   @UI.lineItem: [ { position: 30  } ]

@@ -19,29 +19,56 @@ CLASS zcl_bc_ccm_scheduler DEFINITION
         run_time TYPE utclong,
       END OF result_finding.
 
+    DATA default_check_variant TYPE satc_api_result_headers-CheckVariant.
+
+    "! Get all active providers from customizing
+    "! @parameter result | All active providers
     METHODS select_active_providers
       RETURNING VALUE(result) TYPE providers.
 
+    "! Run a provider, search for findings and calculate score
+    "! @parameter provider                  | Provider Configuration
+    "! @raising   zcx_bc_ccm_schedule_error | Error in determination
     METHODS search_and_score_new_run
       IMPORTING provider TYPE provider
       RAISING   zcx_bc_ccm_schedule_error.
 
+    "! Select Findings from run and check against configuration
+    "! @parameter provider                  | Provider Configuration
+    "! @parameter result                    | Findings from last run
+    "! @raising   zcx_bc_ccm_schedule_error | Error in determination
     METHODS select_and_validate_findings
       IMPORTING provider      TYPE provider
       RETURNING VALUE(result) TYPE result_finding
       RAISING   zcx_bc_ccm_schedule_error.
 
+    "! Save the new objects for this provider
+    "! @parameter provider | Provider Configuration
+    "! @parameter score    | Scoring Result
     METHODS save_objects
       IMPORTING provider TYPE zbc_i_ccmprovidercust
                 !score   TYPE zif_bc_scoring=>scoring_result.
 
+    "! Save new score for this run
+    "! @parameter provider | Provider Configuration
+    "! @parameter score    | Scoring Result
     METHODS save_score
       IMPORTING provider TYPE zbc_i_ccmprovidercust
                 !score   TYPE zif_bc_scoring=>scoring_result.
 
+    "! Convert a classic timestamp to UTCLONG
+    "! @parameter timestamp | Classic timestamp
+    "! @parameter result    | UTCLONG timestamp
     METHODS convert_timestamp_to_utclong
       IMPORTING !timestamp    TYPE timestamp
       RETURNING VALUE(result) TYPE utclong.
+
+    "! Convert UTC timestamp to unit
+    "! @parameter run_time | Timestamp
+    "! @parameter result   | Custom Unit
+    METHODS get_period_from_timestamp
+      IMPORTING run_time      TYPE utclong
+      RETURNING VALUE(result) TYPE ZBC_R_CCMRun-RunPeriod.
 ENDCLASS.
 
 
@@ -49,9 +76,15 @@ CLASS zcl_bc_ccm_scheduler IMPLEMENTATION.
   METHOD zif_bc_ccm_scheduler~process_all_active_providers.
     DATA(active_providers) = select_active_providers( ).
 
+    DATA(config) = zcl_bc_ccm_config_factory=>create_config( ).
+    default_check_variant = config->get_value( config->config_option-default_atc_variant ).
+
     LOOP AT active_providers INTO DATA(provider).
       TRY.
           search_and_score_new_run( provider ).
+
+          MESSAGE s002(zbc_ccm) WITH provider-ProviderId provider-SystemName INTO log->message.
+          log->add_message( ).
 
         CATCH zcx_bc_ccm_schedule_error.
           CONTINUE.
@@ -112,7 +145,7 @@ CLASS zcl_bc_ccm_scheduler IMPLEMENTATION.
 
     result-run_time = convert_timestamp_to_utclong( last_run-ScheduledOnTimestamp ).
 
-    IF last_run-CheckVariant <> zif_bc_ccm_scheduler=>atc_variant.
+    IF last_run-CheckVariant <> default_check_variant AND default_check_variant IS NOT INITIAL.
       RAISE EXCEPTION NEW zcx_bc_ccm_schedule_error( zcx_bc_ccm_schedule_error=>fail-wrong_variant ).
     ELSEIF last_run-ObjectProvider <> provider-ProviderId.
       RAISE EXCEPTION NEW zcx_bc_ccm_schedule_error( zcx_bc_ccm_schedule_error=>fail-wrong_provider ).
@@ -153,14 +186,18 @@ CLASS zcl_bc_ccm_scheduler IMPLEMENTATION.
 
 
   METHOD save_score.
+    DATA(run_period) = get_period_from_timestamp( score-run_time ).
+
     MODIFY ENTITIES OF ZBC_R_CCMRun
            ENTITY Runs
            CREATE FROM VALUE #( ( %cid                = provider-ProviderId
                                   ProviderID          = provider-ProviderId
                                   RunStatus           = 'F'
+                                  RunPeriod           = run_period
                                   RunTime             = score-run_time
                                   %control-ProviderID = if_abap_behv=>mk-on
                                   %control-RunStatus  = if_abap_behv=>mk-on
+                                  %control-RunPeriod  = if_abap_behv=>mk-on
                                   %control-RunTime    = if_abap_behv=>mk-on ) )
            ENTITY Runs
            CREATE BY \_Score FROM VALUE #(
@@ -187,5 +224,26 @@ CLASS zcl_bc_ccm_scheduler IMPLEMENTATION.
     cl_abap_utclong=>from_system_timestamp( EXPORTING system_date = schedule_date
                                                       system_time = schedule_time
                                             IMPORTING utc_tstmp   = result ).
+  ENDMETHOD.
+
+
+  METHOD get_period_from_timestamp.
+    cl_abap_utclong=>to_system_timestamp( EXPORTING utc_tstmp   = run_time
+                                          IMPORTING system_date = DATA(date) ).
+
+    DATA(config) = zcl_bc_ccm_config_factory=>create_config( ).
+
+    CASE config->get_value( config->config_option-period_unit ).
+      WHEN zif_bc_ccm_config=>periods-week.
+        SELECT SINGLE FROM I_CalendarDate
+          FIELDS CalendarWeek
+          WHERE CalendarDate = @date
+          INTO @DATA(week_number).
+        RETURN |{ date+2(2) }/W{ week_number }|.
+
+      WHEN OTHERS.
+        RETURN |{ date+2(2) }/{ date+4(2) }|.
+
+    ENDCASE.
   ENDMETHOD.
 ENDCLASS.

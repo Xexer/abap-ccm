@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Assginment Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_ALV5_DEFAULT"
+  },
+  "ui5AppDetails": {
+    "appId": "rewe.bc.zbcccmassign"
+  },
+  "navigation": {
+    "targetMappingId": "ZBC_CCM_ASSIGN_APP_TM",
+    "semanticObject": "ZBC_CCM_ASSIGN",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "ZBC_CCM_ASSIGN_APP_AL",
+      "tileType": "static",
+      "standard": {
+        "title": "Assign Clusters",
+        "subtitle": "CCM",
+        "icon": "sap-icon://mirrored-task-circle"
+      }
+    }
+  ]
+}

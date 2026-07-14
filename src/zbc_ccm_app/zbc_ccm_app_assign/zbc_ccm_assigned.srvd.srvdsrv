@@ -1,0 +1,5 @@
+@EndUserText.label: 'Not assigned objects'
+@ObjectModel.leadingEntity.name: 'ZBC_C_CCMNotAssignedPackages'
+define service ZBC_CCM_ASSIGNED {
+  expose ZBC_C_CCMNotAssignedPackages as NotAssigned;
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZBC_R_CCMCluster'
+@MappingRole: true
+define role ZBC_R_CCMCluster {
+  grant select on ZBC_R_CCMCluster
+  where TRUE;
+}

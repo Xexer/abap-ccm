@@ -1,0 +1,5 @@
+@EndUserText.label: 'Area for Cluster'
+@ObjectModel.leadingEntity.name: 'ZBC_C_CCMClusterArea'
+define service ZBC_CCM_AREA {
+  expose ZBC_C_CCMClusterArea as ClusterArea;
+}

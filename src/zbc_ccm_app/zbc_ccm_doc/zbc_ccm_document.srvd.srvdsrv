@@ -1,0 +1,15 @@
+@EndUserText: {
+  label: 'Service Definition for ZBC_C_CCMDocument'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZBC_C_CCMDocument'
+  }
+}
+define service ZBC_CCM_DOCUMENT
+  provider contracts odata_v4_ui {
+  expose ZBC_C_CCMDocument   as Document;
+  expose ZBC_C_CCMDocLink    as Link;
+  expose ZBC_I_CCMProviderVH;
+  expose ZBC_I_CCMObjectVH;
+}

@@ -12,6 +12,9 @@ CLASS zcl_bc_ccm_dashboard_elem IMPLEMENTATION.
     DATA original_data TYPE STANDARD TABLE OF ZBC_C_CCMDashboard WITH EMPTY KEY.
     DATA result_type   TYPE p LENGTH 10 DECIMALS 1.
 
+    DATA(configuration) = zcl_bc_ccm_config_factory=>create_config( ).
+    DATA(include_level_c) = xsdbool( configuration->get_value( configuration->config_option-include_level_c_findings ) = abap_true ).
+
     original_data = CORRESPONDING #( it_original_data ).
 
     LOOP AT original_data REFERENCE INTO DATA(original).
@@ -24,7 +27,12 @@ CLASS zcl_bc_ccm_dashboard_elem IMPLEMENTATION.
       result_type = ( original->LevelAObjects / sum ) * 100.
       original->CloudReady = |{ CONV i( result_type ) }%|.
 
-      result_type = ( original->LevelAObjects + original->LevelBObjects ) / sum * 100.
+      DATA(sum_for_clean_core) = original->LevelAObjects + original->LevelBObjects.
+      IF include_level_c = abap_true.
+        sum_for_clean_core += original->LevelCObjects.
+      ENDIF.
+
+      result_type = ( sum_for_clean_core ) / sum * 100.
       original->UpgradeStable = |{ CONV i( result_type ) }%|.
     ENDLOOP.
 

@@ -6,4 +6,5 @@ define service ZBC_CCM_OBJECTS {
   expose ZBC_I_CCMPriorityVH;
   expose ZBC_I_CCMClassificationVH;
   expose ZBC_I_CCMProviderVH;
+  expose ZBC_I_CCMAssignmentVH;
 }

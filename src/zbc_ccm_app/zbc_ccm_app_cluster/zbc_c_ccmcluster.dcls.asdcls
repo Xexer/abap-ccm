@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZBC_C_CCMCluster'
+@MappingRole: true
+define role ZBC_C_CCMCluster {
+  grant select on ZBC_C_CCMCluster
+  where INHERITING CONDITIONS FROM ENTITY ZBC_R_CCMCluster REPLACING { ROOT WITH _BaseEntity };
+}

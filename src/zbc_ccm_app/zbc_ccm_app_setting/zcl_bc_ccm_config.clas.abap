@@ -39,4 +39,9 @@ CLASS zcl_bc_ccm_config IMPLEMENTATION.
       INTO TABLE @result
       PRIVILEGED ACCESS.
   ENDMETHOD.
+
+
+  METHOD zif_bc_ccm_config~is_active.
+    RETURN xsdbool( zif_bc_ccm_config~get_value( key ) = abap_true ).
+  ENDMETHOD.
 ENDCLASS.

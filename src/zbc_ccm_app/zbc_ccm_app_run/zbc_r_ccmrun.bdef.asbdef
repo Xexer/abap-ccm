@@ -37,6 +37,7 @@ authorization master( global )
   {
     RunID = RUN_ID;
     ProviderID = PROVIDER_ID;
+    RunPeriod = run_period;
     RunTime = RUN_TIME;
     RunStatus = run_status;
     LocalCreatedBy = LOCAL_CREATED_BY;

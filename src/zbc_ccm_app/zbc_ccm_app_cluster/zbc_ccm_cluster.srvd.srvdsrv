@@ -1,0 +1,17 @@
+@EndUserText: {
+  label: 'Service Definition for ZBC_C_CCMCluster'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZBC_C_CCMCluster'
+  }
+}
+define service ZBC_CCM_CLUSTER
+  provider contracts odata_v4_ui {
+  expose ZBC_C_CCMCluster               as CCMCluster;
+  expose ZBC_C_CCMClusterAssignment     as Assignment;
+  expose ZBC_I_CCMProviderVH;
+  expose ZBC_I_CCMClusterVH;
+  expose ZBC_I_CCMClusterAssignCount;
+  expose ZBC_I_CCMNotAssignedPackagesVH;
+}

@@ -1,0 +1,77 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'ShortDescription'
+@UI.headerInfo.typeName: 'Document'
+@UI.headerInfo.typeNamePlural: 'Documents'
+annotate view ZBC_C_CCMDocument with
+{
+  @UI.facet: [
+    {
+      id: 'idGeneral',
+      label: 'General Information',
+      position: 10 ,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'GENERAL'
+    },
+    {
+      id: 'idScore',
+      label: 'Custom Score',
+      position: 15 ,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'SCORE'
+    },
+    {
+      id: 'idLink',
+      label: 'Linked Objects',
+      position: 20 ,
+      type: #LINEITEM_REFERENCE,
+      targetElement: '_Link'
+    }
+  ]
+
+  @UI.hidden: true
+  DocumentID;
+
+  @UI.selectionField: [ { position: 20 } ]
+  @UI.lineItem: [ { position: 20  } ]
+  @UI.identification: [ { position: 20 , qualifier: 'GENERAL' } ]
+  @UI.multiLineText: true
+  ShortDescription;
+
+  @UI.hidden: true
+  LongDescription;
+
+  @UI.selectionField: [ { position: 30 } ]
+  @UI.lineItem: [ { position: 40  } ]
+  @UI.identification: [ { position: 40 , qualifier: 'SCORE' } ]
+  @EndUserText.label: 'Use Custom Score'
+  CustomScore;
+
+  @UI.identification: [ { position: 50 , qualifier: 'SCORE' } ]
+  @EndUserText.label: 'Score for Level B'
+  DeviatingScoreB;
+
+  @UI.identification: [ { position: 60 , qualifier: 'SCORE' } ]
+  @EndUserText.label: 'Score for Level C'
+  DeviatingScoreC;
+
+  @UI.identification: [ { position: 70 , qualifier: 'SCORE' } ]
+  @EndUserText.label: 'Score for Level D'
+  DeviatingScoreD;
+
+  @UI.hidden: true
+  LocalCreatedBy;
+
+  @UI.hidden: true
+  LocalCreatedAt;
+
+  @UI.hidden: true
+  LocalLastChangedBy;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+  @UI.hidden: true
+  LastChangedAt;
+
+}

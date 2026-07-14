@@ -1,0 +1,70 @@
+managed implementation in class ZBP_BC_CCM_CLUSTER unique;
+strict ( 2 );
+with draft;
+extensible;
+
+define behavior for ZBC_R_CCMCluster alias CCMCluster
+persistent table zbc_ccm_clstr
+extensible
+draft table zbc_ccm_clstrd
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( global )
+{
+  field ( numbering : managed, readonly )
+  ClusterID;
+
+  field ( readonly )
+  LocalCreatedBy,
+  LocalCreatedAt,
+  LocalLastChangedBy,
+  LocalLastChangedAt,
+  LastChangedAt;
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _Assignment { create; with draft; }
+
+  mapping for zbc_ccm_clstr corresponding extensible
+    {
+      ClusterID          = CLUSTER_ID;
+      ClusterName        = CLUSTER_NAME;
+      LocalCreatedBy     = LOCAL_CREATED_BY;
+      LocalCreatedAt     = LOCAL_CREATED_AT;
+      LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+      LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+      LastChangedAt      = LAST_CHANGED_AT;
+    }
+}
+
+define behavior for ZBC_I_CCMClusterAssignment alias Assignment
+persistent table zbc_ccm_cassign
+draft table zbc_ccm_cassignd
+lock dependent by _Cluster
+authorization dependent by _Cluster
+{
+  field ( numbering : managed, readonly ) ObjectID;
+  field ( readonly ) ClusterID;
+
+  update;
+  delete;
+
+  association _Cluster { with draft; }
+
+  mapping for zbc_ccm_cassign
+    {
+      ClusterID = cluster_id;
+      ObjectID = object_id;
+      ObjectName = obj_name;
+      ObjectType = obj_type;
+      ProviderID = provider_id;
+    }
+}

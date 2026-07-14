@@ -1,0 +1,16 @@
+managed implementation in class zbp_bc_ccm_assigned unique;
+strict ( 2 );
+
+define behavior for ZBC_R_CCMNotAssignedPackages alias Package
+lock master
+authorization master ( instance )
+with unmanaged save
+{
+  create ( authorization : global );
+  update;
+  delete;
+
+  action SetClusterForPackage parameter ZBC_S_CCMClusterChoose;
+
+  field ( readonly ) ProviderId, ObjectType, ObjectName;
+}

@@ -23,10 +23,12 @@ define root view entity ZBC_C_CCMDashboard
           LevelBObjects,
           LevelCObjects,
           LevelDObjects,
+          
           @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
   virtual CloudReady        : abap.char(10),
           @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
   virtual UpgradeStable     : abap.char(10),
+  
           @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
   virtual CriticalityLevelA : int1,
           @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
@@ -35,5 +37,6 @@ define root view entity ZBC_C_CCMDashboard
   virtual CriticalityLevelC : int1,
           @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
   virtual CriticalityLevelD : int1,
+    
           _OtherScores : redirected to composition child ZBC_C_CCMDashboardScore
 }

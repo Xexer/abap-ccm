@@ -11,7 +11,7 @@
   "sections": [
     {
       "id": "SECTION_1",
-      "title": "Visualization",
+      "title": "Reporting",
       "visualizations": [
         {
           "id": "DASHBOARD",
@@ -41,11 +41,45 @@
             "ladiId": "ZBC_CCM_CHECKS",
             "tileId": "ZBC_CCM_CHECKS_AL"
           }
+        },
+        {
+          "id": "AREA",
+          "ladiAssignment": {
+            "ladiId": "ZBC_CCM_AREA_APP",
+            "tileId": "ZBC_CCM_AREA_APP_AL"
+          }
         }
       ]
     },
     {
       "id": "SECTION_2",
+      "title": "Process",
+      "visualizations": [
+        {
+          "id": "DOCUMENT",
+          "ladiAssignment": {
+            "ladiId": "ZBC_CCM_DOCUMENT_APP",
+            "tileId": "ZBC_CCM_DOCUMENT_APP_AL"
+          }
+        },
+        {
+          "id": "CLUSTER",
+          "ladiAssignment": {
+            "ladiId": "ZBC_CCM_CLUSTER_APP",
+            "tileId": "ZBC_CCM_CLUSTER_APP_AL"
+          }
+        },
+        {
+          "id": "ASSIGN",
+          "ladiAssignment": {
+            "ladiId": "ZBC_CCM_ASSIGN_APP",
+            "tileId": "ZBC_CCM_ASSIGN_APP_AL"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SECTION_3",
       "title": "Administration",
       "visualizations": [
         {

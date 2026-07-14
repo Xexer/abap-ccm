@@ -19,13 +19,24 @@ define root view entity ZBC_C_CCMObjects
           @UI.textArrangement: #TEXT_ONLY
           Classification,
           _Classification.Description,
+          @Consumption.valueHelpDefinition: [{ entity: { name: 'ZBC_I_CCMClusterVH', element : 'ClusterID' } }]
+          @ObjectModel.text.element: [ 'ClusterName' ]
+          @UI.textArrangement: #TEXT_ONLY
+          _Cluster.ClusterID,
+          _Cluster.ClusterName,
           NumberError,
           NumberWarning,
           NumberInfo,
           DebtScore,
 
           @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_OBJECT_ELEM'
-  virtual ClassPriority : abap.int1,
+  virtual ClassPriority    : abap.int1,
+          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_OBJECT_ELEM'
+          @ObjectModel.text.element: [ 'ShortDescription' ]
+          @UI.textArrangement: #TEXT_ONLY          
+  virtual DocumentID       : zbc_ccm_document_id,
+          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_OBJECT_ELEM'
+  virtual ShortDescription : zbc_ccm_short_desc,
 
           _Classification,
           _Messages : redirected to composition child ZBC_C_CCMMessages,

@@ -19,7 +19,21 @@
     "desktop": true,
     "tablet": true,
     "phone": true,
-    "additionalParameterHandling": "notAllowed"
+    "parameters": [
+      {
+        "name": "ProviderId",
+        "renameTo": "ProviderId"
+      },
+      {
+        "name": "Classification",
+        "renameTo": "Classification"
+      },
+      {
+        "name": "ClusterID",
+        "renameTo": "ClusterID"
+      }
+    ],
+    "additionalParameterHandling": "ignored"
   },
   "tiles": [
     {

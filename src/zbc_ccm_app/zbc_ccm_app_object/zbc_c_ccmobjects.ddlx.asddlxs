@@ -51,7 +51,6 @@ annotate entity ZBC_C_CCMObjects with
   @UI.identification: [ { position: 10 , qualifier: 'INFO' } ]
   ProviderId;
 
-  @UI.selectionField: [ { position: 20  } ]
   @UI.lineItem: [ { position: 20  } ]
   ObjectType;
 
@@ -68,7 +67,6 @@ annotate entity ZBC_C_CCMObjects with
   @EndUserText.label: 'Package'
   PackageName;
 
-  @UI.lineItem: [ { position: 60  } ]
   @UI.identification: [ { position: 60 , qualifier: 'INFO' } ]
   @EndUserText.label: 'Responsible'
   PersonResponsible;
@@ -81,6 +79,36 @@ annotate entity ZBC_C_CCMObjects with
 
   @UI.hidden: true
   Description;
+  
+  @UI.lineItem: [ {
+    position: 55,
+    type: #WITH_INTENT_BASED_NAVIGATION, 
+    semanticObject: 'ZBC_CCM_DOCUMENT', 
+    semanticObjectAction: 'manage', 
+    semanticObjectBinding: [ { localElement: 'DocumentID', element: 'DocumentID' } ]   
+  } ]
+  @UI.identification: [ {
+    position: 70,
+    qualifier: 'INFO',
+    type: #WITH_INTENT_BASED_NAVIGATION, 
+    semanticObject: 'ZBC_CCM_DOCUMENT', 
+    semanticObjectAction: 'manage', 
+    semanticObjectBinding: [ { localElement: 'DocumentID', element: 'DocumentID' } ]   
+  } ]  
+  @EndUserText.label: 'Documentation'
+  DocumentID;
+  
+  @UI.hidden: true
+  ShortDescription;
+  
+  @UI.selectionField: [ { position: 60 } ]
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [ { position: 70 , qualifier: 'INFO' } ]
+  @EndUserText.label: 'Cluster'
+  ClusterID;
+  
+  @UI.hidden: true
+  ClusterName;
 
   @UI.identification: [ { position: 90 , qualifier: 'NUMBER' } ]
   @EndUserText.label: 'Errors (No.)'

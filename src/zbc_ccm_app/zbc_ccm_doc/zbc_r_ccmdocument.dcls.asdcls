@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZBC_R_CCMDocument'
+@MappingRole: true
+define role ZBC_R_CCMDocument {
+  grant select on ZBC_R_CCMDocument
+  where TRUE;
+}

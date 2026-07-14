@@ -1,0 +1,38 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Document Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_ALV5_DEFAULT"
+  },
+  "ui5AppDetails": {
+    "appId": "rewe.bc.zbcccmdocument"
+  },
+  "navigation": {
+    "targetMappingId": "ZBC_CCM_DOCUMENT_APP_TM",
+    "semanticObject": "ZBC_CCM_DOCUMENT",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "ZBC_CCM_DOCUMENT_APP_AL",
+      "tileType": "dynamic",
+      "standard": {
+        "title": "Documentation",
+        "subtitle": "CCM",
+        "icon": "sap-icon://documents",
+        "dynamic": {
+          "serviceBaseUrl": "/sap/opu/odata4/sap/zbc_ui_ccm_document_o4/srvd/sap/zbc_ccm_document/0001/Document/$count",
+          "numberUnit": "Document(s)"
+        }
+      }
+    }
+  ]
+}

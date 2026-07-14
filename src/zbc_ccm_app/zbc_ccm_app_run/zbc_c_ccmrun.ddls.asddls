@@ -18,6 +18,7 @@ define root view entity ZBC_C_CCMRun
       @UI.textArrangement: #TEXT_ONLY
       ProviderID,
       _Provider.SystemName,
+      RunPeriod,
       RunTime,
       @Consumption.valueHelpDefinition: [{ entity: { name: 'ZBC_I_CCMRunStatusVH', element : 'RunStatus' } }]
       @ObjectModel.text.element: [ 'Description' ]

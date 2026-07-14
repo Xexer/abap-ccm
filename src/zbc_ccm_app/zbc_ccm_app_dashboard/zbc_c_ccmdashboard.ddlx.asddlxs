@@ -41,7 +41,13 @@ annotate entity ZBC_C_CCMDashboard with
   ]
 
   @UI.selectionField: [ { position: 10  } ]
-  @UI.lineItem: [ { position: 10  } ]
+  @UI.lineItem: [ { 
+    position: 10,
+    type: #WITH_INTENT_BASED_NAVIGATION, 
+    semanticObject: 'ZBC_CCM_OBJECT', 
+    semanticObjectAction: 'display', 
+    semanticObjectBinding: [ { localElement: 'ProviderID', element: 'ProviderId' } ] 
+  } ]
   ProviderID;
 
   @UI.selectionField: [ { position: 20  } ]
@@ -59,17 +65,18 @@ annotate entity ZBC_C_CCMDashboard with
   @EndUserText.label: 'Level A'
   LevelAObjects;
 
-  @UI.lineItem: [ { position: 50, criticality: 'CriticalityLevelB'  } ]
+  @UI.lineItem: [ { position: 50, criticality: 'CriticalityLevelB' } ]  
   @UI.identification: [ { position: 50 , qualifier: 'NUMBER', criticality: 'CriticalityLevelB' } ]
   @EndUserText.label: 'Level B'
   LevelBObjects;
 
-  @UI.lineItem: [ { position: 60, criticality: 'CriticalityLevelC'  } ]
+  @UI.lineItem: [ { position: 60, criticality: 'CriticalityLevelC' } ]   
   @UI.identification: [ { position: 60 , qualifier: 'NUMBER', criticality: 'CriticalityLevelC' } ]
   @EndUserText.label: 'Level C'
   LevelCObjects;
 
-  @UI.lineItem: [ { position: 70, criticality: 'CriticalityLevelD'  } ]
+  
+  @UI.lineItem: [ { position: 70, criticality: 'CriticalityLevelD'  } ]   
   @UI.identification: [ { position: 70 , qualifier: 'NUMBER', criticality: 'CriticalityLevelD' } ]
   @EndUserText.label: 'Level D'
   LevelDObjects;
@@ -95,4 +102,5 @@ annotate entity ZBC_C_CCMDashboard with
 
   @UI.hidden: true
   CriticalityLevelD;
+   
 }

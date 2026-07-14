@@ -1,0 +1,11 @@
+projection;
+strict ( 2 );
+
+define behavior for ZBC_C_CCMNotAssignedPackages alias Package
+{
+  use action SetClusterForPackage;
+
+  side effects {
+    action SetClusterForPackage affects $self;
+  }
+}

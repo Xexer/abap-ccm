@@ -1,0 +1,76 @@
+managed implementation in class ZBP_BC_CCM_DOCUMENT unique;
+strict ( 2 );
+with draft;
+extensible;
+
+define behavior for ZBC_R_CCMDocument alias Document
+persistent table ZBC_CCM_DOC
+extensible
+draft table ZBC_CCM_DOCD
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( numbering : managed, readonly )
+   DocumentID;
+
+  field ( readonly )
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _Link { create; with draft; }
+
+  mapping for ZBC_CCM_DOC corresponding extensible
+  {
+    DocumentID = DOCUMENT_ID;
+    ShortDescription = SHORT_DESCRIPTION;
+    LongDescription = LONG_DESCRIPTION;
+    CustomScore = CUSTOM_SCORE;
+    DeviatingScoreB = deviating_score_b;
+    DeviatingScoreC = deviating_score_c;
+    DeviatingScoreD = deviating_score_d;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}
+
+define behavior for ZBC_I_CCMDocLink alias Link
+persistent table zbc_ccm_dlink
+draft table zbc_ccm_dlinkd
+lock dependent by _Document
+authorization dependent by _Document
+{
+  field ( numbering : managed, readonly ) LinkId;
+  field ( readonly ) DocumentId;
+
+  update;
+  delete;
+
+  association _Document { with draft; }
+
+  mapping for zbc_ccm_dlink
+    {
+      LinkId = link_id;
+      DocumentId = document_id;
+      ObjectType = obj_type;
+      ObjectName = obj_name;
+      ProviderId = provider_id;
+    }
+}

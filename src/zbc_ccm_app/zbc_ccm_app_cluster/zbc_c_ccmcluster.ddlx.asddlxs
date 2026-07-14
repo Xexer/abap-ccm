@@ -1,0 +1,56 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'ClusterID'
+annotate view ZBC_C_CCMCluster with
+{
+  @UI.facet: [
+    {
+      id: 'idGeneral',
+      label: 'General Information',
+      position: 10 ,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'GENERAL'
+    },
+    {
+      id: 'idAdmin',
+      label: 'Admin Info',
+      position: 20,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'ADMIN'
+    },
+    {
+      id: 'idAssignment',
+      label: 'Assignment',
+      position: 30,
+      type: #LINEITEM_REFERENCE,
+      targetElement: '_Assignment'
+    }
+  ]
+
+  @UI.selectionField: [ { position: 10  } ]
+  ClusterID;
+
+  @UI.lineItem: [ { position: 20  } ]
+  @UI.identification: [ { position: 20 , qualifier: 'GENERAL' } ]
+  ClusterName;
+  
+  @UI.lineItem: [ { position: 30 } ]
+  @EndUserText.label: 'Number of Packages'
+  NumberOfPackages;
+
+  @UI.identification: [ { position: 30 , qualifier: 'ADMIN' } ]
+  LocalCreatedBy;
+
+  @UI.identification: [ { position: 40 , qualifier: 'ADMIN' } ]
+  LocalCreatedAt;
+
+  @UI.identification: [ { position: 50 , qualifier: 'ADMIN' } ]
+  LocalLastChangedBy;
+
+  @UI.identification: [ { position: 60 , qualifier: 'ADMIN' } ]
+  LocalLastChangedAt;
+
+  @UI.identification: [ { position: 70 , qualifier: 'ADMIN' } ]
+  LastChangedAt;
+
+}

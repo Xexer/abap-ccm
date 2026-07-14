@@ -1,0 +1,43 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'ObjectName'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'ProviderId'
+@UI.headerInfo.typeName: 'Object'
+@UI.headerInfo.typeNamePlural: 'Objects'
+annotate entity ZBC_C_CCMDocLink with
+{
+  @UI.facet: [
+    {
+      id: 'idGeneral',
+      label: 'General Information',
+      position: 10 ,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'GENERAL'
+    }
+  ]
+
+  @UI.hidden: true
+  LinkId;
+
+  @UI.lineItem: [ { position: 20  } ]
+  @UI.identification: [ { position: 20 , qualifier: 'GENERAL' } ]
+  ProviderId;
+
+  @UI.lineItem: [ { position: 30  } ]
+  @UI.identification: [ { position: 30 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Object Type'
+  ObjectType;
+
+  @UI.lineItem: [ { position: 40  } ]
+  @UI.identification: [ { position: 40 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Object Name'
+  ObjectName;
+
+  @UI.hidden: true
+  DocumentId;
+  
+  @UI.hidden: true
+  SystemName;
+
+}

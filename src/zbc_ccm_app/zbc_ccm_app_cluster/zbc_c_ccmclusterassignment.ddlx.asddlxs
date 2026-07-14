@@ -1,0 +1,35 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZBC_C_CCMClusterAssignment with
+{
+  @UI.facet: [
+    {
+      id: 'idGeneral',
+      label: 'General Information',
+      position: 10 ,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'GENERAL'
+    }
+  ]
+
+  @UI.hidden: true
+  ObjectID;
+
+  @UI.lineItem: [ { position: 20  } ]
+  @UI.identification: [ { position: 20 , qualifier: 'GENERAL' } ]
+  ProviderID;
+
+  @UI.hidden: true
+  SystemName;
+
+  @UI.lineItem: [ { position: 40  } ]
+  @UI.identification: [ { position: 40 , qualifier: 'GENERAL' } ]
+  ObjectType;
+
+  @UI.lineItem: [ { position: 50  } ]
+  @UI.identification: [ { position: 50 , qualifier: 'GENERAL' } ]
+  ObjectName;
+
+  @UI.hidden: true
+  ClusterID;
+
+}

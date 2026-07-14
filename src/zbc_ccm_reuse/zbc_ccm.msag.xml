@@ -20,6 +20,48 @@
      <MSGNR>001</MSGNR>
      <TEXT>Object Provider has been synchronized</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Object Provider &amp;1 (&amp;2) has been executed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Mail error: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Error for receiver &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Mail has been sent</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>No e-mail receivers are configured</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>You need to set a new Cluster</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>&amp;1 packages have been assigned</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>
