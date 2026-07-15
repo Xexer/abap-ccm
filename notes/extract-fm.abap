@@ -1,10 +1,12 @@
 FUNCTION z_ca_atc_level_a_objects
+  IMPORTING
+    VALUE(language_version) TYPE char1
   EXPORTING
     VALUE(objects) TYPE i.
 
 
 
-  " Version 0.8.2
+  " Version 1.0.0
 
   TYPES: BEGIN OF configuration,
            types         TYPE string,
@@ -23,6 +25,7 @@ FUNCTION z_ca_atc_level_a_objects
   TYPES: BEGIN OF filter,
            table TYPE ars_lang_objtype-table_name,
            field TYPE ars_lang_objtype-column_name,
+           query TYPE string,
          END OF filter.
 
   DATA filters        TYPE SORTED TABLE OF filter WITH UNIQUE KEY table.
@@ -66,7 +69,14 @@ FUNCTION z_ca_atc_level_a_objects
                      ( table = 'SRVDSRC' field = 'SRVDNAME' )
                      ( table = 'VEPHEADER' field = 'VEPNAME' )
                      ( table = 'WMPC_DT' field = 'WMPC_ID' )
-                     ( table = 'TDEVC' field = 'DEVCLASS' ) ).
+                     ( table = 'ARCH_OBJ' field = 'OBJECT' )
+                     ( table = 'ENHSPOTHEADER' field = 'ENHSPOT' )
+                     ( table = 'GSM_MD_PRV_W' field = 'PROVIDER_ID' )
+                     ( table = 'TDEVC' field = 'DEVCLASS' )
+                     ( table = 'CDB_OBJH' field = 'OBJ_NAME' )
+                     ( table = 'SPROXHDR' field = 'OBJ_NAME' )
+                     ( table = 'DD12L' field = 'SQLTAB' )
+                     ( table = 'USOB_SM' query = | AND MODIFIER <> 'SAP' AND MODIFIER <> '!USOBHASH'| ) ).
 
   SELECT FROM ars_lang_objtype
     FIELDS *
@@ -99,12 +109,16 @@ FUNCTION z_ca_atc_level_a_objects
   ENDLOOP.
 
   LOOP AT configurations INTO DATA(configuration).
-    DATA(condition) = |{ configuration-field } = '5'|.
+    DATA(condition) = |{ configuration-field } = '{ language_version }'|.
     IF configuration-z_filter IS NOT INITIAL.
       condition &&= | AND ( { configuration-z_filter } LIKE 'Z%' OR { configuration-z_filter } LIKE 'Y%' )|.
     ENDIF.
     IF configuration-e_filter IS NOT INITIAL.
       condition &&= | AND ( { configuration-e_filter } LIKE 'EZ%' OR { configuration-e_filter } LIKE 'EY%' )|.
+    ENDIF.
+    DATA(query) = VALUE #( filters[ table = configuration-table ]-query OPTIONAL ).
+    IF query IS NOT INITIAL.
+      condition &&= query.
     ENDIF.
 
     SELECT
@@ -112,6 +126,17 @@ FUNCTION z_ca_atc_level_a_objects
       FIELDS COUNT( * )
       WHERE (condition)
       INTO @DATA(number_of_entries).
+
+*    DATA generic        TYPE REF TO data.
+*    CREATE DATA generic TYPE STANDARD TABLE OF (configuration-table).
+*    SELECT
+*      FROM (configuration-table)
+*      FIELDS *
+*      WHERE (condition)
+*      INTO CORRESPONDING FIELDS OF TABLE @generic->*.
+*    IF lines( generic->* ) > 0.
+*      BREAK-POINT.
+*    ENDIF.
 
     INSERT VALUE #( types  = configuration-types
                     number = number_of_entries ) INTO TABLE counters.
