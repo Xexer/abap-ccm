@@ -2,7 +2,7 @@
 @EndUserText.label: 'Scores'
 define view entity ZBC_I_CCMScore
   as select from zbc_ccm_score
-  association to parent ZBC_R_CCMRun as _Run on _Run.RunID = $projection.RunID
+  association              to parent ZBC_R_CCMRun            as _Run        on _Run.RunID = $projection.RunID
   association of exact one to one ZBC_I_CCMCalculationMethod as _CalcMethod on _CalcMethod.CalculationMethod = $projection.CalculationMethod
 {
   key run_id           as RunID,
@@ -12,6 +12,7 @@ define view entity ZBC_I_CCMScore
       level_c          as LevelCObjects,
       level_d          as LevelDObjects,
       debt_score       as TechnicalDebtScore,
+      key_user_objects as KeyUserObjects,
       _Run,
       _CalcMethod
 }

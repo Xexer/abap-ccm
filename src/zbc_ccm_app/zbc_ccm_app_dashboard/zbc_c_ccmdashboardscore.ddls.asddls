@@ -8,6 +8,7 @@ define view entity ZBC_C_CCMDashboardScore
   key ProviderID,
   key CalculationMethod,
   key RunTime,
+      RunPeriod,
       @Aggregation.default: #SUM
       LevelAObjects,
       @Aggregation.default: #SUM
@@ -17,12 +18,6 @@ define view entity ZBC_C_CCMDashboardScore
       @Aggregation.default: #SUM
       LevelDObjects,
       TechnicalDebtScore,
-      
-      @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASH_SCORE_ELEM'
-      @ObjectModel.virtualElementDependsOn: [ 'RunTime' ]
-      @ObjectModel.filter.enabled: false
-      @ObjectModel.sort.enabled: false
-      virtual YearAndMonth : abap.char(6),
-      
+      KeyUserObjects,
       _Dashboard : redirected to parent ZBC_C_CCMDashboard
 }

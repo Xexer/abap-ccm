@@ -78,5 +78,6 @@ authorization dependent by _Run
       LevelCObjects = level_c;
       LevelDObjects = level_d;
       TechnicalDebtScore = debt_score;
+      KeyUserObjects = key_user_objects;
     }
 }

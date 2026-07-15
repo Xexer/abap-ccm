@@ -9,11 +9,11 @@
 @UI.presentationVariant: [ {
   qualifier: 'pVariant',
   sortOrder: [{ by: 'TechnicalDebtScore', direction: #DESC }],
-  visualizations: [{ type: #AS_LINEITEM }]    
-} ] 
-@UI.selectionPresentationVariant: [ { 
+  visualizations: [{ type: #AS_LINEITEM }]
+} ]
+@UI.selectionPresentationVariant: [ {
   presentationVariantQualifier: 'pVariant'
-} ] 
+} ]
 annotate entity ZBC_C_CCMDashboard with
 {
   @UI.facet: [
@@ -21,32 +21,86 @@ annotate entity ZBC_C_CCMDashboard with
       id: 'idScore',
       label: 'Scores',
       position: 10 ,
-      type: #IDENTIFICATION_REFERENCE,
+      type: #COLLECTION,
       targetQualifier: 'SCORE'
     },
     {
-      id: 'idNumbers',
-      label: 'Numbers',
+      id: 'idDebt',
+      parentId: 'idScore',
+      label: 'Technical Debt Score',
+      position: 10,
+      type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'TDEBT'
+    },
+    {
+      id: 'idQuota',
+      parentId: 'idScore',
+      label: 'KPIs',
       position: 20,
-      type: #IDENTIFICATION_REFERENCE,
-      targetQualifier: 'NUMBER'
+      type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'QUOTA'
+    },
+    {
+      id: 'idCloud',
+      label: 'Cloud',
+      position: 20,
+      type: #COLLECTION
+    },
+    {
+      id: 'idKeyUser',
+      parentId: 'idCloud',
+      label: 'Key User Objects',
+      position: 20,
+      type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'KUSER'
+    },
+    {
+      id: 'idCloudA',
+      parentId: 'idCloud',
+      label: 'Level A Objects',
+      position: 10,
+      type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'CLOUDA'
+    },
+    {
+      id: 'idNumbers',
+      label: 'Other Levels',
+      position: 30,
+      type: #COLLECTION
+    },
+    {
+      id: 'idLevelB',
+      parentId: 'idNumbers',
+      label: 'Level B Objects',
+      position: 10,
+      type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'LEVELB'
+    },
+    {
+      id: 'idLevelC',
+      parentId: 'idNumbers',
+      label: 'Level C Objects',
+      position: 20,
+      type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'LEVELC'
+    },
+    {
+      id: 'idLevelD',
+      parentId: 'idNumbers',
+      label: 'Level D Objects',
+      position: 30,
+      type: #FIELDGROUP_REFERENCE,
+      targetQualifier: 'LEVELD'
     }
-//    {
-//      id: 'idMoreScores',
-//      label: 'Older Scores',
-//      position: 30,
-//      type: #LINEITEM_REFERENCE,
-//      targetElement: '_OtherScores'
-//    }
   ]
 
   @UI.selectionField: [ { position: 10  } ]
-  @UI.lineItem: [ { 
+  @UI.lineItem: [ {
     position: 10,
-    type: #WITH_INTENT_BASED_NAVIGATION, 
-    semanticObject: 'ZBC_CCM_OBJECT', 
-    semanticObjectAction: 'display', 
-    semanticObjectBinding: [ { localElement: 'ProviderID', element: 'ProviderId' } ] 
+    type: #WITH_INTENT_BASED_NAVIGATION,
+    semanticObject: 'ZBC_CCM_OBJECT',
+    semanticObjectAction: 'display',
+    semanticObjectBinding: [ { localElement: 'ProviderID', element: 'ProviderId' } ]
   } ]
   ProviderID;
 
@@ -57,37 +111,60 @@ annotate entity ZBC_C_CCMDashboard with
   SystemName;
 
   @UI.lineItem: [ { position: 30 } ]
-  @UI.identification: [ { position: 30 , qualifier: 'SCORE' } ]
+  @UI.fieldGroup: [ { position: 30 , qualifier: 'TDEBT' } ]
   TechnicalDebtScore;
+  
+  @UI.fieldGroup: [ { position: 35 , qualifier: 'TDEBT' } ]
+  @EndUserText.label: 'Change Technical Debt'
+  ChangeTechnicalDebt;
 
   @UI.lineItem: [ { position: 40, criticality: 'CriticalityLevelA' } ]
-  @UI.identification: [ { position: 40 , qualifier: 'NUMBER', criticality: 'CriticalityLevelA' } ]
+  @UI.fieldGroup: [ { position: 40 , qualifier: 'CLOUDA', criticality: 'CriticalityLevelA' } ]
   @EndUserText.label: 'Level A'
   LevelAObjects;
 
-  @UI.lineItem: [ { position: 50, criticality: 'CriticalityLevelB' } ]  
-  @UI.identification: [ { position: 50 , qualifier: 'NUMBER', criticality: 'CriticalityLevelB' } ]
+  @UI.fieldGroup: [ { position: 45 , qualifier: 'CLOUDA' } ]
+  @EndUserText.label: 'Change Level A'
+  ChangeLevelA;
+
+  @UI.fieldGroup: [ { position: 47 , qualifier: 'KUSER' } ]
+  @EndUserText.label: 'Key User'
+  KeyUserObjects;
+
+  @UI.lineItem: [ { position: 50, criticality: 'CriticalityLevelB' } ]
+  @UI.fieldGroup: [ { position: 50 , qualifier: 'LEVELB', criticality: 'CriticalityLevelB' } ]
   @EndUserText.label: 'Level B'
   LevelBObjects;
 
-  @UI.lineItem: [ { position: 60, criticality: 'CriticalityLevelC' } ]   
-  @UI.identification: [ { position: 60 , qualifier: 'NUMBER', criticality: 'CriticalityLevelC' } ]
+  @UI.fieldGroup: [ { position: 55 , qualifier: 'LEVELB' } ]
+  @EndUserText.label: 'Change Level B'
+  ChangeLevelB;
+
+  @UI.lineItem: [ { position: 60, criticality: 'CriticalityLevelC' } ]
+  @UI.fieldGroup: [ { position: 60 , qualifier: 'LEVELC', criticality: 'CriticalityLevelC' } ]
   @EndUserText.label: 'Level C'
   LevelCObjects;
 
-  
-  @UI.lineItem: [ { position: 70, criticality: 'CriticalityLevelD'  } ]   
-  @UI.identification: [ { position: 70 , qualifier: 'NUMBER', criticality: 'CriticalityLevelD' } ]
+  @UI.fieldGroup: [ { position: 65 , qualifier: 'LEVELC' } ]
+  @EndUserText.label: 'Change Level C'
+  ChangeLevelC;
+
+  @UI.lineItem: [ { position: 70, criticality: 'CriticalityLevelD'  } ]
+  @UI.fieldGroup: [ { position: 70 , qualifier: 'LEVELD', criticality: 'CriticalityLevelD' } ]
   @EndUserText.label: 'Level D'
   LevelDObjects;
 
+  @UI.fieldGroup: [ { position: 75 , qualifier: 'LEVELD' } ]
+  @EndUserText.label: 'Change Level D'
+  ChangeLevelD;
+
   @UI.lineItem: [ { position: 20 } ]
-  @UI.identification: [ { position: 80 , qualifier: 'SCORE' } ]
+  @UI.fieldGroup: [ { position: 80 , qualifier: 'QUOTA' } ]
   @EndUserText.label: 'Cloud Ready'
   CloudReady;
 
   @UI.lineItem: [ { position: 25 } ]
-  @UI.identification: [ { position: 90 , qualifier: 'SCORE' } ]
+  @UI.fieldGroup: [ { position: 90 , qualifier: 'QUOTA' } ]
   @EndUserText.label: 'Upgrade Stable'
   UpgradeStable;
 
@@ -102,5 +179,5 @@ annotate entity ZBC_C_CCMDashboard with
 
   @UI.hidden: true
   CriticalityLevelD;
-   
+
 }

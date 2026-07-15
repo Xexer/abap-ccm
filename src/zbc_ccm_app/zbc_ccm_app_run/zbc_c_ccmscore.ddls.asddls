@@ -15,5 +15,6 @@ define view entity ZBC_C_CCMScore
       LevelCObjects,
       LevelDObjects,
       TechnicalDebtScore,
+      KeyUserObjects,
       _Run : redirected to parent ZBC_C_CCMRun
 }

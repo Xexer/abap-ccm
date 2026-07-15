@@ -6,14 +6,19 @@ CLASS zcl_bc_ccm_ac_objects DEFINITION
 
     INTERFACES if_aco_proxy .
 
+    TYPES:
+      char1                          TYPE c LENGTH 000001 ##TYPSHADOW .
+
     METHODS constructor
       IMPORTING
         !destination TYPE REF TO if_rfc_dest
       RAISING
         cx_rfc_dest_provider_error .
     METHODS z_ca_atc_level_a_objects
+      IMPORTING
+        !language_version TYPE char1
       EXPORTING
-        !objects TYPE i
+        !objects          TYPE i
       RAISING
         cx_aco_application_exception
         cx_aco_communication_failure
@@ -37,6 +42,8 @@ CLASS zcl_bc_ccm_ac_objects IMPLEMENTATION.
   METHOD z_ca_atc_level_a_objects.
     DATA: _rfc_message_ TYPE aco_proxy_msg_type.
     CALL FUNCTION 'Z_CA_ATC_LEVEL_A_OBJECTS' DESTINATION me->destination
+      EXPORTING
+        language_version      = language_version
       IMPORTING
         objects               = objects
       EXCEPTIONS

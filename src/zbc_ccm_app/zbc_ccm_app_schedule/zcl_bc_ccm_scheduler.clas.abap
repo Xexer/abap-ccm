@@ -107,10 +107,12 @@ CLASS zcl_bc_ccm_scheduler IMPLEMENTATION.
 
     DATA(remote_api) = NEW zcl_bc_ccm_remote_objects( ).
     DATA(level_a_objects) = remote_api->get_level_a_objects_for_prov( provider-ProviderId ).
+    DATA(key_user_objects) = remote_api->get_key_user_objects_for_prov( provider-ProviderId ).
 
     DATA(scoring) = zcl_bc_scoring_factory=>create_scoring( ).
     DATA(score_standard) = scoring->calculate_standard( finding_result-findings ).
-    score_standard-score-LevelAObjects = level_a_objects.
+    score_standard-score-LevelAObjects  = level_a_objects.
+    score_standard-score-KeyUserObjects = key_user_objects.
     score_standard-run_time = finding_result-run_time.
 
     save_objects( provider = provider

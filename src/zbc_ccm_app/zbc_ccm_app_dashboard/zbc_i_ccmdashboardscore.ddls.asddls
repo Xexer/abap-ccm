@@ -8,10 +8,12 @@ define view entity ZBC_I_CCMDashboardScore
   key _Run.ProviderID,
   key CalculationMethod,
   key _Run.RunTime,
+      _Run.RunPeriod,
       LevelAObjects,
       LevelBObjects,
       LevelCObjects,
       LevelDObjects,
       TechnicalDebtScore,
+      KeyUserObjects,
       _Dashboard
 }

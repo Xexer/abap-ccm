@@ -10,9 +10,16 @@ annotate entity ZBC_C_CCMScore with
       targetQualifier: 'GENERAL'
     },
     {
+      id: 'idCloud',
+      label: 'Cloud Objects',
+      position: 20,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'CLOUD'
+    },
+    {
       id: 'idScore',
       label: 'Scores',
-      position: 20,
+      position: 30,
       type: #IDENTIFICATION_REFERENCE,
       targetQualifier: 'SCORE'
     }
@@ -26,7 +33,7 @@ annotate entity ZBC_C_CCMScore with
   CalculationMethod;
 
   @UI.lineItem: [ { position: 30  } ]
-  @UI.identification: [ { position: 30 , qualifier: 'SCORE' } ]
+  @UI.identification: [ { position: 30 , qualifier: 'CLOUD' } ]
   @EndUserText.label: 'Level A'
   LevelAObjects;
 
@@ -49,4 +56,8 @@ annotate entity ZBC_C_CCMScore with
   @UI.identification: [ { position: 70 , qualifier: 'SCORE' } ]
   TechnicalDebtScore;
 
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [ { position: 35 , qualifier: 'CLOUD' } ]
+  @EndUserText.label: 'Key User objects'
+  KeyUserObjects;
 }

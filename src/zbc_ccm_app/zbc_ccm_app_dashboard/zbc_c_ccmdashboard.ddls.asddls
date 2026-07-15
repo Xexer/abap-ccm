@@ -23,20 +23,33 @@ define root view entity ZBC_C_CCMDashboard
           LevelBObjects,
           LevelCObjects,
           LevelDObjects,
-          
+          KeyUserObjects,
+          RunTime,
+
           @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
-  virtual CloudReady        : abap.char(10),
+  virtual CloudReady          : abap.char(10),
           @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
-  virtual UpgradeStable     : abap.char(10),
+  virtual UpgradeStable       : abap.char(10),
+
+          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
+  virtual CriticalityLevelA   : int1,
+          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
+  virtual CriticalityLevelB   : int1,
+          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
+  virtual CriticalityLevelC   : int1,
+          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
+  virtual CriticalityLevelD   : int1,
+
+          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
+  virtual ChangeLevelA        : abap.char(15),
+          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
+  virtual ChangeLevelB        : abap.char(15),
+          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
+  virtual ChangeLevelC        : abap.char(15),
+          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
+  virtual ChangeLevelD        : abap.char(15),
+          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
+  virtual ChangeTechnicalDebt : abap.char(15),
   
-          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
-  virtual CriticalityLevelA : int1,
-          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
-  virtual CriticalityLevelB : int1,
-          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
-  virtual CriticalityLevelC : int1,
-          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
-  virtual CriticalityLevelD : int1,
-    
           _OtherScores : redirected to composition child ZBC_C_CCMDashboardScore
 }

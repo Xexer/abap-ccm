@@ -183,6 +183,7 @@ CLASS zcl_bc_ccm_test_data IMPLEMENTATION.
     DATA(findings_b) = 95.
     DATA(findings_c) = 450.
     DATA(findings_d) = 50.
+    DATA(key_user) = 10.
 
     LOOP AT runs INTO DATA(run).
       INSERT VALUE #( run_id           = run-run_id
@@ -190,7 +191,8 @@ CLASS zcl_bc_ccm_test_data IMPLEMENTATION.
                       level_a          = findings_a
                       level_b          = findings_b
                       level_c          = findings_c
-                      level_d          = findings_d )
+                      level_d          = findings_d
+                      key_user_objects = key_user )
              INTO TABLE scores REFERENCE INTO DATA(single_score).
 
       single_score->debt_score = single_score->level_d * 10 + single_score->level_c * 5 + single_score->level_b * 1.
@@ -199,6 +201,7 @@ CLASS zcl_bc_ccm_test_data IMPLEMENTATION.
       findings_b += 1.
       findings_c -= 5.
       findings_d -= 1.
+      key_user += 7.
     ENDLOOP.
 
     INSERT zbc_ccm_run FROM TABLE @runs.
