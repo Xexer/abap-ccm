@@ -6,7 +6,7 @@ FUNCTION z_ca_atc_level_a_objects
 
 
 
-  " Version 1.0.0
+  " Version 1.1.0
 
   TYPES: BEGIN OF configuration,
            types         TYPE string,
@@ -29,8 +29,14 @@ FUNCTION z_ca_atc_level_a_objects
          END OF filter.
 
   DATA filters        TYPE SORTED TABLE OF filter WITH UNIQUE KEY table.
+  DATA object_filter  TYPE string.
   DATA configurations TYPE STANDARD TABLE OF configuration WITH EMPTY KEY.
+  DATA generic        TYPE REF TO data.
   DATA counters       TYPE STANDARD TABLE OF counter WITH EMPTY KEY.
+
+  IF language_version <> '2' AND language_version <> '5'.
+    RETURN.
+  ENDIF.
 
   filters = VALUE #( ( table = 'REPOSRC' field = 'PROGNAME' )
                      ( table = 'PROGDIR' field = 'NAME' )
@@ -76,12 +82,21 @@ FUNCTION z_ca_atc_level_a_objects
                      ( table = 'CDB_OBJH' field = 'OBJ_NAME' )
                      ( table = 'SPROXHDR' field = 'OBJ_NAME' )
                      ( table = 'DD12L' field = 'SQLTAB' )
-                     ( table = 'USOB_SM' query = | AND MODIFIER <> 'SAP' AND MODIFIER <> '!USOBHASH'| ) ).
+                     ( table = 'USOB_SM' query = | AND MODIFIER <> 'SAP' AND MODIFIER <> '!USOBHASH'| )
+                     ( table = 'SIT2_BT' field = 'SITNBASETEMPLATEID' )
+                     ( table = 'SIT2_CT' field = 'SITNCONFIGNTEMPLATEID' )
+                     ( table = 'TMC1' field = 'GSTRU' )
+                     ( table = 'T681' query = | AND SAPSY = 'CUSTOMER'| ) ).
+
+  object_filter = SWITCH #( language_version
+                            WHEN '2' THEN `supports_key_user = @abap_true`
+                            WHEN '5' THEN `supports_sap_cloud_platform = @abap_true` ).
 
   SELECT FROM ars_lang_objtype
     FIELDS *
-    WHERE     supports_sap_cloud_platform    = @abap_true
+    WHERE     (object_filter)
           AND does_not_have_language_version = @abap_false
+          AND table_name IS NOT INITIAL
     INTO TABLE @DATA(ac_objects).
 
   LOOP AT ac_objects INTO DATA(object).
@@ -127,7 +142,6 @@ FUNCTION z_ca_atc_level_a_objects
       WHERE (condition)
       INTO @DATA(number_of_entries).
 
-*    DATA generic        TYPE REF TO data.
 *    CREATE DATA generic TYPE STANDARD TABLE OF (configuration-table).
 *    SELECT
 *      FROM (configuration-table)
