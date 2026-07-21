@@ -211,12 +211,14 @@ CLASS zcl_bc_ccm_scheduler IMPLEMENTATION.
                                        LevelCObjects               = score-score-LevelCObjects
                                        LevelDObjects               = score-score-LevelDObjects
                                        TechnicalDebtScore          = score-score-TechnicalDebtScore
+                                       KeyUserObjects              = score-score-KeyUserObjects
                                        %control-CalculationMethod  = if_abap_behv=>mk-on
                                        %control-LevelAObjects      = if_abap_behv=>mk-on
                                        %control-LevelBObjects      = if_abap_behv=>mk-on
                                        %control-LevelCObjects      = if_abap_behv=>mk-on
                                        %control-LevelDObjects      = if_abap_behv=>mk-on
-                                       %control-TechnicalDebtScore = if_abap_behv=>mk-on ) ) ) ).
+                                       %control-TechnicalDebtScore = if_abap_behv=>mk-on
+                                       %control-KeyUserObjects     = if_abap_behv=>mk-on ) ) ) ).
   ENDMETHOD.
 
 

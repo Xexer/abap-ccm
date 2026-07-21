@@ -50,6 +50,8 @@ define root view entity ZBC_C_CCMDashboard
   virtual ChangeLevelD        : abap.char(15),
           @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
   virtual ChangeTechnicalDebt : abap.char(15),
-  
+          @ObjectModel.virtualElementCalculatedBy: 'ABAP:ZCL_BC_CCM_DASHBOARD_ELEM'
+  virtual ChangeKeyUser       : abap.char(15),
+
           _OtherScores : redirected to composition child ZBC_C_CCMDashboardScore
 }

@@ -127,9 +127,13 @@ annotate entity ZBC_C_CCMDashboard with
   @EndUserText.label: 'Change Level A'
   ChangeLevelA;
 
-  @UI.fieldGroup: [ { position: 47 , qualifier: 'KUSER' } ]
+  @UI.fieldGroup: [ { position: 47 , qualifier: 'KUSER', criticality: 'CriticalityLevelA' } ]
   @EndUserText.label: 'Key User'
   KeyUserObjects;
+  
+  @UI.fieldGroup: [ { position: 49 , qualifier: 'KUSER' } ]
+  @EndUserText.label: 'Change Key User'  
+  ChangeKeyUser;
 
   @UI.lineItem: [ { position: 50, criticality: 'CriticalityLevelB' } ]
   @UI.fieldGroup: [ { position: 50 , qualifier: 'LEVELB', criticality: 'CriticalityLevelB' } ]

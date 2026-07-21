@@ -64,6 +64,7 @@ CLASS zcl_bc_ccm_dashboard_elem IMPLEMENTATION.
       original->ChangeLevelC        = format_number( original->LevelCObjects - run_before-LevelCObjects ).
       original->ChangeLevelD        = format_number( original->LevelDObjects - run_before-LevelDObjects ).
       original->ChangeTechnicalDebt = format_number( original->TechnicalDebtScore - run_before-TechnicalDebtScore ).
+      original->ChangeKeyUser       = format_number( original->KeyUserObjects - run_before-KeyUserObjects ).
     ENDLOOP.
 
     ct_calculated_data = CORRESPONDING #( original_data ).

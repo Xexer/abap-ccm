@@ -9,9 +9,11 @@ ENDCLASS.
 
 CLASS zcl_bc_ccm_test_scheduler IMPLEMENTATION.
   METHOD if_oo_adt_classrun~main.
-    DATA(scheduler) = zcl_bc_ccm_scheduler_factory=>create_scheduler( ).
-    scheduler->process_all_active_providers( ).
+    DATA(log) = zcl_bc_ccm_mini_log_factory=>create_log( zif_bc_ccm_mini_log=>sub_objects-scheduler ).
 
-    COMMIT ENTITIES.
+    DATA(scheduler) = zcl_bc_ccm_scheduler_factory=>create_scheduler( ).
+    scheduler->process_all_active_providers( log ).
+
+    COMMIT WORK.
   ENDMETHOD.
 ENDCLASS.
