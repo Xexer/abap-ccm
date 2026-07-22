@@ -114,7 +114,7 @@ Chosse a name for the Analysis and set you check variant. The default is ABAP_CL
 
 ![Custom Code Analysis Project](./docs/ccm-03.png)
 
-You can adjust the "Advanced Configuration" if you want to include or exclude additional packages. Remove the flag from "Start Analysis at Project Creation", so that the project is only created in the system. After creation you can navigate into the project and find the Project ID in the URL. Copy only the GUID between the Quotation marks and insert it in the provider configuration (Step 6). Here an 
+You can adjust the "Advanced Configuration" if you want to include or exclude additional packages. Remove the flag from "Start Analysis at Project Creation", so that the project is only created in the system. After creation you can navigate into the project and find the Project ID in the URL. Copy only the GUID between the Quotation marks and insert it in the provider configuration (Step 6). Here an example of the URL:
 
 ```
 /sycm_aps_c_project(project_id=guid'b65d2e89-1408-1fd0-a3e7-de558b9f5cb1',IsActiveEntity=true)
