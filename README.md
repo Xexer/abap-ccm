@@ -1,5 +1,10 @@
 # Clean Core Measurement
 
+Content:
+- [General](#general)
+- [Installation](#installation)
+- [Configuration](#configuration)
+
 ## General
 
 ### Introduction
