@@ -2,6 +2,7 @@
 
 - [General](#general)
 - [Installation](#installation)
+- [On-Prem](#on-prem)
 - [Configuration](#configuration)
 - [Demo](#demo)
 
@@ -56,6 +57,40 @@ Clone the application into Business Application Studio (BAS) or VS Code. Next, c
 | CCM Run | ZBC_CCM_RUN | https://github.com/Xexer/zbcccmrun |
 | CCM Used APIs | ZBC_CCM_USEDAPI | https://github.com/Xexer/zbcccmusedapis |
 | CCM Used Messages | ZBC_CCM_USEDMSG | https://github.com/Xexer/zbcccmusedmessage |
+
+## On-Prem
+
+If you want to extract numbers automatically, you have to configure the connection and install additional components.
+
+### ABAP source
+
+If you want to get the number of Level A and Key User objects from your On-Prem system, you should install the function module [Z_CA_ATC_LEVEL_A_OBJECTS](/notes/extract-fm.abap) in your connected systems.
+
+### Authorization
+
+If you have installed the function module(s) for the On-Prem extraction, you should also enhance the role for your technical ATC user in this system. Use the authorization for the function module **OR** the function group.
+
+Function Module (S_RFC):
+- RFC_TYPE - FUNC
+- RFC_NAME - Z_CA_ATC_LEVEL_A_OBJECTS
+- ACTVT - 16
+
+Function Group (S_RFC):
+- RFC_TYPE - FUGR
+- RFC_NAME - <YOUR_FUGR>
+- ACTVT - 16
+
+### Cloud Connector
+
+Add the function modules to the Cloud Connector configuration, so the system can have access to you On-Prem system and the function module. You have to add every FM as "exact":
+
+- Z_CA_ATC_LEVEL_A_OBJECTS - Extract Level A and Key User objects
+
+### Communication Arrangement
+
+If you have implemented the function modules On-Prem, you also need an additional Communication Arrangement per backend system. Use the Scenario ID "ZBC_CCM_REMOTE_OBJECTS", set the object provider and reuse the Communication System. The framework will only call backend systems, that have a configured Object Provider to match the system.
+
+![CCM Arrangement](./docs/ccm-10.png)
 
 ## Configuration
 
