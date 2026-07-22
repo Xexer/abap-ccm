@@ -93,7 +93,7 @@ First configure the settings to enable standard proccess in the system.
 
 Create the object providers, by synchronizing the ATC systems to this configuration table. After the sync you should configure you systems to use them in the dashboard and all other apps.
 
-1. Use action "Sync Providers" to synchronize all configured object providers from ATC. Base is here the Communication Scenario "SAP_COM_0464" and all configured COmmunication Arrangements.
+1. Use action "Sync Providers" to synchronize all configured object providers from ATC. Base is here the Communication Scenario "SAP_COM_0464" and all configured Communication Arrangements.
 2. Group you systems, if one or more are in the same system landscape.
 3. Activate or deactivate a system. A deactivated system is not visible in the CCM.
 4. Set a display name for the system. It's visible in all apps instead of the System ID/Object Provider ID.
