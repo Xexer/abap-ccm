@@ -3,6 +3,7 @@
 - [General](#general)
 - [Installation](#installation)
 - [Configuration](#configuration)
+- [Demo](#demo)
 
 ## General
 
@@ -57,5 +58,113 @@ Clone the application into Business Application Studio (BAS) or VS Code. Next, c
 | CCM Used Messages | ZBC_CCM_USEDMSG | https://github.com/Xexer/zbcccmusedmessage |
 
 ## Configuration
+
+Here you find important points to configure your system to use the project.
+
+### Authorization
+
+To use the Business Configuration and the apps, you need to create a Business Role in the system and add the following Business Catalogs:
+
+- ZBC_CCM_ADMIN - All authorizations for CCM including Configuration and Apps
+- SAP_CORE_BC_BCT_MBC_PC - Use Business Configuration in the system
+- SAP_CORE_BC_CCM - Custom Code Migration App
+
+Add also the default Launchpad Space "ZBC_CCM_SPACE" that we deliver with the ABAP project or create a custom one. Search in the Custom Business Configuration App for "CCM" to find available configuration options.
+
+![BC with CCM](./docs/ccm-01.png)
+
+### Configuration: Settings
+
+First configure the settings to enable standard proccess in the system.
+
+| Setting | Options | Description |
+|---|---|---|
+| Default ATC Variant | ABAP_CLEAN_CORE_READINESS | Configure the ATC variant you run to do the Clean Core checks against the systems |
+| Period (W/M) | M = Month or W  = Weekly | How often your measurement should run and for the output period |
+| Level B (Score) | 1 | Points to calculate the technical debt in the system for all Information messages from ATC | 
+| Level C (Score) | 5 | Points to calculate the technical debt in the system for all Warning messages from ATC |
+| Level D (Score) | 10 | Points to calculate the technical debt in the system for all Error messages from ATC |
+| Level C for Clean Core | X | When set to 'X', also the Level C findings count to the Upgrade-Stable KPI |
+| Mail: Sender | [Mail] | Sender of the notification mail, if you use a fixed one |
+| Mail: Receiver | [Mail] | All receivers that will get an e-mail, after the job created a new scoring |
+| Test Mode | X | When set to 'X', you can run the job to fill the tables with test data to test the functionallity |
+
+### Configuration: Object Provider
+
+Create the object providers, by synchronizing the ATC systems to this configuration table. After the sync you should configure you systems to use them in the dashboard and all other apps.
+
+1. Use action "Sync Providers" to synchronize all configured object providers from ATC. Base is here the Communication Scenario "SAP_COM_0464" and all configured COmmunication Arrangements.
+2. Group you systems, if one or more are in the same system landscape.
+3. Activate or deactivate a system. A deactivated system is not visible in the CCM.
+4. Set a display name for the system. It's visible in all apps instead of the System ID/Object Provider ID.
+5. Set "Only Scores", if you don't want to save objects in the system. Only the scores are calculated than.
+6. Custom Code Analysis Project ID, you will get in the next step (ATC Automation).
+
+### ATC Automation
+
+To automate your Clean Core Measurement process, you have to plan the Clean Core checks for every Object Provider for your own. Due to missing APIs the project could not generate the project nor start the run.
+
+#### Custom Code Analysis
+
+Go to the app "Custom Code Migration" an create a new "Custom Code Analysis Project".
+
+![Custom Code Analysis Project](./docs/ccm-02.png)
+
+Chosse a name for the Analysis and set you check variant. The default is ABAP_CLEAN_CORE_READINESS and the variant should match your configuration. Set the system to "In remote system" and configure the Object Provider.
+
+![Custom Code Analysis Project](./docs/ccm-03.png)
+
+You can adjust the "Advanced Configuration" if you want to include or exclude additional packages. Remove the flag from "Start Analysis at Project Creation", so that the project is only created in the system. After creation you can navigate into the project and find the Project ID in the URL. Copy only the GUID between the Quotation marks and insert it in the provider configuration (Step 6). Here an 
+
+```
+/sycm_aps_c_project(project_id=guid'b65d2e89-1408-1fd0-a3e7-de558b9f5cb1',IsActiveEntity=true)
+```
+
+#### Automation (Analysis)
+
+After project creation go to the app "Application Jobs" and create a reccuring job for the Custom Code Analysis. Plan it for the period you have configured (week or month). The runtime depends on the size of the system. You can get a number, after running a system for the first time and if you check the logs.
+
+![Custom Code Analysis](./docs/ccm-04.png)
+
+#### Automation (CCM)
+
+To calculate the results and create you base data, you have to plan at the end the scheduler for CCM. You create a job, when you think that all runs are finished and are ready to import the result. The job will calculate the results, refresh the tables and create a notification for you, if you have configured an e-mail.
+
+![Scheduler Job](./docs/ccm-05.png)
+
+### Test Data
+
+We also deliver some test data, to test and see the functionallity in the project. To load the data you have to set the "Test Mode" flag in the Business Configuration. After you have set this flag you can run the Application Job "CCM: Preview Data" with the flags:
+
+- Delete data - Delete all data form the tables, could also be used to clean up the tables at the end of the test period.
+- Insert data - Create demo data in all tables with it's own model and usage.
+
+## Demo
+
+The screenshot are made with the test data will also deliver with the implementation, if you want to take a look.
+
+### Launchpad Space
+
+If you use the default space, you will find all applications under "CCM". Here you can navigate to all relevant applications. The example screenshot is with all apps as an administrator.
+
+![CCM Space](./docs/ccm-06.png)
+
+### Dashboard
+
+The Dashboard is the heart of your analysis. Here you get a quick overview over your whole landscape and you can quickcheck the KPIs for the system. You can switch between the different calculation methods, the standard is the raw view on your system.
+
+![Dashboard overview](./docs/ccm-07.png)
+
+In the details you get more information, how you score and the numbers have changed after the last run. Here you also get more details about numbers for Key User objects.
+
+![Dashboard details](./docs/ccm-08.png)
+
+### Objects
+
+In the objects you can navigate to the details for all system or per system. The list is ordered by Technical Debt Score and you get also the classification for an object. If you have configured Documentations or Clusters, the objects will assign to them, to give you a better understanding of relations and responsibility.
+
+![Objects](./docs/ccm-09.png)
+
+### Video
 
 tbd
