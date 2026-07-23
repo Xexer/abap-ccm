@@ -12,13 +12,17 @@
 
 Do you want to track Clean Core metrics and view your KPIs for all systems at a glance? The CCM project provides you with a dashboard and various documentation tools to track your findings. The tool should run on the central ATC to enable process automation and easy access.
 
+### Requirements
+
+The project was designed to run on the same system as the Central ATC. We are testing the system in a SAP BTP ABAP environment where the ATC is configured against on-prem systems. Use within an on-prem Central ATC setup was not originally planned, but should be implementable with minimal effort (requiring API adjustments in the code).
+
 ### Features
 
 The following features are currently available, and some are already planned for upcoming versions:
 
 - Dashboard with KPI (Level A to D, Key User objects, Scores)
-- Documentation
-- Cluster (Product, Team, Group, Company) und Assignment
+- Documentation and Assignment to developments
+- Cluster (Product, Team, Group, Company) und assignment
 - Detailed Messages, APIs and Objects
 - Statistic over different clusters
 - Import ATC data for calculation
