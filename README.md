@@ -5,6 +5,7 @@
 - [On-Prem](#on-prem)
 - [Configuration](#configuration)
 - [Demo](#demo)
+- [Changelog](#changelog)
 
 ## General
 
@@ -44,7 +45,7 @@ Here you find some information, how to install the project in your system. Curre
 
 ### ABAP sources
 
-Use the abapGit plugin in your system to import the repository along with all its objects. Finally, perform a mass activation to ensure the objects are actively created in the system.
+Create a Software Component, for example ``ZBC_CCM``, for deployment to you production system or system where you Central ATC runs. Use the abapGit plugin in your system to import the repository along with all its objects. Finally, perform a mass activation to ensure the objects are actively created in the system.
 
 ### Fiori Apps
 
@@ -69,7 +70,7 @@ If you want to extract numbers automatically, you have to configure the connecti
 
 ### ABAP source
 
-If you want to get the number of Level A and Key User objects from your On-Prem system, you should install the function module [Z_CA_ATC_LEVEL_A_OBJECTS](/notes/extract-fm.abap) in your connected systems.
+If you want to get the number of Level A and Key User objects from your On-Prem system, you should install the function module [Z_CA_ATC_LEVEL_A_OBJECTS](/notes/extract-fm.abap) in your connected systems and enable RFC for the module.
 
 ### Authorization
 
@@ -208,3 +209,9 @@ In the objects you can navigate to the details for all system or per system. The
 ### Video
 
 tbd
+
+## Changelog
+
+| Date | Description |
+|---|---|
+| 07/24/2026 | Added new article as reference, SWC creation |
