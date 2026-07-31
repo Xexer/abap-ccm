@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Custom API Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_ALV5_DEFAULT"
+  },
+  "ui5AppDetails": {
+    "appId": "rewe.bc.zbcccmcustom"
+  },
+  "navigation": {
+    "targetMappingId": "ZBC_CCM_CUSTOM_API_APP_TM",
+    "semanticObject": "ZBC_CCM_CUSTOM",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "ZBC_CCM_CUSTOM_API_APP_AL",
+      "tileType": "static",
+      "standard": {
+        "title": "Custom APIs",
+        "subtitle": "CCM",
+        "icon": "sap-icon://connected"
+      }
+    }
+  ]
+}

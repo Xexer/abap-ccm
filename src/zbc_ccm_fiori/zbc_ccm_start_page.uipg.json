@@ -75,6 +75,13 @@
             "ladiId": "ZBC_CCM_ASSIGN_APP",
             "tileId": "ZBC_CCM_ASSIGN_APP_AL"
           }
+        },
+        {
+          "id": "CUSTOM",
+          "ladiAssignment": {
+            "ladiId": "ZBC_CCM_CUSTOM_API_APP",
+            "tileId": "ZBC_CCM_CUSTOM_API_APP_AL"
+          }
         }
       ]
     },

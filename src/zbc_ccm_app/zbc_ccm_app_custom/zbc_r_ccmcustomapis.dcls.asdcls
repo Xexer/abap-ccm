@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZBC_R_CCMCustomAPIs'
+@MappingRole: true
+define role ZBC_R_CCMCustomAPIs {
+  grant select on ZBC_R_CCMCustomAPIs
+  where TRUE;
+}

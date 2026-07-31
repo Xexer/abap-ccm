@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZBC_C_CCMCustomAPIs'
+@MappingRole: true
+define role ZBC_C_CCMCustomAPIs {
+  grant select on ZBC_C_CCMCustomAPIs
+  where INHERITING CONDITIONS FROM ENTITY ZBC_R_CCMCustomAPIs REPLACING { ROOT WITH _BaseEntity };
+}

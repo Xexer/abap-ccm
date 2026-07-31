@@ -1,0 +1,14 @@
+@EndUserText: {
+  label: 'Service Definition for ZBC_C_CCMCustomAPIs'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZBC_C_CCMCustomAPIs'
+  }
+}
+define service ZBC_CCM_CUSTOM_API
+  provider contracts odata_v4_ui {
+  expose ZBC_C_CCMCustomAPIs      as CustomAPI;
+  expose ZBC_I_CCMProviderVH;
+  expose ZBC_I_CCMObjectTypeAPIVH;
+}

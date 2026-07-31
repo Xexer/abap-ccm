@@ -17,7 +17,7 @@ CLASS zcl_bc_ccm_test_data DEFINITION
     METHODS create_runs.
     METHODS create_cluster.
     METHODS create_documentation.
-
+    METHODS create_custom.
 ENDCLASS.
 
 
@@ -38,6 +38,7 @@ CLASS zcl_bc_ccm_test_data IMPLEMENTATION.
     DELETE FROM zbc_ccm_msg.
     DELETE FROM zbc_ccm_doc.
     DELETE FROM zbc_ccm_dlink.
+    DELETE FROM zbc_ccm_custom.
 
     COMMIT WORK.
   ENDMETHOD.
@@ -53,6 +54,7 @@ CLASS zcl_bc_ccm_test_data IMPLEMENTATION.
     create_cluster( ).
     create_objects( ).
     create_documentation( ).
+    create_custom( ).
 
     COMMIT WORK.
   ENDMETHOD.
@@ -494,5 +496,29 @@ CLASS zcl_bc_ccm_test_data IMPLEMENTATION.
 
     INSERT zbc_ccm_doc FROM TABLE @docs.
     INSERT zbc_ccm_dlink FROM TABLE @links.
+  ENDMETHOD.
+
+
+  METHOD create_custom.
+    DATA custom_apis TYPE STANDARD TABLE OF zbc_ccm_custom WITH EMPTY KEY.
+
+    custom_apis = VALUE #( ( provider_id       = 'F01'
+                             obj_type          = 'CLAS'
+                             obj_name          = 'CL_DATA_VOLUME'
+                             short_description = 'Define the volume of the whole data and run it' )
+                           ( provider_id       = 'F01'
+                             obj_type          = 'CLAS'
+                             obj_name          = 'CL_ACCOUNTING_RULES'
+                             short_description = 'Access to the rules of the calculation in the accounting world' )
+                           ( provider_id       = 'F01'
+                             obj_type          = 'DDLS'
+                             obj_name          = 'I_AccountingMessage'
+                             short_description = 'Data to read messages from accounting module' )
+                           ( provider_id       = 'R01'
+                             obj_type          = 'CLAS'
+                             obj_name          = 'CL_DATE_FUNCTIONS'
+                             short_description = 'Special date functions for timeline calculation' ) ).
+
+    INSERT zbc_ccm_custom FROM TABLE @custom_apis.
   ENDMETHOD.
 ENDCLASS.

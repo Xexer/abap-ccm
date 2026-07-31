@@ -11,6 +11,10 @@
       "description": "Dummy Data"
     },
     {
+      "name": "LOAD_CUSTOM",
+      "description": "Load Custom APIs"
+    },
+    {
       "name": "SCHEDULE",
       "description": "Scheduler Info"
     }
