@@ -57,6 +57,7 @@ Clone the application into Business Application Studio (BAS) or VS Code. Next, c
 | CCM Assign | ZBC_CCM_ASSIGN | https://github.com/Xexer/zbcccmassign |
 | CCM Checks | ZBC_CCM_CHECK | https://github.com/Xexer/zbcccmchecks |
 | CCM Cluster | ZBC_CCM_CLUSTER | https://github.com/Xexer/zbcccmcluster |
+| CCM Custom APIs | ZBC_CCM_CUSTOM | https://github.com/Xexer/zbcccmcustom |
 | CCM Dashboard | ZBC_CCM_DASHBO | https://github.com/Xexer/zbcccmdashboard |
 | CCM Document | ZBC_CCM_DOC | https://github.com/Xexer/zbcccmdocument |
 | CCM Objects | ZBC_CCM_OBJECT | https://github.com/Xexer/zbcccmobjects |
