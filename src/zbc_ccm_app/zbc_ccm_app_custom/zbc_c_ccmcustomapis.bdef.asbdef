@@ -1,5 +1,5 @@
 projection implementation in class ZBP_BC_CCM_CUSTOMC unique;
-strict ( 2 );
+strict ( 1 );
 extensible;
 use draft;
 use side effects;

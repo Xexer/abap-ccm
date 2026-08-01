@@ -47,9 +47,9 @@ CLASS lhc_zbc_r_ccmcustomapis IMPLEMENTATION.
     LOOP AT keys INTO DATA(key).
       DATA(parameter) = key-%param.
 
-      handler->load_excel_file( VALUE #( overwrite_provider = parameter-OverwriteProvider
-                                         mode               = parameter-UploadMode
-                                         file-json_url      = parameter-JSONFilePath ) ).
+      handler->load_json_file( VALUE #( overwrite_provider = parameter-OverwriteProvider
+                                        mode               = parameter-UploadMode
+                                        file-json_url      = parameter-JSONFilePath ) ).
     ENDLOOP.
 
     reported-%other = prepare_messages( handler->log ).

@@ -92,6 +92,36 @@
      <MSGNR>013</MSGNR>
      <TEXT>Object Type &amp;1 is not supported</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Object &amp;1/&amp;2/&amp;3 is available in the database</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Error: &amp;1&amp;2&amp;3&amp;4</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>Testmode completed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>017</MSGNR>
+     <TEXT>&amp;1 entries were deleted</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>018</MSGNR>
+     <TEXT>&amp;1 entries were created</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

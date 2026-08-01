@@ -13,6 +13,44 @@
     <UNICODE>X</UNICODE>
     <CLSDEFINT>ZBC_R_CCMCUSTOMAPIS</CLSDEFINT>
    </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_BC_CCM_FILE_API_HANDLER</CLSNAME>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Creates handler and initializes the mini log</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_BC_CCM_FILE_API_HANDLER</CLSNAME>
+     <CMPNAME>GET_VALID_OBJECT_TYPES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Returns the range of valid ABAP object types (CLAS, INTF, FU</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_BC_CCM_FILE_API_HANDLER</CLSNAME>
+     <CMPNAME>HANDLE_NEW_APIS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Applies provider override and persists custom APIs according</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_BC_CCM_FILE_API_HANDLER</CLSNAME>
+     <CMPNAME>IS_VALID_INPUT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Validates provider existence and object types of all loaded</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_BC_CCM_FILE_API_HANDLER</CLSNAME>
+     <CMPNAME>LOAD_EXCEL_FILE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Loads and processes custom APIs from an Excel file</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_BC_CCM_FILE_API_HANDLER</CLSNAME>
+     <CMPNAME>LOAD_JSON_FILE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Loads and processes custom APIs from a JSON file</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
   </asx:values>
  </asx:abap>
 </abapGit>

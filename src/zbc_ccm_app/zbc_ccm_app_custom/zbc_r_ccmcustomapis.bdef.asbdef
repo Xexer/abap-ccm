@@ -1,5 +1,5 @@
 managed implementation in class ZBP_BC_CCM_CUSTOM unique;
-strict ( 2 );
+strict ( 1 );
 with draft;
 extensible;
 auxiliary class zcl_bc_ccm_file_api_handler;
