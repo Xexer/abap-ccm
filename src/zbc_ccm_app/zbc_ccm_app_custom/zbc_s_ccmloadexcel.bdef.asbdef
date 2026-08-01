@@ -2,7 +2,7 @@ abstract;
 strict ( 2 );
 with hierarchy;
 
-define behavior for ZBC_S_CCMLoadContent
+define behavior for ZBC_S_CCMLoadExcel
 {
   association _Files with hierarchy;
 }

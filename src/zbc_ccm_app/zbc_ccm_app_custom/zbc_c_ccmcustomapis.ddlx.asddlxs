@@ -30,9 +30,11 @@ annotate view ZBC_C_CCMCustomAPIs with
   ]
 
   @UI.selectionField: [ { position: 10  } ]
-  @UI.lineItem: [ 
+  @UI.lineItem: [
     { position: 10  },
-    { type: #FOR_ACTION, label: 'Load Content', dataAction: 'LoadContent' } 
+    { type: #FOR_ACTION_GROUP, label: 'Load Content', actionGroupId: 'idLoadContent' },
+    { position: 10, type: #FOR_ACTION, label: 'Via Excel', dataAction: 'LoadContentViaExcel', actionGroupId: 'idLoadContent' },
+    { position: 20, type: #FOR_ACTION, label: 'Via JSON', dataAction: 'LoadContentViaJSON', actionGroupId: 'idLoadContent' }
   ]
   @UI.identification: [ { position: 10 , qualifier: 'GENERAL' } ]
   ProviderID;

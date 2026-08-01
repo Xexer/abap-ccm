@@ -2,6 +2,7 @@ managed implementation in class ZBP_BC_CCM_CUSTOM unique;
 strict ( 2 );
 with draft;
 extensible;
+auxiliary class zcl_bc_ccm_file_api_handler;
 
 define behavior for ZBC_R_CCMCustomAPIs alias CustomAPI
 persistent table zbc_ccm_custom
@@ -32,7 +33,8 @@ authorization master ( global )
   update;
   delete;
 
-  static action LoadContent deep parameter ZBC_S_CCMLoadContent;
+  static action LoadContentViaExcel deep parameter ZBC_S_CCMLoadExcel;
+  static action LoadContentViaJSON parameter ZBC_S_CCMLoadJSON;
 
   draft action Activate optimized;
   draft action Discard;
