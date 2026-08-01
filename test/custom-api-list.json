@@ -1,0 +1,26 @@
+[
+    {
+        "ProviderID": "F01",
+        "ObjectType": "CLAS",
+        "ObjectName": "CL_DATA_VOLUME",
+        "ShortDescription": "Define the volume of the whole data and run it"
+    },
+    {
+        "ProviderID": "F01",
+        "ObjectType": "CLAS",
+        "ObjectName": "CL_ACCOUNTING_RULES",
+        "ShortDescription": "Access to the rules of the calculation in the accounting world"
+    },
+    {
+        "ProviderID": "F01",
+        "ObjectType": "DDLS",
+        "ObjectName": "I_AccountingMessage",
+        "ShortDescription": "Data to read messages from accounting module"
+    },
+    {
+        "ProviderID": "R01",
+        "ObjectType": "CLAS",
+        "ObjectName": "CL_DATE_FUNCTIONS",
+        "ShortDescription": "Special date functions for timeline calculation"
+    }
+]
