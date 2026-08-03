@@ -1,4 +1,10 @@
 @Metadata.layer: #CUSTOMER
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'CheckTitle'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'CheckMessage'
+@UI.headerInfo.typeName: 'Message'
+@UI.headerInfo.typeNamePlural: 'Messages'
 annotate entity ZBC_C_CCMMessages with
 {
   @UI.facet: [

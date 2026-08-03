@@ -1,5 +1,4 @@
 @Metadata.allowExtensions: true
-@Metadata.ignorePropagatedAnnotations: true
 @ObjectModel: {
   sapObjectNodeType.name: 'ZBC_Cluster'
 }

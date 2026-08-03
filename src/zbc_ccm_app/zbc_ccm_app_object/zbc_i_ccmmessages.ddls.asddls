@@ -1,7 +1,5 @@
-@AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Messages'
-@Metadata.ignorePropagatedAnnotations: true
 define view entity ZBC_I_CCMMessages
   as select from zbc_ccm_msg
   association              to parent ZBC_R_CCMObjects as _Objects  on  _Objects.ProviderId = $projection.ProviderId
