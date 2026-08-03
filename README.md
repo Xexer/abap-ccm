@@ -217,5 +217,5 @@ Actual preview of the development status of the project.
 
 | Date | Description |
 |---|---|
-| 08/03/2026 | New app for CUstom APIs, added video |
+| 08/03/2026 | New app for Custom APIs, added video |
 | 07/24/2026 | Added new article as reference, SWC creation |
