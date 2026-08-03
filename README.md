@@ -209,10 +209,13 @@ In the objects you can navigate to the details for all system or per system. The
 
 ### Video
 
-tbd
+Actual preview of the development status of the project.
+
+[<img src="https://img.youtube.com/vi/RNRJ1kHcfzY/hqdefault.jpg" width="600" height="100%" />](https://www.youtube.com/embed/RNRJ1kHcfzY)
 
 ## Changelog
 
 | Date | Description |
 |---|---|
+| 08/03/2026 | New app for CUstom APIs, added video |
 | 07/24/2026 | Added new article as reference, SWC creation |
