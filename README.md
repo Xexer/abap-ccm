@@ -38,6 +38,7 @@ The following features are currently available, and some are already planned for
 - [Clean Core Measurement - Overview](https://software-heroes.com/en/blog/abap-cloud-ccm-overview)
 - [CCM - Determination of Level A Objects](https://software-heroes.com/en/blog/abap-ccm-determination-of-level-a-objects)
 - [CCM - Standard APIs](https://software-heroes.com/en/blog/abap-ccm-standard-apis-en)
+- [CCM - Calculate Key Figures](https://software-heroes.com/en/blog/abap-ccm-calculate-key-figures)
 
 ## Installation
 
