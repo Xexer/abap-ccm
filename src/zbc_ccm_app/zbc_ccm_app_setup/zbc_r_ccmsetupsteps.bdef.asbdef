@@ -1,0 +1,20 @@
+unmanaged implementation in class zbp_bc_ccm_setup_steps unique;
+strict ( 2 );
+
+define behavior for ZBC_R_CCMSetupSteps alias StetupSteps
+lock master
+authorization master ( instance )
+{
+  internal create;
+  internal update;
+  internal delete;
+
+  action CheckStep;
+  action ExecuteStep;
+
+  side effects {
+    action ExecuteStep affects $self;
+  }
+
+  field ( readonly ) StepID;
+}

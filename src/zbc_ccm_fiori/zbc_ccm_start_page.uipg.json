@@ -90,6 +90,13 @@
       "title": "Administration",
       "visualizations": [
         {
+          "id": "SETUP",
+          "ladiAssignment": {
+            "ladiId": "ZBC_CCM_SETUP_APP",
+            "tileId": "ZBC_CCM_SETUP_APP_AL"
+          }
+        },
+        {
           "id": "RUN",
           "ladiAssignment": {
             "ladiId": "ZBC_CCM_RUN_APP",

@@ -12,10 +12,6 @@ CLASS lhc_zbc_r_ccmcustomapis DEFINITION INHERITING FROM cl_abap_behavior_handle
 
     METHODS LoadContentViaJSON FOR MODIFY
       IMPORTING keys FOR ACTION CustomAPI~LoadContentViaJSON.
-
-    METHODS prepare_messages
-      IMPORTING !log          TYPE REF TO zif_bc_ccm_mini_log
-      RETURNING VALUE(result) TYPE result_messages.
 ENDCLASS.
 
 
@@ -37,7 +33,7 @@ CLASS lhc_zbc_r_ccmcustomapis IMPLEMENTATION.
                                          file-excel_file-Attachment = parameter-_files-Attachment ) ).
     ENDLOOP.
 
-    reported-%other = prepare_messages( handler->log ).
+    reported-%other = handler->log->get_all_messages( ).
   ENDMETHOD.
 
 
@@ -52,20 +48,6 @@ CLASS lhc_zbc_r_ccmcustomapis IMPLEMENTATION.
                                         file-json_url      = parameter-JSONFilePath ) ).
     ENDLOOP.
 
-    reported-%other = prepare_messages( handler->log ).
-  ENDMETHOD.
-
-
-  METHOD prepare_messages.
-    LOOP AT log->get_all_messages( ) INTO DATA(message).
-      INSERT new_message( id       = message-id
-                          number   = message-number
-                          severity = log->map_type_to_severity( message-type )
-                          v1       = message-message_v1
-                          v2       = message-message_v2
-                          v3       = message-message_v3
-                          v4       = message-message_v4 )
-             INTO TABLE result.
-    ENDLOOP.
+    reported-%other = handler->log->get_all_messages( ).
   ENDMETHOD.
 ENDCLASS.

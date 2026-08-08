@@ -82,31 +82,23 @@ CLASS zcl_bc_ccm_mini_log IMPLEMENTATION.
 
 
   METHOD zif_bc_ccm_mini_log~get_all_messages.
-    DATA bapi_message TYPE zif_bc_ccm_mini_log=>message_type.
-
     LOOP AT messages INTO DATA(item).
-      CLEAR bapi_message.
-      item->get_all_values( IMPORTING severity   = bapi_message-type
-                                      id         = bapi_message-id
-                                      number     = bapi_message-number
-                                      variable_1 = bapi_message-message_v1
-                                      variable_2 = bapi_message-message_v2
-                                      variable_3 = bapi_message-message_v3
-                                      variable_4 = bapi_message-message_v4 ).
+      item->get_all_values( IMPORTING severity   = DATA(message_type)
+                                      id         = DATA(message_class)
+                                      number     = DATA(message_number)
+                                      variable_1 = DATA(message_v1)
+                                      variable_2 = DATA(message_v2)
+                                      variable_3 = DATA(message_v3)
+                                      variable_4 = DATA(message_v4) ).
 
-      INSERT bapi_message INTO TABLE result.
+      INSERT zcx_bc_ccm_rap_message=>new_message( class  = message_class
+                                                  number = message_number
+                                                  type   = message_type
+                                                  v1     = message_v1
+                                                  v2     = message_v2
+                                                  v3     = message_v3
+                                                  v4     = message_v4 )
+             INTO TABLE result.
     ENDLOOP.
-  ENDMETHOD.
-
-
-  METHOD zif_bc_ccm_mini_log~map_type_to_severity.
-    RETURN SWITCH #( type
-                     WHEN 'A' THEN if_abap_behv_message=>severity-error
-                     WHEN 'X' THEN if_abap_behv_message=>severity-error
-                     WHEN 'E' THEN if_abap_behv_message=>severity-error
-                     WHEN 'W' THEN if_abap_behv_message=>severity-warning
-                     WHEN 'I' THEN if_abap_behv_message=>severity-information
-                     WHEN 'S' THEN if_abap_behv_message=>severity-success
-                     ELSE          if_abap_behv_message=>severity-none ).
   ENDMETHOD.
 ENDCLASS.

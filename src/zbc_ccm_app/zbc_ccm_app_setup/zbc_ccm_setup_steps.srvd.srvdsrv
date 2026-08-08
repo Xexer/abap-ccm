@@ -1,0 +1,5 @@
+@EndUserText.label: 'Setup Steps'
+@ObjectModel.leadingEntity.name: 'ZBC_R_CCMSetupSteps'
+define service ZBC_CCM_SETUP_STEPS {
+  expose ZBC_R_CCMSetupSteps as Steps;
+}

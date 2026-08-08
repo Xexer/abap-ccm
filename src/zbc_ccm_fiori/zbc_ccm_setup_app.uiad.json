@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Setup Application",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_ALV5_DEFAULT"
+  },
+  "ui5AppDetails": {
+    "appId": "rewe.bc.zbcccmsetup"
+  },
+  "navigation": {
+    "targetMappingId": "ZBC_CCM_SETUP_APP_TM",
+    "semanticObject": "ZBC_CCM_SETUP",
+    "action": "manage",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "ZBC_CCM_SETUP_APP_AL",
+      "tileType": "static",
+      "standard": {
+        "title": "Setup",
+        "subtitle": "CCM",
+        "icon": "sap-icon://settings"
+      }
+    }
+  ]
+}

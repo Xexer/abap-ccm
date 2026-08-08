@@ -26,13 +26,7 @@ authorization master( global )
   draft action Resume;
   draft determine action Prepare;
 
-  action SyncAllProviders;
-
-  side effects {
-    action SyncAllProviders affects entity _ProviderCust;
-  }
-
-  association _ProviderCust { internal create; with draft; }
+  association _ProviderCust { create; with draft; }
 
 }
 
@@ -46,14 +40,16 @@ authorization dependent by _ProviderCustAll
   field ( mandatory : create )
    ProviderId;
 
+  field ( readonly : update )
+   GroupId;
+
   field ( readonly )
    SingletonID,
    LocalCreatedBy,
    LocalCreatedAt,
    LocalLastChangedBy,
    LocalLastChangedAt,
-   LastChangedAt,
-   GroupId;
+   LastChangedAt;
 
   field ( readonly : update )
    ProviderId;

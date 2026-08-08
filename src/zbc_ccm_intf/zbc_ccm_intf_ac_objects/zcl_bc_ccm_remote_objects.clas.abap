@@ -3,6 +3,8 @@ CLASS zcl_bc_ccm_remote_objects DEFINITION
   CREATE PUBLIC.
 
   PUBLIC SECTION.
+    CONSTANTS onprem_comm_scenario TYPE string VALUE `ZBC_CCM_REMOTE_OBJECTS`.
+
     "! Read Level A objects from remote system
     "! @parameter provider_id | Provider ID
     "! @parameter result      | Number of entries
@@ -59,7 +61,7 @@ CLASS zcl_bc_ccm_remote_objects IMPLEMENTATION.
 
   METHOD get_destination_for_provider.
     DATA(query) = VALUE if_com_arrangement_factory=>ty_query(
-        cscn_id_range = VALUE #( ( sign = 'I' option = 'EQ' low = 'ZBC_CCM_REMOTE_OBJECTS' ) )
+        cscn_id_range = VALUE #( ( sign = 'I' option = 'EQ' low = onprem_comm_scenario ) )
         ca_property   = VALUE #( ( name = 'PROVIDER_ID' values = VALUE #( ( provider_id ) ) ) ) ).
 
     DATA(arrangement) = cl_com_arrangement_factory=>create_instance( ).
@@ -72,7 +74,7 @@ CLASS zcl_bc_ccm_remote_objects IMPLEMENTATION.
         RAISE EXCEPTION NEW cx_rfc_dest_provider_error( ).
     ENDTRY.
 
-    result = cl_rfc_destination_provider=>create_by_comm_arrangement( comm_scenario  = 'ZBC_CCM_REMOTE_OBJECTS'
+    result = cl_rfc_destination_provider=>create_by_comm_arrangement( comm_scenario  = CONV #( onprem_comm_scenario )
                                                                       comm_system_id = system->get_comm_system_id( ) ).
   ENDMETHOD.
 

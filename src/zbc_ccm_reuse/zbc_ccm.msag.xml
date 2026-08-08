@@ -122,6 +122,66 @@
      <MSGNR>018</MSGNR>
      <TEXT>&amp;1 entries were created</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>019</MSGNR>
+     <TEXT>&amp;1: No Custom Code Project maintained</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>&amp;1: No System Description maintained</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>021</MSGNR>
+     <TEXT>&amp;1: Provider not synchronized</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>022</MSGNR>
+     <TEXT>&amp;1: Setting is missing</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>023</MSGNR>
+     <TEXT>Settings has been synchronized</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>024</MSGNR>
+     <TEXT>&amp;1: No Communication Arrangement found</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>025</MSGNR>
+     <TEXT>&amp;1: Problems instantiating the API</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>026</MSGNR>
+     <TEXT>&amp;1: Error setting the provider ID</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>027</MSGNR>
+     <TEXT>&amp;1: Error saving the Communication Arrangement</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>028</MSGNR>
+     <TEXT>&amp;1: Communication Arrangement created (&amp;2)</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

@@ -23,7 +23,6 @@ define root view entity ZBC_R_CCMProviderCustS
   @UI.lineItem: [ {
     position: 1 
   } ]
-  @UI.identification: [{ position: 10, type: #FOR_ACTION, dataAction: 'SyncAllProviders', label: 'Sync Providers' }]
   key 1 as SingletonID,
   _ProviderCust,
   @UI.hidden: true

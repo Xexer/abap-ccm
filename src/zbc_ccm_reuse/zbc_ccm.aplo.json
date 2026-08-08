@@ -17,6 +17,10 @@
     {
       "name": "SCHEDULE",
       "description": "Scheduler Info"
+    },
+    {
+      "name": "STEPS",
+      "description": "Setup Steps"
     }
   ]
 }
