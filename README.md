@@ -63,6 +63,7 @@ Clone the application into Business Application Studio (BAS) or VS Code. Next, c
 | CCM Document | ZBC_CCM_DOC | https://github.com/Xexer/zbcccmdocument |
 | CCM Objects | ZBC_CCM_OBJECT | https://github.com/Xexer/zbcccmobjects |
 | CCM Run | ZBC_CCM_RUN | https://github.com/Xexer/zbcccmrun |
+| CCM Setup | ZBC_CCM_SETUP | https://github.com/Xexer/zbcccmsetup |
 | CCM Used APIs | ZBC_CCM_USEDAPI | https://github.com/Xexer/zbcccmusedapis |
 | CCM Used Messages | ZBC_CCM_USEDMSG | https://github.com/Xexer/zbcccmusedmessage |
 
