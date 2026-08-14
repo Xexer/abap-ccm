@@ -19,8 +19,10 @@ CLASS zcl_bc_ccm_setup_step_factory IMPLEMENTATION.
       RETURN double_step.
     ELSE.
       RETURN SWITCH #( step_id
-                       WHEN zif_bc_ccm_setup_step=>step-setting         THEN NEW zcl_bc_ccm_step_setting( )
-                       WHEN zif_bc_ccm_setup_step=>step-provider_config THEN NEW zcl_bc_ccm_step_provider( )
+                       WHEN zif_bc_ccm_setup_step=>step-setting          THEN NEW zcl_bc_ccm_step_setting( )
+                       WHEN zif_bc_ccm_setup_step=>step-provider_config  THEN NEW zcl_bc_ccm_step_provider( )
+                       WHEN zif_bc_ccm_setup_step=>step-cluster          THEN NEW zcl_bc_ccm_step_cluster( )
+                       WHEN zif_bc_ccm_setup_step=>step-jobs             THEN NEW zcl_bc_ccm_step_jobs( )
                        WHEN zif_bc_ccm_setup_step=>step-comm_arrangement THEN NEW zcl_bc_ccm_step_comm_arr( ) ).
     ENDIF.
   ENDMETHOD.

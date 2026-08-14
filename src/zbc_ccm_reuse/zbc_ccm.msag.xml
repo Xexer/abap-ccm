@@ -182,6 +182,12 @@
      <MSGNR>028</MSGNR>
      <TEXT>&amp;1: Communication Arrangement created (&amp;2)</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>029</MSGNR>
+     <TEXT>No action defined, navigate to the application</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>
