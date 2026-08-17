@@ -10,6 +10,7 @@ INTERFACE zif_bc_ccm_setup_step
       comm_arrangement VALUE 'CA',
       jobs             VALUE 'JO',
       cluster          VALUE 'CL',
+      role             VALUE 'RO',
     END OF ENUM steps STRUCTURE step.
 
   TYPES:

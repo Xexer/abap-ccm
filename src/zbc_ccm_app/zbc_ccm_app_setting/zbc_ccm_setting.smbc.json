@@ -13,7 +13,7 @@
     "name": "CCM: Settings",
     "transportObject": "ZBC_CCM_SETTINGT",
     "configurationGroup": "",
-    "skipRootEntity": true
+    "skipRootEntity": "skip"
   },
   "appConfiguration": {
     "listReport": {},

@@ -26,7 +26,6 @@ CLASS zcl_bc_ccm_step_comm_arr DEFINITION
       IMPORTING !log                 TYPE REF TO zif_bc_ccm_mini_log
                 provider_id          TYPE sca_ds_object_provider_id
                 communication_system TYPE string.
-
 ENDCLASS.
 
 

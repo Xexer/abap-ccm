@@ -13,7 +13,7 @@
     "name": "CCM: Provider Customizing",
     "transportObject": "ZBC_CCM_PROVIDER_CUSTT",
     "configurationGroup": "",
-    "skipRootEntity": true
+    "skipRootEntity": "skip"
   },
   "appConfiguration": {
     "listReport": {},

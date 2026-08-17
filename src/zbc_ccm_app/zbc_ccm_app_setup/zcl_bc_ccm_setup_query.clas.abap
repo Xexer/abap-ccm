@@ -83,19 +83,11 @@ CLASS zcl_bc_ccm_setup_query IMPLEMENTATION.
 
 
   METHOD get_configuration.
-    DATA(placeholder) = CAST zif_bc_ccm_setup_step( NEW zcl_bc_ccm_step_placeholder( ) ).
+    FINAL(configurations) = zcl_bc_ccm_setup_step_factory=>get_step_configuration( ).
 
-    DATA(setting) = zcl_bc_ccm_setup_step_factory=>create_step( zif_bc_ccm_setup_step=>step-setting ).
-    DATA(provider) = zcl_bc_ccm_setup_step_factory=>create_step( zif_bc_ccm_setup_step=>step-provider_config ).
-    DATA(arrangement) = zcl_bc_ccm_setup_step_factory=>create_step( zif_bc_ccm_setup_step=>step-comm_arrangement ).
-    DATA(cluster) = zcl_bc_ccm_setup_step_factory=>create_step( zif_bc_ccm_setup_step=>step-cluster ).
-    DATA(job) = zcl_bc_ccm_setup_step_factory=>create_step( zif_bc_ccm_setup_step=>step-jobs ).
-
-    RETURN VALUE #( ( step_id = setting->get_step_id( ) step = setting )
-                    ( step_id = provider->get_step_id( ) step = provider )
-                    ( step_id = arrangement->get_step_id( ) step = arrangement )
-                    ( step_id = job->get_step_id( ) step = job )
-                    ( step_id = placeholder->get_step_id( ) step = placeholder )
-                    ( step_id = cluster->get_step_id( ) step = cluster ) ).
+    LOOP AT configurations INTO FINAL(configuration).
+      INSERT VALUE #( step_id = configuration-external_id
+                      step    = configuration-instance ) INTO TABLE result.
+    ENDLOOP.
   ENDMETHOD.
 ENDCLASS.
