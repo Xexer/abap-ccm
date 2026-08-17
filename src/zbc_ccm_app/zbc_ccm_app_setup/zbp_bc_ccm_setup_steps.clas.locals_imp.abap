@@ -1,3 +1,11 @@
+CLASS lcl_buffer DEFINITION.
+  PUBLIC SECTION.
+    TYPES step_type TYPE REF TO zif_bc_ccm_setup_step.
+
+    CLASS-DATA instances TYPE STANDARD TABLE OF step_type WITH EMPTY KEY.
+ENDCLASS.
+
+
 CLASS lhc_StetupSteps DEFINITION INHERITING FROM cl_abap_behavior_handler.
   PRIVATE SECTION.
     METHODS get_instance_authorizations FOR INSTANCE AUTHORIZATION
@@ -60,6 +68,7 @@ CLASS lhc_StetupSteps IMPLEMENTATION.
       DATA(step) = zcl_bc_ccm_setup_step_factory=>create_step( CONV #( key-StepID ) ).
       DATA(step_result) = step->execute( key-%cid_ref ).
       INSERT LINES OF step_result-log->get_all_messages( ) INTO TABLE reported-%other.
+      INSERT step INTO TABLE lcl_buffer=>instances.
     ENDLOOP.
   ENDMETHOD.
 
@@ -108,6 +117,13 @@ CLASS lsc_ZBC_R_CCMSETUPSTEPS IMPLEMENTATION.
 
 
   METHOD save.
+    LOOP AT lcl_buffer=>instances INTO FINAL(step).
+      DATA(log) = step->execute_save( ).
+
+      IF log IS NOT INITIAL.
+        INSERT LINES OF log->get_all_messages( ) INTO TABLE reported-%other.
+      ENDIF.
+    ENDLOOP.
   ENDMETHOD.
 
 

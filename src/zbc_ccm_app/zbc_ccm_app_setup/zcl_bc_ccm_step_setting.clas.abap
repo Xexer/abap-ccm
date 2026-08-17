@@ -88,6 +88,10 @@ CLASS zcl_bc_ccm_step_setting IMPLEMENTATION.
   ENDMETHOD.
 
 
+  METHOD zif_bc_ccm_setup_step~execute_save.
+  ENDMETHOD.
+
+
   METHOD zif_bc_ccm_setup_step~get_description.
     RETURN TEXT-001.
   ENDMETHOD.
@@ -105,15 +109,19 @@ CLASS zcl_bc_ccm_step_setting IMPLEMENTATION.
 
 
   METHOD get_config_ids.
-    RETURN VALUE #( ( key = zif_bc_ccm_config=>config_option-mail_sender default = '' )
-                    ( key = zif_bc_ccm_config=>config_option-mail_receiver default = '' )
-                    ( key = zif_bc_ccm_config=>config_option-default_score_b default = '1' )
-                    ( key = zif_bc_ccm_config=>config_option-default_score_c default = '5' )
-                    ( key = zif_bc_ccm_config=>config_option-default_score_d default = '10' )
-                    ( key = zif_bc_ccm_config=>config_option-default_atc_variant default = 'ABAP_CLEAN_CORE_READINESS' )
-                    ( key = zif_bc_ccm_config=>config_option-include_level_c_findings default = abap_true )
-                    ( key = zif_bc_ccm_config=>config_option-period_unit default = zif_bc_ccm_config=>periods-month )
-                    ( key = zif_bc_ccm_config=>config_option-test_mode default = abap_false ) ).
+    RETURN VALUE #(
+        ( key = zif_bc_ccm_config=>config_option-mail_sender default = '' )
+        ( key = zif_bc_ccm_config=>config_option-mail_receiver default = '' )
+        ( key = zif_bc_ccm_config=>config_option-default_score_b default = '1' )
+        ( key = zif_bc_ccm_config=>config_option-default_score_c default = '5' )
+        ( key = zif_bc_ccm_config=>config_option-default_score_d default = '10' )
+        ( key = zif_bc_ccm_config=>config_option-default_atc_variant default = 'ABAP_CLEAN_CORE_READINESS' )
+        ( key = zif_bc_ccm_config=>config_option-include_level_c_findings default = abap_true )
+        ( key = zif_bc_ccm_config=>config_option-period_unit default = zif_bc_ccm_config=>periods-month )
+        ( key = zif_bc_ccm_config=>config_option-test_mode default = abap_false )
+        ( key = zif_bc_ccm_config=>config_option-role_admin default = zcl_bc_ccm_step_role=>default_role_names-admin )
+        ( key = zif_bc_ccm_config=>config_option-role_process default = zcl_bc_ccm_step_role=>default_role_names-process )
+        ( key = zif_bc_ccm_config=>config_option-role_viewer default = zcl_bc_ccm_step_role=>default_role_names-viewer ) ).
   ENDMETHOD.
 
 

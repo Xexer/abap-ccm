@@ -16,6 +16,9 @@ INTERFACE zif_bc_ccm_config
                include_level_c_findings TYPE key VALUE 'INCL_C',
                period_unit              TYPE key VALUE 'PERIOD',
                test_mode                TYPE key VALUE 'TEST',
+               role_admin               TYPE key VALUE 'ROLE_ADMIN',
+               role_process             TYPE key VALUE 'ROLE_PROC',
+               role_viewer              TYPE key VALUE 'ROLE_VIEW',
              END OF config_option.
 
   CONSTANTS: BEGIN OF periods,

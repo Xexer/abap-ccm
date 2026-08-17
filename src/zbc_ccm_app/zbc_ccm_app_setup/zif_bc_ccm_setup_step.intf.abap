@@ -4,13 +4,13 @@ INTERFACE zif_bc_ccm_setup_step
   TYPES step_type TYPE c LENGTH 2.
   TYPES:
     BEGIN OF ENUM steps STRUCTURE step BASE TYPE step_type,
-      placeholder      VALUE IS INITIAL,
-      setting          VALUE 'SE',
-      provider_config  VALUE 'PC',
+      placeholder VALUE IS INITIAL,
+      setting VALUE 'SE',
+      provider_config VALUE 'PC',
       comm_arrangement VALUE 'CA',
-      jobs             VALUE 'JO',
-      cluster          VALUE 'CL',
-      role             VALUE 'RO',
+      jobs VALUE 'JO',
+      cluster VALUE 'CL',
+      role VALUE 'RO',
     END OF ENUM steps STRUCTURE step.
 
   TYPES:
@@ -64,4 +64,9 @@ INTERFACE zif_bc_ccm_setup_step
   "! @parameter result | Navigation settings
   METHODS get_navigation
     RETURNING VALUE(result) TYPE navigation_result.
+
+  "! Trigger Save Phase Events (Insert, Call Function Update Task)
+  "! @parameter result | Messages from Execution
+  METHODS execute_save
+    RETURNING VALUE(result) TYPE REF TO zif_bc_ccm_mini_log.
 ENDINTERFACE.

@@ -31,6 +31,61 @@
       <TYPE_TEXT>OData V4</TYPE_TEXT>
      </item>
     </SERVICE>
+    <AUTH>
+     <item>
+      <AUTH_OBJECT>S_APPL_LOG</AUTH_OBJECT>
+      <STATUS>U</STATUS>
+      <TEXT>Application Log</TEXT>
+      <AUTH_ITEM>
+       <item>
+        <UUID>0kO2PkiRH+GmxcdZQgUdLQ==</UUID>
+        <AUTH_OBJECT>S_APPL_LOG</AUTH_OBJECT>
+        <AUTH_OBJECT_INSTANCE>0001</AUTH_OBJECT_INSTANCE>
+        <TEXT>Application Log</TEXT>
+        <STATUS>U</STATUS>
+        <VALUES>
+         <item>
+          <FIELD>ALG_OBJECT</FIELD>
+          <VALUE>ZBC_CCM</VALUE>
+          <VALUES>
+           <item>
+            <UUID>0kO2PkiRH+GmxcdZQgU9LQ==</UUID>
+            <LOW_VALUE>ZBC_CCM</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Application Log: Object</TEXT>
+          <STATUS>U</STATUS>
+         </item>
+         <item>
+          <FIELD>ACTVT</FIELD>
+          <VALUE>Display</VALUE>
+          <VALUES>
+           <item>
+            <UUID>0kO2PkiRH+GmxcdZQgV9LQ==</UUID>
+            <LOW_VALUE>03</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Activity</TEXT>
+          <STATUS>U</STATUS>
+          <IS_ACTVT>X</IS_ACTVT>
+         </item>
+         <item>
+          <FIELD>ALG_SUBOBJ</FIELD>
+          <VALUE>*</VALUE>
+          <VALUES>
+           <item>
+            <UUID>0kO2PkiRH+GmxcdZQgVdLQ==</UUID>
+            <LOW_VALUE>*</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Application Log: Subobject</TEXT>
+          <STATUS>U</STATUS>
+         </item>
+        </VALUES>
+       </item>
+      </AUTH_ITEM>
+     </item>
+    </AUTH>
     <PUBLISH_STATUS>p</PUBLISH_STATUS>
    </SIA6>
   </asx:values>

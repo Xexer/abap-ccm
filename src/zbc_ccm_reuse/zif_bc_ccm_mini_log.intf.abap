@@ -10,6 +10,7 @@ INTERFACE zif_bc_ccm_mini_log
       data         TYPE cl_bali_header_setter=>ty_subobject VALUE 'DATA',
       load_custom  TYPE cl_bali_header_setter=>ty_subobject VALUE 'LOAD_CUSTOM',
       step_execute TYPE cl_bali_header_setter=>ty_subobject VALUE 'STEPS',
+      background   TYPE cl_bali_header_setter=>ty_subobject VALUE 'BACKGROUND',
     END OF sub_objects.
 
   " Dummy variable for message

@@ -20,6 +20,10 @@ CLASS zcl_bc_ccm_step_placeholder IMPLEMENTATION.
   ENDMETHOD.
 
 
+  METHOD zif_bc_ccm_setup_step~execute_save.
+  ENDMETHOD.
+
+
   METHOD zif_bc_ccm_setup_step~get_description.
   ENDMETHOD.
 

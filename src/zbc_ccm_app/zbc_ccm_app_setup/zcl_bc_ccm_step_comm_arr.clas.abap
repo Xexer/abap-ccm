@@ -83,6 +83,10 @@ CLASS zcl_bc_ccm_step_comm_arr IMPLEMENTATION.
   ENDMETHOD.
 
 
+  METHOD zif_bc_ccm_setup_step~execute_save.
+  ENDMETHOD.
+
+
   METHOD zif_bc_ccm_setup_step~get_description.
     RETURN TEXT-001.
   ENDMETHOD.

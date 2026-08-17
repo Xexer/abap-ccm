@@ -188,6 +188,36 @@
      <MSGNR>029</MSGNR>
      <TEXT>No action defined, navigate to the application</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>030</MSGNR>
+     <TEXT>Can&apos;t create background process</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>031</MSGNR>
+     <TEXT>Process starts in background for creation</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>032</MSGNR>
+     <TEXT>Roles have been created</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>033</MSGNR>
+     <TEXT>No roles have been created</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>034</MSGNR>
+     <TEXT>Role &amp;1 not found in the system</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>
