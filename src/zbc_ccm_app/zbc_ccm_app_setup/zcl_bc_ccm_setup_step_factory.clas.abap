@@ -46,35 +46,23 @@ CLASS zcl_bc_ccm_setup_step_factory IMPLEMENTATION.
 
 
   METHOD get_step_configuration.
-    FINAL(placeholder) = NEW zcl_bc_ccm_step_placeholder( ).
+    result = VALUE #( ( step_id  = zif_bc_ccm_setup_step=>step-role
+                        instance = NEW zcl_bc_ccm_step_role( ) )
+                      ( step_id  = zif_bc_ccm_setup_step=>step-setting
+                        instance = NEW zcl_bc_ccm_step_setting( ) )
+                      ( step_id  = zif_bc_ccm_setup_step=>step-provider_config
+                        instance = NEW zcl_bc_ccm_step_provider( ) )
+                      ( step_id  = zif_bc_ccm_setup_step=>step-comm_arrangement
+                        instance = NEW zcl_bc_ccm_step_comm_arr( ) )
+                      ( step_id  = zif_bc_ccm_setup_step=>step-jobs
+                        instance = NEW zcl_bc_ccm_step_jobs( ) )
+                      ( step_id  = zif_bc_ccm_setup_step=>step-placeholder
+                        instance = NEW zcl_bc_ccm_step_placeholder( ) )
+                      ( step_id  = zif_bc_ccm_setup_step=>step-cluster
+                        instance = NEW zcl_bc_ccm_step_cluster( ) ) ).
 
-    FINAL(role) = NEW zcl_bc_ccm_step_role( ).
-    FINAL(setting) = NEW zcl_bc_ccm_step_setting( ).
-    FINAL(provider) = NEW zcl_bc_ccm_step_provider( ).
-    FINAL(arrangement) = NEW zcl_bc_ccm_step_comm_arr( ).
-    FINAL(cluster) = NEW zcl_bc_ccm_step_cluster( ).
-    FINAL(job) = NEW zcl_bc_ccm_step_jobs( ).
-
-    RETURN VALUE #( ( step_id     = zif_bc_ccm_setup_step=>step-role
-                      external_id = role->zif_bc_ccm_setup_step~get_step_id( )
-                      instance    = role )
-                    ( step_id     = zif_bc_ccm_setup_step=>step-setting
-                      external_id = setting->zif_bc_ccm_setup_step~get_step_id( )
-                      instance    = setting )
-                    ( step_id     = zif_bc_ccm_setup_step=>step-provider_config
-                      external_id = provider->zif_bc_ccm_setup_step~get_step_id( )
-                      instance    = provider )
-                    ( step_id     = zif_bc_ccm_setup_step=>step-comm_arrangement
-                      external_id = arrangement->zif_bc_ccm_setup_step~get_step_id( )
-                      instance    = arrangement )
-                    ( step_id     = zif_bc_ccm_setup_step=>step-jobs
-                      external_id = job->zif_bc_ccm_setup_step~get_step_id( )
-                      instance    = job )
-                    ( step_id     = zif_bc_ccm_setup_step=>step-placeholder
-                      external_id = placeholder->zif_bc_ccm_setup_step~get_step_id( )
-                      instance    = placeholder )
-                    ( step_id     = zif_bc_ccm_setup_step=>step-cluster
-                      external_id = cluster->zif_bc_ccm_setup_step~get_step_id( )
-                      instance    = cluster ) ).
+    LOOP AT result REFERENCE INTO DATA(step).
+      step->external_id = step->instance->get_step_id( ).
+    ENDLOOP.
   ENDMETHOD.
 ENDCLASS.
