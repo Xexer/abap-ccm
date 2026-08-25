@@ -32,6 +32,8 @@ The following features are currently available, and some are already planned for
 - Diagram for Trend per system *[Planned]*
 - Different roles, like Admin, Viewer, Developer *[Planned]*
 - Authorization per system *[Planned]*
+- Categories for Clusters for better filters (APIs, General) *[Planned]*
+- Auto approval (ATC) for Clean Core Findings *[Planned]*
 
 ### Material
 
