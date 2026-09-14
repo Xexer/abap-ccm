@@ -1,8 +1,8 @@
 @Metadata.layer: #CUSTOMER
 @UI.headerInfo.title.type: #STANDARD
-@UI.headerInfo.title.value: 'CheckMessage'
+@UI.headerInfo.title.value: 'MessageName'
 @UI.headerInfo.description.type: #STANDARD
-@UI.headerInfo.description.value: 'CheckTitle'
+@UI.headerInfo.description.value: 'CheckName'
 @UI.headerInfo.typeName: 'Check'
 @UI.headerInfo.typeNamePlural: 'Checks'
 
@@ -34,14 +34,14 @@ annotate entity ZBC_C_CCMChecks with
   @UI.selectionField: [ { position: 20  } ]
   @UI.lineItem: [ { position: 20  } ]
   @UI.identification: [ { position: 20 , qualifier: 'GENERAL' } ]
-  @EndUserText.label: 'Check Title'  
-  CheckTitle;
+  @EndUserText.label: 'Check'  
+  CheckName;
 
   @UI.selectionField: [ { position: 30  } ]
   @UI.lineItem: [ { position: 30  } ]
   @UI.identification: [ { position: 30 , qualifier: 'GENERAL' } ]
-  @EndUserText.label: 'Check Message'
-  CheckMessage;
+  @EndUserText.label: 'Message'
+  MessageName;
 
   @UI.lineItem: [ { position: 40  } ]
   @UI.identification: [ { position: 40 , qualifier: 'GENERAL' } ]

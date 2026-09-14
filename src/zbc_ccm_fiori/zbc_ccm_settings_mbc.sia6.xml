@@ -95,15 +95,15 @@
          </item>
          <item>
           <FIELD>TABLE</FIELD>
-          <VALUE>ZBC_I_CCMSETTINGS,ZBC_CCM_SETT</VALUE>
+          <VALUE>ZBC_CCM_SETT,ZBC_I_CCMSETTINGS</VALUE>
           <VALUES>
-           <item>
-            <UUID>Lqw4lzupH+GbtEe8u2rJkw==</UUID>
-            <LOW_VALUE>ZBC_I_CCMSETTINGS</LOW_VALUE>
-           </item>
            <item>
             <UUID>Lqw4lzupH+GbtEe8u2qpkw==</UUID>
             <LOW_VALUE>ZBC_CCM_SETT</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>Lqw4lzupH+GbtEe8u2rJkw==</UUID>
+            <LOW_VALUE>ZBC_I_CCMSETTINGS</LOW_VALUE>
            </item>
           </VALUES>
           <TEXT>Table Name</TEXT>

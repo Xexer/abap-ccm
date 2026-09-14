@@ -1,6 +1,8 @@
 @EndUserText.label: 'Service for Checks'
 @ObjectModel.leadingEntity.name: 'ZBC_C_CCMChecks'
 define service ZBC_CCM_CHECK {
-  expose ZBC_C_CCMChecks     as Checks;
+  expose ZBC_C_CCMChecks            as Checks;
   expose ZBC_I_CCMProviderVH;
+  expose ZBC_I_CCMATCCheckVH;
+  expose ZBC_I_CCMATCCheckMessageVH;
 }

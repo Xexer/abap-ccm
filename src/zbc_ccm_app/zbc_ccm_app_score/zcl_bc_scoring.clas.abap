@@ -9,18 +9,32 @@ CLASS zcl_bc_scoring DEFINITION
     METHODS constructor.
 
   PRIVATE SECTION.
-    DATA default_b TYPE i.
-    DATA default_c TYPE i.
-    DATA default_d TYPE i.
+    DATA atc_messages TYPE SORTED TABLE OF ZBC_I_CCMATCCheckMessageVH WITH UNIQUE KEY CheckName MessageName.
+    DATA default_b    TYPE i.
+    DATA default_c    TYPE i.
+    DATA default_d    TYPE i.
 
+    "! Get score value for level B
+    "! @parameter result | Score
     METHODS get_score_b
       RETURNING VALUE(result) TYPE i.
 
+    "! Get score value for level C
+    "! @parameter result | Score
     METHODS get_score_c
       RETURNING VALUE(result) TYPE i.
 
+    "! Get score value for level D
+    "! @parameter result | Score
     METHODS get_score_d
       RETURNING VALUE(result) TYPE i.
+
+    "! Get check name from the message code (only until next release)
+    "! @parameter message_name | Message Code/ID
+    "! @parameter result       | Check name (class)
+    METHODS get_check_name
+      IMPORTING message_name  TYPE ZBC_I_CCMATCCheckMessageVH-MessageName
+      RETURNING VALUE(result) TYPE ZBC_I_CCMATCCheckMessageVH-CheckName.
 ENDCLASS.
 
 
@@ -51,6 +65,8 @@ CLASS zcl_bc_scoring IMPLEMENTATION.
       INSERT VALUE #( obj_type      = finding-obj_type
                       obj_name      = finding-obj_name
                       finding_id    = xco_cp=>uuid( )->value
+                      check_name    = get_check_name( CONV #( finding-module_msg_key ) )
+                      message_name  = finding-module_msg_key
                       check_title   = finding-check_title
                       check_message = finding-check_message
                       ref_obj_type  = finding-referenced_object_type
@@ -105,5 +121,17 @@ CLASS zcl_bc_scoring IMPLEMENTATION.
 
   METHOD get_score_d.
     RETURN default_d.
+  ENDMETHOD.
+
+
+  METHOD get_check_name.
+    IF atc_messages IS INITIAL.
+      SELECT FROM ZBC_I_CCMATCCheckMessageVH
+        FIELDS *
+        INTO TABLE @atc_messages
+        PRIVILEGED ACCESS.
+    ENDIF.
+
+    RETURN VALUE #( atc_messages[ MessageName = message_name ]-CheckName OPTIONAL ).
   ENDMETHOD.
 ENDCLASS.

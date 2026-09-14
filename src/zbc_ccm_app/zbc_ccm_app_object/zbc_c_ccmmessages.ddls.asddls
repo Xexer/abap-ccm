@@ -13,8 +13,16 @@ define view entity ZBC_C_CCMMessages
           @UI.textArrangement: #TEXT_ONLY
           Priority,
           _Priority.Description,
-          CheckTitle,
-          CheckMessage,
+          @Consumption.valueHelpDefinition: [{ entity: { name: 'ZBC_I_CCMATCCheckVH', element : 'CheckName' } }]
+          @ObjectModel.text.element: [ 'CheckText' ]
+          @UI.textArrangement: #TEXT_ONLY
+          CheckName,
+          _Check.CheckText,
+          @Consumption.valueHelpDefinition: [{ entity: { name: 'ZBC_I_CCMATCCheckMessageVH', element : 'MessageName' } }]
+          @ObjectModel.text.element: [ 'MessageText' ]
+          @UI.textArrangement: #TEXT_ONLY
+          MessageName,
+          _Message.MessageText,
           RefObjType,
           RefObjName,
 

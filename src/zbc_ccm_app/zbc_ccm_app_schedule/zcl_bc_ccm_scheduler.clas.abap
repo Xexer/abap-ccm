@@ -6,7 +6,21 @@ CLASS zcl_bc_ccm_scheduler DEFINITION
   PUBLIC SECTION.
     INTERFACES zif_bc_ccm_scheduler.
 
-    TYPES finding  TYPE sycm_aps_atc_findings.
+    TYPES:
+      BEGIN OF finding,
+        " General Findings
+        priority               TYPE sycm_aps_atc_findings-priority,
+        check_title            TYPE sycm_aps_atc_findings-check_title,
+        check_message          TYPE sycm_aps_atc_findings-check_message,
+        obj_type               TYPE sycm_aps_atc_findings-obj_type,
+        obj_name               TYPE sycm_aps_atc_findings-obj_name,
+        package_name           TYPE sycm_aps_atc_findings-package_name,
+        person_responsible     TYPE sycm_aps_atc_findings-person_responsible,
+        referenced_object_type TYPE sycm_aps_atc_findings-referenced_object_type,
+        referenced_object_name TYPE sycm_aps_atc_findings-referenced_object_name,
+        " Finding Specific
+        module_msg_key         TYPE satc_api_findings-module_msg_key,
+      END OF finding.
     TYPES findings TYPE STANDARD TABLE OF finding WITH EMPTY KEY.
 
   PRIVATE SECTION.
@@ -160,7 +174,16 @@ CLASS zcl_bc_ccm_scheduler IMPLEMENTATION.
     ENDIF.
 
     SELECT FROM sycm_aps_atc_findings
-      FIELDS *
+      FIELDS priority,
+             check_title,
+             check_message,
+             obj_type,
+             obj_name,
+             package_name,
+             person_responsible,
+             referenced_object_type,
+             referenced_object_name,
+             \_atc_finding-module_msg_key
       WHERE project_id = @project-project_id
       INTO CORRESPONDING FIELDS OF TABLE @result-findings.
   ENDMETHOD.

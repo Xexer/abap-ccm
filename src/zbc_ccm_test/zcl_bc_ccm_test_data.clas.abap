@@ -269,20 +269,20 @@ CLASS zcl_bc_ccm_test_data IMPLEMENTATION.
 
     CONSTANTS:
       BEGIN OF check_title,
-        enha TYPE zbc_ccm_msg-check_title VALUE 'Allowed Enhancement Technologies',
-        crit TYPE zbc_ccm_msg-check_title VALUE 'Critical Statements',
-        api  TYPE zbc_ccm_msg-check_title VALUE 'Usage of APIs',
+        enha TYPE zbc_ccm_msg-check_name VALUE 'CL_CI_TEST_ADMISSIBLE_ENHANCM',
+        crit TYPE zbc_ccm_msg-check_name VALUE 'CL_CI_TEST_CRITICAL_STATEMENTS',
+        api  TYPE zbc_ccm_msg-check_name VALUE 'CL_YCM_CC_CHECK_API_USAGE',
       END OF check_title.
 
     CONSTANTS:
       BEGIN OF check_message,
-        enha     TYPE zbc_ccm_msg-check_message VALUE 'Enhancement technology not allowed',
-        function TYPE zbc_ccm_msg-check_message VALUE 'Call System Function: ...',
-        internal TYPE zbc_ccm_msg-check_message VALUE 'Usage of internal API',
-        submit   TYPE zbc_ccm_msg-check_message VALUE 'SUBMIT program is not recommended',
-        classic  TYPE zbc_ccm_msg-check_message VALUE 'Usage of classic API',
-        succ     TYPE zbc_ccm_msg-check_message VALUE 'Usage of classic API (successor available)',
-        no_api   TYPE zbc_ccm_msg-check_message VALUE 'Usage of API that must not be used (successor available)',
+        enha     TYPE zbc_ccm_msg-message_name VALUE 'ENHINVALD',
+        function TYPE zbc_ccm_msg-message_name VALUE '001',
+        internal TYPE zbc_ccm_msg-message_name VALUE 'INTRNL',
+        submit   TYPE zbc_ccm_msg-message_name VALUE 'SBMT_PROG',
+        classic  TYPE zbc_ccm_msg-message_name VALUE 'CLSSIC',
+        succ     TYPE zbc_ccm_msg-message_name VALUE 'CLSSIC_SUC',
+        no_api   TYPE zbc_ccm_msg-message_name VALUE 'NOAPI_SUC',
       END OF check_message.
 
     INSERT VALUE #( provider_id  = 'F01'
@@ -294,24 +294,24 @@ CLASS zcl_bc_ccm_test_data IMPLEMENTATION.
     INSERT LINES OF VALUE msg_type( provider_id = object->provider_id
                                     obj_type    = object->obj_type
                                     obj_name    = object->obj_name
-                                    ( finding_id    = xco_cp=>uuid( )->value
-                                      priority      = 'W'
-                                      check_title   = check_title-api
-                                      check_message = check_message-internal
-                                      ref_obj_type  = 'CLAS'
-                                      ref_obj_name  = 'CX_SDS_FILE_ERROR' )
-                                    ( finding_id    = xco_cp=>uuid( )->value
-                                      priority      = 'W'
-                                      check_title   = check_title-enha
-                                      check_message = check_message-enha
-                                      ref_obj_type  = 'N/A'
-                                      ref_obj_name  = 'N/A' )
-                                    ( finding_id    = xco_cp=>uuid( )->value
-                                      priority      = 'E'
-                                      check_title   = check_title-api
-                                      check_message = check_message-no_api
-                                      ref_obj_type  = 'TABL'
-                                      ref_obj_name  = 'T001' ) )
+                                    ( finding_id   = xco_cp=>uuid( )->value
+                                      priority     = 'W'
+                                      check_name   = check_title-api
+                                      message_name = check_message-internal
+                                      ref_obj_type = 'CLAS'
+                                      ref_obj_name = 'CX_SDS_FILE_ERROR' )
+                                    ( finding_id   = xco_cp=>uuid( )->value
+                                      priority     = 'W'
+                                      check_name   = check_title-enha
+                                      message_name = check_message-enha
+                                      ref_obj_type = 'N/A'
+                                      ref_obj_name = 'N/A' )
+                                    ( finding_id   = xco_cp=>uuid( )->value
+                                      priority     = 'E'
+                                      check_name   = check_title-api
+                                      message_name = check_message-no_api
+                                      ref_obj_type = 'TABL'
+                                      ref_obj_name = 'T001' ) )
            INTO TABLE messages.
 
     INSERT VALUE #( provider_id  = 'F01'
@@ -323,12 +323,12 @@ CLASS zcl_bc_ccm_test_data IMPLEMENTATION.
     INSERT LINES OF VALUE msg_type( provider_id = object->provider_id
                                     obj_type    = object->obj_type
                                     obj_name    = object->obj_name
-                                    check_title = check_title-api
-                                    ( finding_id    = xco_cp=>uuid( )->value
-                                      priority      = 'I'
-                                      check_message = check_message-classic
-                                      ref_obj_type  = 'TABL'
-                                      ref_obj_name  = 'BUT000' ) )
+                                    check_name  = check_title-api
+                                    ( finding_id   = xco_cp=>uuid( )->value
+                                      priority     = 'I'
+                                      message_name = check_message-classic
+                                      ref_obj_type = 'TABL'
+                                      ref_obj_name = 'BUT000' ) )
            INTO TABLE messages.
 
     INSERT VALUE #( provider_id  = 'F01'
@@ -340,17 +340,17 @@ CLASS zcl_bc_ccm_test_data IMPLEMENTATION.
     INSERT LINES OF VALUE msg_type( provider_id = object->provider_id
                                     obj_type    = object->obj_type
                                     obj_name    = object->obj_name
-                                    check_title = check_title-api
-                                    ( finding_id    = xco_cp=>uuid( )->value
-                                      priority      = 'W'
-                                      check_message = check_message-internal
-                                      ref_obj_type  = 'CLAS'
-                                      ref_obj_name  = 'CX_SDS_FILE_ERROR' )
-                                    ( finding_id    = xco_cp=>uuid( )->value
-                                      priority      = 'I'
-                                      check_message = check_message-classic
-                                      ref_obj_type  = 'TABL'
-                                      ref_obj_name  = 'BUT000' ) )
+                                    check_name  = check_title-api
+                                    ( finding_id   = xco_cp=>uuid( )->value
+                                      priority     = 'W'
+                                      message_name = check_message-internal
+                                      ref_obj_type = 'CLAS'
+                                      ref_obj_name = 'CX_SDS_FILE_ERROR' )
+                                    ( finding_id   = xco_cp=>uuid( )->value
+                                      priority     = 'I'
+                                      message_name = check_message-classic
+                                      ref_obj_type = 'TABL'
+                                      ref_obj_name = 'BUT000' ) )
            INTO TABLE messages.
 
     INSERT VALUE #( provider_id  = 'F01'
@@ -362,12 +362,12 @@ CLASS zcl_bc_ccm_test_data IMPLEMENTATION.
     INSERT LINES OF VALUE msg_type( provider_id = object->provider_id
                                     obj_type    = object->obj_type
                                     obj_name    = object->obj_name
-                                    check_title = check_title-api
-                                    ( finding_id    = xco_cp=>uuid( )->value
-                                      priority      = 'E'
-                                      check_message = check_message-no_api
-                                      ref_obj_type  = 'FUNC'
-                                      ref_obj_name  = 'RFC_READ_TABLE' ) )
+                                    check_name  = check_title-api
+                                    ( finding_id   = xco_cp=>uuid( )->value
+                                      priority     = 'E'
+                                      message_name = check_message-no_api
+                                      ref_obj_type = 'FUNC'
+                                      ref_obj_name = 'RFC_READ_TABLE' ) )
            INTO TABLE messages.
 
     INSERT VALUE #( provider_id  = 'F01'
@@ -379,24 +379,24 @@ CLASS zcl_bc_ccm_test_data IMPLEMENTATION.
     INSERT LINES OF VALUE msg_type( provider_id = object->provider_id
                                     obj_type    = object->obj_type
                                     obj_name    = object->obj_name
-                                    ( finding_id    = xco_cp=>uuid( )->value
-                                      priority      = 'W'
-                                      check_title   = check_title-api
-                                      check_message = check_message-internal
-                                      ref_obj_type  = 'CLAS'
-                                      ref_obj_name  = 'CX_SDS_FILE_ERROR' )
-                                    ( finding_id    = xco_cp=>uuid( )->value
-                                      priority      = 'W'
-                                      check_title   = check_title-enha
-                                      check_message = check_message-enha
-                                      ref_obj_type  = 'N/A'
-                                      ref_obj_name  = 'N/A' )
-                                    ( finding_id    = xco_cp=>uuid( )->value
-                                      priority      = 'I'
-                                      check_title   = check_title-api
-                                      check_message = check_message-classic
-                                      ref_obj_type  = 'TABL'
-                                      ref_obj_name  = 'BUT000' ) )
+                                    ( finding_id   = xco_cp=>uuid( )->value
+                                      priority     = 'W'
+                                      check_name   = check_title-api
+                                      message_name = check_message-internal
+                                      ref_obj_type = 'CLAS'
+                                      ref_obj_name = 'CX_SDS_FILE_ERROR' )
+                                    ( finding_id   = xco_cp=>uuid( )->value
+                                      priority     = 'W'
+                                      check_name   = check_title-enha
+                                      message_name = check_message-enha
+                                      ref_obj_type = 'N/A'
+                                      ref_obj_name = 'N/A' )
+                                    ( finding_id   = xco_cp=>uuid( )->value
+                                      priority     = 'I'
+                                      check_name   = check_title-api
+                                      message_name = check_message-classic
+                                      ref_obj_type = 'TABL'
+                                      ref_obj_name = 'BUT000' ) )
            INTO TABLE messages.
 
     INSERT VALUE #( provider_id  = 'F02'
@@ -408,24 +408,24 @@ CLASS zcl_bc_ccm_test_data IMPLEMENTATION.
     INSERT LINES OF VALUE msg_type( provider_id = object->provider_id
                                     obj_type    = object->obj_type
                                     obj_name    = object->obj_name
-                                    ( finding_id    = xco_cp=>uuid( )->value
-                                      priority      = 'W'
-                                      check_title   = check_title-api
-                                      check_message = check_message-internal
-                                      ref_obj_type  = 'CLAS'
-                                      ref_obj_name  = 'CX_SDS_FILE_ERROR' )
-                                    ( finding_id    = xco_cp=>uuid( )->value
-                                      priority      = 'W'
-                                      check_title   = check_title-enha
-                                      check_message = check_message-enha
-                                      ref_obj_type  = 'N/A'
-                                      ref_obj_name  = 'N/A' )
-                                    ( finding_id    = xco_cp=>uuid( )->value
-                                      priority      = 'I'
-                                      check_title   = check_title-api
-                                      check_message = check_message-classic
-                                      ref_obj_type  = 'TABL'
-                                      ref_obj_name  = 'BUT000' ) )
+                                    ( finding_id   = xco_cp=>uuid( )->value
+                                      priority     = 'W'
+                                      check_name   = check_title-api
+                                      message_name = check_message-internal
+                                      ref_obj_type = 'CLAS'
+                                      ref_obj_name = 'CX_SDS_FILE_ERROR' )
+                                    ( finding_id   = xco_cp=>uuid( )->value
+                                      priority     = 'W'
+                                      check_name   = check_title-enha
+                                      message_name = check_message-enha
+                                      ref_obj_type = 'N/A'
+                                      ref_obj_name = 'N/A' )
+                                    ( finding_id   = xco_cp=>uuid( )->value
+                                      priority     = 'I'
+                                      check_name   = check_title-api
+                                      message_name = check_message-classic
+                                      ref_obj_type = 'TABL'
+                                      ref_obj_name = 'BUT000' ) )
            INTO TABLE messages.
 
     LOOP AT objects REFERENCE INTO object.

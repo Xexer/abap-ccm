@@ -218,6 +218,12 @@
      <MSGNR>034</MSGNR>
      <TEXT>Role &amp;1 not found in the system</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>035</MSGNR>
+     <TEXT>ATC messages has been synchronized</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

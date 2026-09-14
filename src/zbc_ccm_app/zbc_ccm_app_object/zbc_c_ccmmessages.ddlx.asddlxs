@@ -1,8 +1,8 @@
 @Metadata.layer: #CUSTOMER
 @UI.headerInfo.title.type: #STANDARD
-@UI.headerInfo.title.value: 'CheckTitle'
+@UI.headerInfo.title.value: 'MessageName'
 @UI.headerInfo.description.type: #STANDARD
-@UI.headerInfo.description.value: 'CheckMessage'
+@UI.headerInfo.description.value: 'CheckName'
 @UI.headerInfo.typeName: 'Message'
 @UI.headerInfo.typeNamePlural: 'Messages'
 annotate entity ZBC_C_CCMMessages with
@@ -45,13 +45,13 @@ annotate entity ZBC_C_CCMMessages with
 
   @UI.lineItem: [ { position: 70  } ]
   @UI.identification: [ { position: 70 , qualifier: 'CHECK' } ]
-  @EndUserText.label: 'Check Title'
-  CheckTitle;
+  @EndUserText.label: 'Check'
+  CheckName;
 
   @UI.lineItem: [ { position: 80  } ]
   @UI.identification: [ { position: 80 , qualifier: 'CHECK' } ]
-  @EndUserText.label: 'Check Message'
-  CheckMessage;
+  @EndUserText.label: 'Message'
+  MessageName;
 
   @UI.lineItem: [ { position: 90  } ]
   @UI.identification: [ { position: 90 , qualifier: 'REF' } ]

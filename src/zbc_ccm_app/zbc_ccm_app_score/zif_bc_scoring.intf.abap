@@ -16,10 +16,16 @@ INTERFACE zif_bc_scoring
                exemption TYPE zbc_ccm_calculate_method VALUE 'E',
              END OF calculation_methods.
 
+  "! Calculate Standard-Key-Figure
+  "! @parameter findings | Findings from the Run
+  "! @parameter result   | Scoring Result
   METHODS calculate_standard
     IMPORTING findings      TYPE zcl_bc_ccm_scheduler=>findings
     RETURNING VALUE(result) TYPE scoring_result.
 
+  "! Calculate Key-Figure with Exemptions and API
+  "! @parameter findings | Findings from the Run
+  "! @parameter result   | Scoring Result
   METHODS calculate_exemption
     IMPORTING findings      TYPE zcl_bc_ccm_scheduler=>findings
     RETURNING VALUE(result) TYPE scoring_result.

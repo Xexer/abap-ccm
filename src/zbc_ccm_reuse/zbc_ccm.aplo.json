@@ -7,6 +7,10 @@
   },
   "subobjects": [
     {
+      "name": "APPROVER",
+      "description": "Auto Approver Process"
+    },
+    {
       "name": "BACKGROUND",
       "description": "bgPF Processes"
     },

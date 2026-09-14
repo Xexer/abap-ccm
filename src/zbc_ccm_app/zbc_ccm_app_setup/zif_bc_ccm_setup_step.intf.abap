@@ -4,13 +4,14 @@ INTERFACE zif_bc_ccm_setup_step
   TYPES step_type TYPE c LENGTH 2.
   TYPES:
     BEGIN OF ENUM steps STRUCTURE step BASE TYPE step_type,
-      placeholder VALUE IS INITIAL,
-      setting VALUE 'SE',
-      provider_config VALUE 'PC',
+      placeholder      VALUE IS INITIAL,
+      setting          VALUE 'SE',
+      provider_config  VALUE 'PC',
       comm_arrangement VALUE 'CA',
-      jobs VALUE 'JO',
-      cluster VALUE 'CL',
-      role VALUE 'RO',
+      jobs             VALUE 'JO',
+      cluster          VALUE 'CL',
+      role             VALUE 'RO',
+      atc_messages     VALUE 'AM',
     END OF ENUM steps STRUCTURE step.
 
   TYPES:

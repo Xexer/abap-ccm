@@ -1,0 +1,91 @@
+managed implementation in class ZBP_BC_CCM_ATC_MESSAGE unique;
+strict ( 2 );
+with draft;
+define behavior for ZBC_R_CCMATCMessageS alias ATCMessageAll
+draft table ZBC_CCM_ATCMSGSD
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare {
+    validation ATCMessage ~ ValidateDataConsistency;
+  }
+
+  association _ATCMessage { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZBC_I_CCMATCMessage alias ATCMessage ##UNMAPPED_FIELD[SingletonID]
+persistent table ZBC_CCM_ATCMSG
+draft table ZBC_CCM_ATCMSGD
+etag master LocalLastChangedAt
+lock dependent by _ATCMessageAll
+authorization dependent by _ATCMessageAll
+{
+  field ( mandatory : create )
+   CheckName,
+   MessageName;
+
+  field ( readonly )
+   SingletonID,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( readonly : update )
+   CheckName,
+   MessageName;
+
+  field ( notrigger )
+   SingletonID,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZBC_CCM_ATCMSG
+  {
+    CheckName = CHECK_NAME;
+    MessageName = MESSAGE_NAME;
+    MessageText = MESSAGE_TEXT;
+    AutoApprovalSetting = AUTO_APPROVAL_SETTING;
+    OverwriteMessageType = OVERWRITE_MESSAGE_TYPE;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+  association _ATCMessageAll { with draft; }
+
+  validation ValidateDataConsistency on save
+  {
+    create;
+    update;
+  }
+
+}

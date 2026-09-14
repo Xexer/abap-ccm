@@ -9,8 +9,16 @@ define root view entity ZBC_C_CCMChecks
       @ObjectModel.text.element: [ 'SystemName' ]
       @UI.textArrangement: #TEXT_ONLY
   key ProviderId,
-  key CheckTitle,
-  key CheckMessage,
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZBC_I_CCMATCCheckVH', element : 'CheckName' } }]
+      @ObjectModel.text.element: [ 'CheckText' ]
+      @UI.textArrangement: #TEXT_ONLY
+  key CheckName,
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZBC_I_CCMATCCheckMessageVH', element : 'MessageName' } }]
+      @ObjectModel.text.element: [ 'MessageText' ]
+      @UI.textArrangement: #TEXT_ONLY
+  key MessageName,
+      _Message.MessageText,
+      _Check.CheckText,
       NumberOfCalls,
       _Provider.SystemName
 }

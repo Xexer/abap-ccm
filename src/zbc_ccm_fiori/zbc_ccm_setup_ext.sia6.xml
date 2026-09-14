@@ -45,18 +45,6 @@
         <STATUS>U</STATUS>
         <VALUES>
          <item>
-          <FIELD>ALG_OBJECT</FIELD>
-          <VALUE>ZBC_CCM</VALUE>
-          <VALUES>
-           <item>
-            <UUID>0kO2PkiRH+GmxcdZQgU9LQ==</UUID>
-            <LOW_VALUE>ZBC_CCM</LOW_VALUE>
-           </item>
-          </VALUES>
-          <TEXT>Application Log: Object</TEXT>
-          <STATUS>U</STATUS>
-         </item>
-         <item>
           <FIELD>ACTVT</FIELD>
           <VALUE>Display</VALUE>
           <VALUES>
@@ -68,6 +56,18 @@
           <TEXT>Activity</TEXT>
           <STATUS>U</STATUS>
           <IS_ACTVT>X</IS_ACTVT>
+         </item>
+         <item>
+          <FIELD>ALG_OBJECT</FIELD>
+          <VALUE>ZBC_CCM</VALUE>
+          <VALUES>
+           <item>
+            <UUID>0kO2PkiRH+GmxcdZQgU9LQ==</UUID>
+            <LOW_VALUE>ZBC_CCM</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Application Log: Object</TEXT>
+          <STATUS>U</STATUS>
          </item>
          <item>
           <FIELD>ALG_SUBOBJ</FIELD>

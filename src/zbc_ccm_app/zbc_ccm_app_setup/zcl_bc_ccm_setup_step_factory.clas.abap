@@ -52,6 +52,8 @@ CLASS zcl_bc_ccm_setup_step_factory IMPLEMENTATION.
                         instance = NEW zcl_bc_ccm_step_setting( ) )
                       ( step_id  = zif_bc_ccm_setup_step=>step-provider_config
                         instance = NEW zcl_bc_ccm_step_provider( ) )
+                      ( step_id  = zif_bc_ccm_setup_step=>step-atc_messages
+                        instance = NEW zcl_bc_ccm_step_atc_messages( ) )
                       ( step_id  = zif_bc_ccm_setup_step=>step-comm_arrangement
                         instance = NEW zcl_bc_ccm_step_comm_arr( ) )
                       ( step_id  = zif_bc_ccm_setup_step=>step-jobs
