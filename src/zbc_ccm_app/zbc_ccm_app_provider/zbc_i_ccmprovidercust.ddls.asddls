@@ -11,6 +11,7 @@ define view entity ZBC_I_CCMProviderCust
       active                as Active,
       only_scores           as OnlyScores,
       ccap_id               as CustomCodeProjectID,
+      atc_valid_date        as CentralATCValidDate,
       @Semantics.user.createdBy: true
       local_created_by      as LocalCreatedBy,
       @Semantics.systemDateTime.createdAt: true

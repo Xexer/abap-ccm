@@ -224,6 +224,18 @@
      <MSGNR>035</MSGNR>
      <TEXT>ATC messages has been synchronized</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>036</MSGNR>
+     <TEXT>Exemption request &amp;1 has been auto approved</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>037</MSGNR>
+     <TEXT>Error while auto approve exemption request &amp;1</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

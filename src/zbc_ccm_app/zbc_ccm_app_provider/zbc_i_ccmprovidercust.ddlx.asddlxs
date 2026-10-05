@@ -68,4 +68,13 @@ annotate view ZBC_I_CCMProviderCust with
   } ]
   @EndUserText.label: 'Custom Code Analysis Project ID'
   CustomCodeProjectID;
+  
+  @UI.identification: [ {
+    position: 7 
+  } ]
+  @UI.lineItem: [ {
+    position: 7
+  } ]
+  @EndUserText.label: 'Approver Valid Date'
+  CentralATCValidDate;
 }

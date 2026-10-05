@@ -19,6 +19,9 @@ INTERFACE zif_bc_ccm_config
                role_admin               TYPE key VALUE 'ROLE_ADMIN',
                role_process             TYPE key VALUE 'ROLE_PROC',
                role_viewer              TYPE key VALUE 'ROLE_VIEW',
+               approve_min_length       TYPE key VALUE 'APPR_MLEN',
+               approve_allow_package    TYPE key VALUE 'APPR_PACK',
+               approve_message          TYPE key VALUE 'APPR_MSG',
              END OF config_option.
 
   CONSTANTS: BEGIN OF periods,

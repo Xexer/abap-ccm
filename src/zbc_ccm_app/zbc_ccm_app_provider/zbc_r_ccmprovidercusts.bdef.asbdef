@@ -74,6 +74,7 @@ authorization dependent by _ProviderCustAll
     Active = ACTIVE;
     OnlyScores = ONLY_SCORES;
     CustomCodeProjectID = ccap_id;
+    CentralATCValidDate = atc_valid_date;
     LocalCreatedBy = LOCAL_CREATED_BY;
     LocalCreatedAt = LOCAL_CREATED_AT;
     LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;

@@ -97,6 +97,27 @@
      <DOMVALUE_L>ROLE_VIEW</DOMVALUE_L>
      <DDTEXT>Role: Viewer</DDTEXT>
     </DD07V>
+    <DD07V>
+     <DOMNAME>ZBC_CCM_SETTING_KEY</DOMNAME>
+     <VALPOS>0013</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>APPR_MLEN</DOMVALUE_L>
+     <DDTEXT>Approve: Min. message length</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZBC_CCM_SETTING_KEY</DOMNAME>
+     <VALPOS>0014</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>APPR_PACK</DOMVALUE_L>
+     <DDTEXT>Approve: Packages allowed</DDTEXT>
+    </DD07V>
+    <DD07V>
+     <DOMNAME>ZBC_CCM_SETTING_KEY</DOMNAME>
+     <VALPOS>0015</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>APPR_MSG</DOMVALUE_L>
+     <DDTEXT>Approve: Exemption message</DDTEXT>
+    </DD07V>
    </DD07V_TAB>
   </asx:values>
  </asx:abap>
