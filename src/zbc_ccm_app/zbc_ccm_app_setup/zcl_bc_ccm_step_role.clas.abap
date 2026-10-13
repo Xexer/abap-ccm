@@ -53,6 +53,10 @@ CLASS zcl_bc_ccm_step_role IMPLEMENTATION.
     IF found_roles IS INITIAL.
       result-status  = zif_bc_ccm_setup_step=>status-intial.
       result-message = TEXT-002.
+
+      MESSAGE e041(zbc_ccm) INTO result-log->message.
+      result-log->add_message( ).
+
       RETURN.
     ENDIF.
 
@@ -86,12 +90,12 @@ CLASS zcl_bc_ccm_step_role IMPLEMENTATION.
 
     test_role_creation( setting = VALUE #( role_name        = get_role_name_process( )
                                            description      = 'CCM: Process Manager (All)'
-                                           business_catalog = 'ZBC_CCM_ADMIN' )
+                                           business_catalog = 'ZBC_CCM_PROCESS' )
                         log     = result-log ).
 
     test_role_creation( setting = VALUE #( role_name        = get_role_name_viewer( )
                                            description      = 'CCM: Viewer (All)'
-                                           business_catalog = 'ZBC_CCM_ADMIN' )
+                                           business_catalog = 'ZBC_CCM_VIEWER' )
                         log     = result-log ).
   ENDMETHOD.
 

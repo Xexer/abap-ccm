@@ -13,6 +13,11 @@ CLASS zcl_bc_ccm_data_job DEFINITION
     "! @parameter log | Logging object
     METHODS handle_test_data
       IMPORTING !log TYPE REF TO zif_bc_ccm_mini_log.
+
+    "! Check if authorization for execution is available
+    "! @parameter result | X = Authorized, '' = No authorization
+    METHODS has_authorization
+      RETURNING VALUE(result) TYPE abap_boolean.
 ENDCLASS.
 
 
@@ -34,6 +39,12 @@ CLASS zcl_bc_ccm_data_job IMPLEMENTATION.
 
 
   METHOD handle_test_data.
+    IF NOT has_authorization( ).
+      MESSAGE e039(zbc_ccm) INTO log->message.
+      log->add_message( ).
+      RETURN.
+    ENDIF.
+
     DATA(test_data_handler) = NEW zcl_bc_ccm_test_data( ).
 
     IF delete = abap_true.
@@ -49,5 +60,10 @@ CLASS zcl_bc_ccm_data_job IMPLEMENTATION.
       MESSAGE s010(zbc_ccm) INTO log->message.
       log->add_message( ).
     ENDIF.
+  ENDMETHOD.
+
+
+  METHOD has_authorization.
+    RETURN zcl_bc_ccm_auth_factory=>create_auth( )->has_authority( zif_bc_ccm_auth=>activities-execute ).
   ENDMETHOD.
 ENDCLASS.

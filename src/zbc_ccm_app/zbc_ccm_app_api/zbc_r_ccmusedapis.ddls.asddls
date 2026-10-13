@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #MANDATORY
 @EndUserText.label: 'Used APIs'
 define root view entity ZBC_R_CCMUsedAPIs
   as select from zbc_ccm_msg

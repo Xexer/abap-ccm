@@ -1,0 +1,11 @@
+@EndUserText.label: 'Dashboard Authorization'
+@MappingRole: true
+define role ZBC_R_CCMDASHBOARD {
+  grant
+    select
+      on
+        ZBC_R_CCMDASHBOARD
+          where
+            inheriting conditions from entity ZBC_R_CCMRun;
+            
+}

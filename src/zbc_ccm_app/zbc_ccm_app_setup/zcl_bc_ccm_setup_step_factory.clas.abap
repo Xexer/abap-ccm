@@ -46,10 +46,10 @@ CLASS zcl_bc_ccm_setup_step_factory IMPLEMENTATION.
 
 
   METHOD get_step_configuration.
-    result = VALUE #( ( step_id  = zif_bc_ccm_setup_step=>step-role
-                        instance = NEW zcl_bc_ccm_step_role( ) )
-                      ( step_id  = zif_bc_ccm_setup_step=>step-setting
+    result = VALUE #( ( step_id  = zif_bc_ccm_setup_step=>step-setting
                         instance = NEW zcl_bc_ccm_step_setting( ) )
+                      ( step_id  = zif_bc_ccm_setup_step=>step-role
+                        instance = NEW zcl_bc_ccm_step_role( ) )
                       ( step_id  = zif_bc_ccm_setup_step=>step-provider_config
                         instance = NEW zcl_bc_ccm_step_provider( ) )
                       ( step_id  = zif_bc_ccm_setup_step=>step-atc_messages

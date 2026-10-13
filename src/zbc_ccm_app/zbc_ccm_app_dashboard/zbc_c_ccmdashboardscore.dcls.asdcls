@@ -1,0 +1,11 @@
+@EndUserText.label: 'Dashboard Score Authorization'
+@MappingRole: true
+define role ZBC_C_CCMDASHBOARDSCORE {
+  grant
+    select
+      on
+        ZBC_C_CCMDASHBOARDSCORE
+          where
+            inheriting conditions from entity ZBC_I_CCMDashboardScore;
+            
+}

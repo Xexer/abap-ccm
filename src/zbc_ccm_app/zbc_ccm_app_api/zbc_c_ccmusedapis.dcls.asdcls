@@ -1,0 +1,11 @@
+@EndUserText.label: 'API Authorizations'
+@MappingRole: true
+define role ZBC_C_CCMUSEDAPIS {
+  grant
+    select
+      on
+        ZBC_C_CCMUSEDAPIS
+          where
+            inheriting conditions from entity ZBC_R_CCMUSEDAPIS;
+            
+}

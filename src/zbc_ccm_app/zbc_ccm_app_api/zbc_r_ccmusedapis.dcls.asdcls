@@ -1,0 +1,11 @@
+@EndUserText.label: 'API Authorizations'
+@MappingRole: true
+define role ZBC_R_CCMUSEDAPIS {
+  grant 
+    select
+      on
+        ZBC_R_CCMUSEDAPIS
+          where
+            (ProviderId) = aspect pfcg_auth(ZBC_CCM, ZBCCCMPROV, ACTVT = '03');
+            
+}

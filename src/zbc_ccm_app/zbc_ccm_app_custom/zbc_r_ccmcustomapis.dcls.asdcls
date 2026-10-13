@@ -2,5 +2,5 @@
 @MappingRole: true
 define role ZBC_R_CCMCustomAPIs {
   grant select on ZBC_R_CCMCustomAPIs
-  where TRUE;
+  where (ProviderID) = aspect pfcg_auth(ZBC_CCM, ZBCCCMPROV, ACTVT = '03');
 }

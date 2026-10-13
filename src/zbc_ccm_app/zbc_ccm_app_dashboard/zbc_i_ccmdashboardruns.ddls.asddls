@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #MANDATORY
 @EndUserText.label: 'Dashboard'
 define view entity ZBC_I_CCMDashboardRuns as select from ZBC_R_CCMRun
 {

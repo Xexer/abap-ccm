@@ -1,0 +1,11 @@
+@EndUserText.label: 'Messages Authorization'
+@MappingRole: true
+define role ZBC_R_CCMUSEDMESSAGE {
+  grant 
+    select
+      on
+        ZBC_R_CCMUSEDMESSAGE
+          where
+            (ProviderId) = aspect pfcg_auth(ZBC_CCM, ZBCCCMPROV, ACTVT = '03');
+            
+}

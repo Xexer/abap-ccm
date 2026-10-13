@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #MANDATORY
 @EndUserText.label: 'Score for Dashboard'
 define view entity ZBC_I_CCMDashboardScore
   as select from ZBC_I_CCMScore

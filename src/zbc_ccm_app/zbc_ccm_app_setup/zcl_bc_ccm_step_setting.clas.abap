@@ -121,7 +121,10 @@ CLASS zcl_bc_ccm_step_setting IMPLEMENTATION.
         ( key = zif_bc_ccm_config=>config_option-test_mode default = abap_false )
         ( key = zif_bc_ccm_config=>config_option-role_admin default = zcl_bc_ccm_step_role=>default_role_names-admin )
         ( key = zif_bc_ccm_config=>config_option-role_process default = zcl_bc_ccm_step_role=>default_role_names-process )
-        ( key = zif_bc_ccm_config=>config_option-role_viewer default = zcl_bc_ccm_step_role=>default_role_names-viewer ) ).
+        ( key = zif_bc_ccm_config=>config_option-role_viewer default = zcl_bc_ccm_step_role=>default_role_names-viewer )
+        ( key = zif_bc_ccm_config=>config_option-approve_min_length default = '20' )
+        ( key = zif_bc_ccm_config=>config_option-approve_allow_package default = abap_false )
+        ( key = zif_bc_ccm_config=>config_option-approve_message default = 'Auto Approved by CCM' ) ).
   ENDMETHOD.
 
 

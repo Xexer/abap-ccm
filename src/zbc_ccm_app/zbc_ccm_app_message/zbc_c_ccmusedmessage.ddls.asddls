@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #MANDATORY
 @EndUserText.label: 'Used Messages'
 @Metadata.allowExtensions: true
 define root view entity ZBC_C_CCMUsedMessage

@@ -1,0 +1,11 @@
+@EndUserText.label: 'Not Assigned Authorization'
+@MappingRole: true
+define role ZBC_R_CCMNOTASSIGNEDPACKAGES {
+  grant
+    select
+      on
+        ZBC_R_CCMNOTASSIGNEDPACKAGES
+          where
+            inheriting conditions from entity ZBC_I_CCMNotAssignedPackages;
+            
+}

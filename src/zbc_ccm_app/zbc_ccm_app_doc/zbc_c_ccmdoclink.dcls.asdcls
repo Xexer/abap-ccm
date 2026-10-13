@@ -1,0 +1,11 @@
+@EndUserText.label: 'Doc Link Authorization'
+@MappingRole: true
+define role ZBC_C_CCMDOCLINK {
+  grant
+    select
+      on
+        ZBC_C_CCMDOCLINK
+          where
+            inheriting conditions from entity ZBC_I_CCMDocLink;
+            
+}

@@ -1,0 +1,11 @@
+@EndUserText.label: 'Assignment Authorization'
+@MappingRole: true
+define role ZBC_I_CCMASSIGNMENTVH {
+  grant
+    select
+      on
+        ZBC_I_CCMASSIGNMENTVH
+          where
+            inheriting conditions from entity ZBC_I_CCMClusterAssignment;
+            
+}

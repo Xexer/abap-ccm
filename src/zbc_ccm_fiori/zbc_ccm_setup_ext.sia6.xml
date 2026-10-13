@@ -49,7 +49,7 @@
           <VALUE>Display</VALUE>
           <VALUES>
            <item>
-            <UUID>0kO2PkiRH+GmxcdZQgV9LQ==</UUID>
+            <UUID>jpz7CZHGH+Gx4LC85h/B7A==</UUID>
             <LOW_VALUE>03</LOW_VALUE>
            </item>
           </VALUES>
@@ -62,7 +62,7 @@
           <VALUE>ZBC_CCM</VALUE>
           <VALUES>
            <item>
-            <UUID>0kO2PkiRH+GmxcdZQgU9LQ==</UUID>
+            <UUID>jpz7CZHGH+Gx4LC85iAB7A==</UUID>
             <LOW_VALUE>ZBC_CCM</LOW_VALUE>
            </item>
           </VALUES>
@@ -74,7 +74,7 @@
           <VALUE>*</VALUE>
           <VALUES>
            <item>
-            <UUID>0kO2PkiRH+GmxcdZQgVdLQ==</UUID>
+            <UUID>jpz7CZHGH+Gx4LC85h/h7A==</UUID>
             <LOW_VALUE>*</LOW_VALUE>
            </item>
           </VALUES>
@@ -87,6 +87,7 @@
      </item>
     </AUTH>
     <PUBLISH_STATUS>p</PUBLISH_STATUS>
+    <RTYPE_MIG_STATUS>3</RTYPE_MIG_STATUS>
    </SIA6>
   </asx:values>
  </asx:abap>

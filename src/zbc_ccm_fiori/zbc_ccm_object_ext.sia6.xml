@@ -32,6 +32,7 @@
      </item>
     </SERVICE>
     <PUBLISH_STATUS>p</PUBLISH_STATUS>
+    <RTYPE_MIG_STATUS>3</RTYPE_MIG_STATUS>
    </SIA6>
   </asx:values>
  </asx:abap>

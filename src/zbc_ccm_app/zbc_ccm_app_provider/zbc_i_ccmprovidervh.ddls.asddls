@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #MANDATORY
 @EndUserText.label: 'VH for Object Provider'
 define view entity ZBC_I_CCMProviderVH
   as select from ZBC_I_CCMProviderCust

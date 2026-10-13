@@ -1,0 +1,11 @@
+@EndUserText.label: 'Provider Authorization'
+@MappingRole: true
+define role ZBC_I_CCMPROVIDERVH {
+  grant 
+    select
+      on
+        ZBC_I_CCMPROVIDERVH
+          where
+            (ProviderId) = aspect pfcg_auth(ZBC_CCM, ZBCCCMPROV, ACTVT = '03');
+            
+}

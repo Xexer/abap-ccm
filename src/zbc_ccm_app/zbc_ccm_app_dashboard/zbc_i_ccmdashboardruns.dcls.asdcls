@@ -1,0 +1,11 @@
+@EndUserText.label: 'Run Authorization'
+@MappingRole: true
+define role ZBC_I_CCMDASHBOARDRUNS {
+  grant
+    select
+      on
+        ZBC_I_CCMDASHBOARDRUNS
+          where
+            inheriting conditions from entity ZBC_R_CCMRun;
+            
+}

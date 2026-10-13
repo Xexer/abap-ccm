@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #MANDATORY
 @EndUserText.label: 'Cluster Assignment'
 define view entity ZBC_I_CCMClusterAssignment
   as select from zbc_ccm_cassign

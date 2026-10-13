@@ -47,7 +47,7 @@
           <VALUE>Display change documents</VALUE>
           <VALUES>
            <item>
-            <UUID>Lqw4lzupH+GbslU8fauJkw==</UUID>
+            <UUID>jpz7CZHGH+Gx4JRv/s5B7A==</UUID>
             <LOW_VALUE>08</LOW_VALUE>
            </item>
           </VALUES>
@@ -60,7 +60,7 @@
           <VALUE>ZBC_CCM_PROV</VALUE>
           <VALUES>
            <item>
-            <UUID>Lqw4lzupH+GbslU8faupkw==</UUID>
+            <UUID>jpz7CZHGH+Gx4JRv/s5h7A==</UUID>
             <LOW_VALUE>ZBC_CCM_PROV</LOW_VALUE>
            </item>
           </VALUES>
@@ -81,11 +81,11 @@
           <VALUE>Display,Change</VALUE>
           <VALUES>
            <item>
-            <UUID>Lqw4lzupH+GbslU8fawJkw==</UUID>
+            <UUID>jpz7CZHGH+Gx4JRv/s6B7A==</UUID>
             <LOW_VALUE>03</LOW_VALUE>
            </item>
            <item>
-            <UUID>Lqw4lzupH+GbslU8favpkw==</UUID>
+            <UUID>jpz7CZHGH+Gx4JRv/s6h7A==</UUID>
             <LOW_VALUE>02</LOW_VALUE>
            </item>
           </VALUES>
@@ -98,11 +98,11 @@
           <VALUE>ZBC_CCM_PROV,ZBC_I_CCMPROVIDERCUST</VALUE>
           <VALUES>
            <item>
-            <UUID>Lqw4lzupH+GbslU8fawpkw==</UUID>
+            <UUID>jpz7CZHGH+Gx4JRv/s7h7A==</UUID>
             <LOW_VALUE>ZBC_CCM_PROV</LOW_VALUE>
            </item>
            <item>
-            <UUID>Lqw4lzupH+GbslU8faxJkw==</UUID>
+            <UUID>jpz7CZHGH+Gx4JRv/s7B7A==</UUID>
             <LOW_VALUE>ZBC_I_CCMPROVIDERCUST</LOW_VALUE>
            </item>
           </VALUES>
@@ -115,6 +115,7 @@
      </item>
     </AUTH>
     <PUBLISH_STATUS>p</PUBLISH_STATUS>
+    <RTYPE_MIG_STATUS>3</RTYPE_MIG_STATUS>
    </SIA6>
   </asx:values>
  </asx:abap>

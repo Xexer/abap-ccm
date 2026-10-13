@@ -1,0 +1,11 @@
+@EndUserText.label: 'Package VH Authorization'
+@MappingRole: true
+define role ZBC_I_CCMPACKAGEVH {
+  grant
+    select
+      on
+        ZBC_I_CCMPACKAGEVH
+          where
+            inheriting conditions from entity ZBC_R_CCMObjects;
+            
+}

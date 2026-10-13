@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #MANDATORY
 @EndUserText.label: 'Not Assigned Packages'
 @Search.searchable: true
 define view entity ZBC_I_CCMNotAssignedPackagesVH

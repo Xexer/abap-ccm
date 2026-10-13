@@ -1,0 +1,11 @@
+@EndUserText.label: 'Assigned Packages Authorization'
+@MappingRole: true
+define role ZBC_I_CCMNOTASSIGNEDPACKAGES {
+  grant
+    select
+      on
+        ZBC_I_CCMNOTASSIGNEDPACKAGES
+          where
+            inheriting conditions from entity ZBC_I_CCMPackageVH;
+            
+}

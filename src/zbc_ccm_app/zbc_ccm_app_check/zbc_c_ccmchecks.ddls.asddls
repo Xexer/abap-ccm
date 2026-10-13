@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #MANDATORY
 @EndUserText.label: 'Checks'
 @Metadata.allowExtensions: true
 define root view entity ZBC_C_CCMChecks

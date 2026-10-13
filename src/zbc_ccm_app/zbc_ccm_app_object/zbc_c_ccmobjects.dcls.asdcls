@@ -1,0 +1,11 @@
+@EndUserText.label: 'Object Authorization'
+@MappingRole: true
+define role ZBC_C_CCMOBJECTS {
+  grant
+    select
+      on
+        ZBC_C_CCMOBJECTS
+          where
+            inheriting conditions from entity ZBC_R_CCMOBJECTS;
+            
+}

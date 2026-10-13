@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #MANDATORY
 @EndUserText.label: 'Objects'
 @Metadata.ignorePropagatedAnnotations: true
 define root view entity ZBC_R_CCMObjects

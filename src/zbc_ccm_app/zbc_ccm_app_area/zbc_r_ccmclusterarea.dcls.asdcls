@@ -1,0 +1,11 @@
+@EndUserText.label: 'Cluster Area Authorization'
+@MappingRole: true
+define role ZBC_R_CCMCLUSTERAREA {
+  grant
+    select
+      on
+        ZBC_R_CCMCLUSTERAREA
+          where
+            inheriting conditions from entity ZBC_B_CCMClusterArea;
+            
+}

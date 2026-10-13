@@ -1,0 +1,11 @@
+@EndUserText.label: 'Messages Authorization'
+@MappingRole: true
+define role ZBC_C_CCMUSEDMESSAGE {
+  grant
+    select
+      on
+        ZBC_C_CCMUSEDMESSAGE
+          where
+            inheriting conditions from entity ZBC_R_CCMUsedMessage;
+            
+}

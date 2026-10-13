@@ -1,0 +1,11 @@
+@EndUserText.label: 'Object VH Authorization'
+@MappingRole: true
+define role ZBC_I_CCMOBJECTVH {
+  grant
+    select
+      on
+        ZBC_I_CCMOBJECTVH
+          where
+            inheriting conditions from entity ZBC_R_CCMObjects;
+            
+}

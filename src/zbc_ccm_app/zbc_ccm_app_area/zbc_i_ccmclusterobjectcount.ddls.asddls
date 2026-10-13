@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #MANDATORY
 @EndUserText.label: 'Object Count for Cluster'
 define view entity ZBC_I_CCMClusterObjectCount
   as select from ZBC_R_CCMObjects

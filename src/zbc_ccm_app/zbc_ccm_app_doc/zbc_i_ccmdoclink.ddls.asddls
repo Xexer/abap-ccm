@@ -1,7 +1,5 @@
-@AbapCatalog.viewEnhancementCategory: [#NONE]
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #MANDATORY
 @EndUserText.label: 'Document Link'
-@Metadata.ignorePropagatedAnnotations: true
 define view entity ZBC_I_CCMDocLink
   as select from zbc_ccm_dlink
   association to parent ZBC_R_CCMDocument as _Document on _Document.DocumentID = $projection.DocumentId

@@ -1,0 +1,11 @@
+@EndUserText.label: 'Doc Link Authorization'
+@MappingRole: true
+define role ZBC_I_CCMDOCLINK {
+  grant 
+    select
+      on
+        ZBC_I_CCMDOCLINK
+          where
+            (ProviderId) = aspect pfcg_auth(ZBC_CCM, ZBCCCMPROV, ACTVT = '03');
+            
+}

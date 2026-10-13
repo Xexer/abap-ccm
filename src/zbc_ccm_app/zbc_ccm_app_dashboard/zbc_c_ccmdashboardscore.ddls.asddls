@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #MANDATORY
 @EndUserText.label: 'Score for Dashboard'
 @Metadata.allowExtensions: true
 @OData.applySupportedForAggregation: #FULL

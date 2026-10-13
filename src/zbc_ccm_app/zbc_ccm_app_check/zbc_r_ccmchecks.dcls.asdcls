@@ -1,0 +1,11 @@
+@EndUserText.label: 'Checks Authorization'
+@MappingRole: true
+define role ZBC_R_CCMCHECKS {
+  grant 
+    select
+      on
+        ZBC_R_CCMCHECKS
+          where
+            (ProviderId) = aspect pfcg_auth(ZBC_CCM, ZBCCCMPROV, ACTVT = '03');
+            
+}

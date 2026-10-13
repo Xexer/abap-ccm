@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #MANDATORY
 @EndUserText.label: 'Messages'
 define view entity ZBC_I_CCMMessages
   as select from zbc_ccm_msg

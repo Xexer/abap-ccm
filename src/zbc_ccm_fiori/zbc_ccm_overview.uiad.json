@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "System Overview",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_ALV5_DEFAULT"
+  },
+  "ui5AppDetails": {
+    "appId": "rewe.bc.zbcccmoverview"
+  },
+  "navigation": {
+    "targetMappingId": "ZBC_CCM_OVERVIEW_TM",
+    "semanticObject": "ZBC_CCM_OVERVIEW",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "ZBC_CCM_OVERVIEW_AL",
+      "tileType": "static",
+      "standard": {
+        "title": "System Overview",
+        "subtitle": "CCM",
+        "icon": "sap-icon://it-system"
+      }
+    }
+  ]
+}

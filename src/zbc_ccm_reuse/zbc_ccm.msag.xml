@@ -236,6 +236,30 @@
      <MSGNR>037</MSGNR>
      <TEXT>Error while auto approve exemption request &amp;1</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>038</MSGNR>
+     <TEXT>No authorization to execute auto approval</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>039</MSGNR>
+     <TEXT>No authorization to execute test data</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>040</MSGNR>
+     <TEXT>No authorization for Object Provider &amp;1 (&amp;2)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZBC_CCM</ARBGB>
+     <MSGNR>041</MSGNR>
+     <TEXT>No CCM roles found in the system</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

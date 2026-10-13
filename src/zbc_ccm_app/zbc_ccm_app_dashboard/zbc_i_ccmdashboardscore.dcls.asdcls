@@ -1,0 +1,11 @@
+@EndUserText.label: 'Dashboard Score Authorization'
+@MappingRole: true
+define role ZBC_I_CCMDASHBOARDSCORE {
+  grant 
+    select
+      on
+        ZBC_I_CCMDASHBOARDSCORE
+          where
+            (ProviderID) = aspect pfcg_auth(ZBC_CCM, ZBCCCMPROV, ACTVT = '03');
+            
+}

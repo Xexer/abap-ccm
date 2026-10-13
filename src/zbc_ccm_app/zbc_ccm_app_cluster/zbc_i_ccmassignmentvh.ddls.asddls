@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #MANDATORY
 @EndUserText.label: 'VH for Assignment'
 define view entity ZBC_I_CCMAssignmentVH
   as select from ZBC_I_CCMClusterAssignment

@@ -1,0 +1,11 @@
+@EndUserText.label: 'Cluster Count Authorization'
+@MappingRole: true
+define role ZBC_I_CCMCLUSTEROBJECTCOUNT {
+  grant
+    select
+      on
+        ZBC_I_CCMCLUSTEROBJECTCOUNT
+          where
+            inheriting conditions from entity ZBC_R_CCMObjects;
+            
+}

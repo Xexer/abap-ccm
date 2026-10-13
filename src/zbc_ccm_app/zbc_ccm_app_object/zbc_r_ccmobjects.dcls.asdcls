@@ -1,0 +1,11 @@
+@EndUserText.label: 'Object Authorization'
+@MappingRole: true
+define role ZBC_R_CCMOBJECTS {
+  grant 
+    select
+      on
+        ZBC_R_CCMOBJECTS
+          where
+            (ProviderId) = aspect pfcg_auth(ZBC_CCM, ZBCCCMPROV, ACTVT = '03');
+            
+}

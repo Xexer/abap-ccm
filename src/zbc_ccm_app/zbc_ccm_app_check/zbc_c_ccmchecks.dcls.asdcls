@@ -1,0 +1,11 @@
+@EndUserText.label: 'Checks Authorization'
+@MappingRole: true
+define role ZBC_C_CCMCHECKS {
+  grant
+    select
+      on
+        ZBC_C_CCMCHECKS
+          where
+            inheriting conditions from entity ZBC_R_CCMChecks;
+            
+}

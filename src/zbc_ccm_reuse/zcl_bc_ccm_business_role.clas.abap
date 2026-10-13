@@ -47,7 +47,6 @@ CLASS zcl_bc_ccm_business_role DEFINITION
     METHODS has_error
       IMPORTING !messages     TYPE bapirettab
       RETURNING VALUE(result) TYPE abap_boolean.
-
 ENDCLASS.
 
 
@@ -164,10 +163,9 @@ CLASS zcl_bc_ccm_business_role IMPLEMENTATION.
         TYPE message-type
         NUMBER message-number
         WITH message-message_v1 message-message_v2 message-message_v3 message-message_v4
-        " TODO: variable is assigned but never used; add pragma ##NEEDED (ABAP cleaner)
-        INTO FINAL(dummy_output).
+        INTO FINAL(message_output).
     ENDLOOP.
 
-    RETURN xsdbool( sy-subrc = 0 ).
+    RETURN xsdbool( sy-subrc = 0 AND message_output IS INITIAL ).
   ENDMETHOD.
 ENDCLASS.

@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #MANDATORY
 @EndUserText.label: 'Cluster Area for Cluster'
 @Metadata.allowExtensions: true
 define root view entity ZBC_C_CCMClusterArea

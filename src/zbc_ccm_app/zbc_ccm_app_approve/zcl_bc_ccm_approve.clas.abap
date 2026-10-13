@@ -47,6 +47,9 @@ CLASS zcl_bc_ccm_approve DEFINITION
       IMPORTING !class        TYPE ZBC_I_CCMATCMessage-CheckName
                 !message      TYPE ZBC_I_CCMATCMessage-MessageName
       RETURNING VALUE(result) TYPE ZBC_I_CCMATCMessage-AutoApprovalSetting.
+
+    METHODS has_authorizations
+      RETURNING VALUE(result) TYPE abap_boolean.
 ENDCLASS.
 
 
@@ -65,6 +68,12 @@ CLASS zcl_bc_ccm_approve IMPLEMENTATION.
 
   METHOD zif_bc_ccm_approve~main.
     result = zcl_bc_ccm_mini_log_factory=>create_log( zif_bc_ccm_mini_log=>sub_objects-approver ).
+
+    IF NOT has_authorizations( ).
+      MESSAGE e038(zbc_ccm) INTO result->message.
+      result->add_message( ).
+      RETURN.
+    ENDIF.
 
     FINAL(relevant_exemptions) = get_exemptions( ).
     FINAL(atc_api) = NEW zcl_bc_ccm_atc_approve( ).
@@ -152,5 +161,10 @@ CLASS zcl_bc_ccm_approve IMPLEMENTATION.
     IF sy-subrc <> 0.
       CLEAR result.
     ENDIF.
+  ENDMETHOD.
+
+
+  METHOD has_authorizations.
+    RETURN zcl_bc_ccm_auth_factory=>create_auth( )->has_authority( zif_bc_ccm_auth=>activities-execute ).
   ENDMETHOD.
 ENDCLASS.

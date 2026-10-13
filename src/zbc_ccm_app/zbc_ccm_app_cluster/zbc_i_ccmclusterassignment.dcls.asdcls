@@ -1,0 +1,11 @@
+@EndUserText.label: 'Cluster Assignment Authorization'
+@MappingRole: true
+define role ZBC_I_CCMCLUSTERASSIGNMENT {
+  grant 
+    select
+      on
+        ZBC_I_CCMCLUSTERASSIGNMENT
+          where
+            (ProviderID) = aspect pfcg_auth(ZBC_CCM, ZBCCCMPROV, ACTVT = '03');
+            
+}

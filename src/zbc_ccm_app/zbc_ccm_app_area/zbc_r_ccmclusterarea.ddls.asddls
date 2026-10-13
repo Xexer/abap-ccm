@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #MANDATORY
 @EndUserText.label: 'Area for Clusters'
 define root view entity ZBC_R_CCMClusterArea
   as select distinct from ZBC_B_CCMClusterArea

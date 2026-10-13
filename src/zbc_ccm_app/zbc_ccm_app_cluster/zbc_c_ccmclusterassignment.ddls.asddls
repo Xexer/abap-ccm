@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #NOT_REQUIRED
+@AccessControl.authorizationCheck: #MANDATORY
 @EndUserText.label: 'Cluster Assignment'
 @Metadata.allowExtensions: true
 define view entity ZBC_C_CCMClusterAssignment

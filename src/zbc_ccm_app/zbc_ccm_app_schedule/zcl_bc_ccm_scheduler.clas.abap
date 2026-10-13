@@ -83,6 +83,16 @@ CLASS zcl_bc_ccm_scheduler DEFINITION
     METHODS get_period_from_timestamp
       IMPORTING run_time      TYPE utclong
       RETURNING VALUE(result) TYPE ZBC_R_CCMRun-RunPeriod.
+
+    "! Check the authorization for the provider
+    "!
+    "! @parameter provider |
+    "! @parameter log |
+    "! @parameter result |
+    METHODS check_authorization
+      IMPORTING provider      TYPE provider
+                !log          TYPE REF TO zif_bc_ccm_mini_log
+      RETURNING VALUE(result) TYPE abap_boolean.
 ENDCLASS.
 
 
@@ -94,6 +104,11 @@ CLASS zcl_bc_ccm_scheduler IMPLEMENTATION.
     default_check_variant = config->get_value( config->config_option-default_atc_variant ).
 
     LOOP AT active_providers INTO DATA(provider).
+      IF NOT check_authorization( provider = provider
+                                  log      = log ).
+        CONTINUE.
+      ENDIF.
+
       TRY.
           search_and_score_new_run( provider ).
 
@@ -272,5 +287,20 @@ CLASS zcl_bc_ccm_scheduler IMPLEMENTATION.
         RETURN |{ date+2(2) }/{ date+4(2) }|.
 
     ENDCASE.
+  ENDMETHOD.
+
+
+  METHOD check_authorization.
+    DATA(has_authorization) = zcl_bc_ccm_auth_factory=>create_auth( )->has_authority(
+        activity    = zif_bc_ccm_auth=>activities-execute
+        provider_id = provider-ProviderId ).
+
+    IF has_authorization = abap_false.
+      MESSAGE e040(zbc_ccm) WITH provider-ProviderId provider-SystemName INTO log->message.
+      log->add_message( ).
+      RETURN abap_false.
+    ELSE.
+      RETURN abap_true.
+    ENDIF.
   ENDMETHOD.
 ENDCLASS.
