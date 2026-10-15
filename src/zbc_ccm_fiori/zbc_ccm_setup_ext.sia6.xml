@@ -58,18 +58,6 @@
           <IS_ACTVT>X</IS_ACTVT>
          </item>
          <item>
-          <FIELD>ALG_OBJECT</FIELD>
-          <VALUE>ZBC_CCM</VALUE>
-          <VALUES>
-           <item>
-            <UUID>jpz7CZHGH+Gx4LC85iAB7A==</UUID>
-            <LOW_VALUE>ZBC_CCM</LOW_VALUE>
-           </item>
-          </VALUES>
-          <TEXT>Application Log: Object</TEXT>
-          <STATUS>U</STATUS>
-         </item>
-         <item>
           <FIELD>ALG_SUBOBJ</FIELD>
           <VALUE>*</VALUE>
           <VALUES>
@@ -79,6 +67,18 @@
            </item>
           </VALUES>
           <TEXT>Application Log: Subobject</TEXT>
+          <STATUS>U</STATUS>
+         </item>
+         <item>
+          <FIELD>ALG_OBJECT</FIELD>
+          <VALUE>ZBC_CCM</VALUE>
+          <VALUES>
+           <item>
+            <UUID>jpz7CZHGH+Gx4LC85iAB7A==</UUID>
+            <LOW_VALUE>ZBC_CCM</LOW_VALUE>
+           </item>
+          </VALUES>
+          <TEXT>Application Log: Object</TEXT>
           <STATUS>U</STATUS>
          </item>
         </VALUES>

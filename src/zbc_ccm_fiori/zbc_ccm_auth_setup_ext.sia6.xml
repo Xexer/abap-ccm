@@ -33,31 +33,31 @@
         <VALUES>
          <item>
           <FIELD>ACTVT</FIELD>
-          <VALUE>Display,Administer,Execute,Delete,Change,Create or generate</VALUE>
+          <VALUE>Display,Create or generate,Change,Delete,Execute,Administer</VALUE>
           <VALUES>
            <item>
             <UUID>jpz7CZHGH+Gx4Zgl5StB7A==</UUID>
             <LOW_VALUE>03</LOW_VALUE>
            </item>
            <item>
-            <UUID>jpz7CZHGH+Gx4Zgl5Suh7A==</UUID>
-            <LOW_VALUE>70</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>jpz7CZHGH+Gx4Zgl5SuB7A==</UUID>
-            <LOW_VALUE>16</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>jpz7CZHGH+Gx4Zgl5Sth7A==</UUID>
-            <LOW_VALUE>06</LOW_VALUE>
+            <UUID>jpz7CZHGH+Gx4Zgl5SsB7A==</UUID>
+            <LOW_VALUE>01</LOW_VALUE>
            </item>
            <item>
             <UUID>jpz7CZHGH+Gx4Zgl5Ssh7A==</UUID>
             <LOW_VALUE>02</LOW_VALUE>
            </item>
            <item>
-            <UUID>jpz7CZHGH+Gx4Zgl5SsB7A==</UUID>
-            <LOW_VALUE>01</LOW_VALUE>
+            <UUID>jpz7CZHGH+Gx4Zgl5Sth7A==</UUID>
+            <LOW_VALUE>06</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>jpz7CZHGH+Gx4Zgl5SuB7A==</UUID>
+            <LOW_VALUE>16</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>jpz7CZHGH+Gx4Zgl5Suh7A==</UUID>
+            <LOW_VALUE>70</LOW_VALUE>
            </item>
           </VALUES>
           <TEXT>Activity</TEXT>

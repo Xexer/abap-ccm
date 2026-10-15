@@ -33,31 +33,31 @@
         <VALUES>
          <item>
           <FIELD>ACTVT</FIELD>
-          <VALUE>Display,Administer,Execute,Delete,Change,Create or generate</VALUE>
+          <VALUE>Display,Create or generate,Change,Delete,Execute,Administer</VALUE>
           <VALUES>
            <item>
             <UUID>jpz7CZHGH+Gx4VHsZvIh7A==</UUID>
             <LOW_VALUE>03</LOW_VALUE>
            </item>
            <item>
-            <UUID>jpz7CZHGH+Gx4VHsZvKB7A==</UUID>
-            <LOW_VALUE>70</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>jpz7CZHGH+Gx4VHsZvJh7A==</UUID>
-            <LOW_VALUE>16</LOW_VALUE>
-           </item>
-           <item>
-            <UUID>jpz7CZHGH+Gx4VHsZvJB7A==</UUID>
-            <LOW_VALUE>06</LOW_VALUE>
+            <UUID>jpz7CZHGH+Gx4VHsZvHh7A==</UUID>
+            <LOW_VALUE>01</LOW_VALUE>
            </item>
            <item>
             <UUID>jpz7CZHGH+Gx4VHsZvIB7A==</UUID>
             <LOW_VALUE>02</LOW_VALUE>
            </item>
            <item>
-            <UUID>jpz7CZHGH+Gx4VHsZvHh7A==</UUID>
-            <LOW_VALUE>01</LOW_VALUE>
+            <UUID>jpz7CZHGH+Gx4VHsZvJB7A==</UUID>
+            <LOW_VALUE>06</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>jpz7CZHGH+Gx4VHsZvJh7A==</UUID>
+            <LOW_VALUE>16</LOW_VALUE>
+           </item>
+           <item>
+            <UUID>jpz7CZHGH+Gx4VHsZvKB7A==</UUID>
+            <LOW_VALUE>70</LOW_VALUE>
            </item>
           </VALUES>
           <TEXT>Activity</TEXT>
@@ -68,11 +68,11 @@
           <FIELD>ZBCCCMPROV</FIELD>
           <VALUES>
            <item>
-            <UUID>jpz7CZHGH+Gx4VHsZvLB7A==</UUID>
-            <LOW_VALUE>*</LOW_VALUE>
+            <UUID>jpz7CZHGH+Gx4VHsZvKh7A==</UUID>
            </item>
            <item>
-            <UUID>jpz7CZHGH+Gx4VHsZvKh7A==</UUID>
+            <UUID>jpz7CZHGH+Gx4VHsZvLB7A==</UUID>
+            <LOW_VALUE>*</LOW_VALUE>
            </item>
           </VALUES>
           <TEXT>Object Provider ID</TEXT>

@@ -106,6 +106,7 @@ CLASS zcl_bc_scoring IMPLEMENTATION.
 
 
   METHOD zif_bc_scoring~calculate_exemption.
+
   ENDMETHOD.
 
 
